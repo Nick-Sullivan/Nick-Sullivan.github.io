@@ -1,5 +1,5 @@
 ---
-title: Blog
+title: Blog entry
 layout: default
 parent: Blog
 nav_order: 1
