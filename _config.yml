@@ -1,5 +1,13 @@
+# https://just-the-docs.github.io/just-the-docs/docs/configuration/
 title: Nick Sullivan
 description: A starter template for a Jeykll site using the Just the Docs theme!
 theme: just-the-docs
 
 url: https://nick-sullivan.github.io
+
+favicon_ico: "/assets/images/favicon.ico"
+search_enabled: false
+
+aux_links:
+  "Just the Docs on GitHub":
+    - "//github.com/just-the-docs/just-the-docs"
