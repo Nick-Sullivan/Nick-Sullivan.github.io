@@ -11,9 +11,9 @@ Overlays a QR code onto a GIF, which I use as a fun way to share links. It's ava
 
 ---
 
-When your phone scans a QR code, it uses the corner boxes to calibrate position and orientation of the image. It then uses the **centre** of each image to determine if the block is black or white. The edges of each box can be made transparent without significantly impacting the readability of the QR code.
+When your phone scans a QR code, it uses the corner boxes to calibrate position and orientation of the image. It then uses the centre of each image to determine if the block is black or white. The edges of each box can be made transparent without significantly impacting the readability of the QR code.
 
-It uses flutter as the front-end, which talks to the GIPHY API to preview and select GIFs. A request is sent to a Python backend that generates a QR Code, adds transparency, and overlays it on each frame in the GIF. The result is saved into an S3 bucket, which is used by the flutter app. The image is then cached on the phone.
+It uses flutter as the front-end, which talks to the GIPHY API to preview and select GIFs. A request is sent to a Python backend that generates a QR Code, adds transparency, and overlays it on each frame in the GIF. The result is saved into an S3 bucket, which is loaded by the flutter app and cached on the phone.
 <img src="../assets/images/gif_code00.png"/>
 
 [Google Play Store]: https://play.google.com/store/apps/details?id=com.gif_code
