@@ -11,7 +11,7 @@ The rules are intentionally obscure, won't make any sense to new players, and is
 
 You can find the game here, [good luck!]. And here's the [source code].
 
-I presented this project in an Adelaide AWS user group in September 2022. [Here's a copy of the presentation].
+I [presented this project] in an Adelaide AWS user group in September 2022.
 
 <div style="overflow: auto; white-space: nowrap;">
 <img src="../assets/images/drinking_game00.png" style="height: 300px; width: auto;"/>
@@ -29,5 +29,5 @@ The public website is stored in an S3 bucket and distributed by CloudFront. The 
 <img src="../assets/images/drinking_game01.png"/>
 
 [source code]: https://github.com/Nick-Sullivan/death-dice
-[Here's a copy of the presentation]: ../assets/pdf/drinking_game.pdf
+[presented this project]: ../assets/pdf/drinking_game.pdf
 [good luck!]: https://100percentofthetimehotspaghetti.com/dice.html
