@@ -9,6 +9,13 @@ Overlays a QR code onto a GIF, which I use as a fun way to share links. It's ava
 
 <img src="../assets/images/gif_code01.gif"/>
 
+<div style="overflow: auto; white-space: nowrap;">
+<img src="../assets/images/gif_code02.png" style="height: 350px; width: auto;"/>
+<img src="../assets/images/gif_code03.png" style="height: 350px; width: auto;"/>
+<img src="../assets/images/gif_code04.png" style="height: 350px; width: auto;"/>
+<img src="../assets/images/gif_code05.png" style="height: 350px; width: auto;"/>
+</div>
+
 ---
 
 When your phone scans a QR code, it uses the corner boxes to calibrate position and orientation of the image. It then uses the centre of each image to determine if the block is black or white. The edges of each box can be made transparent without significantly impacting the readability of the QR code.
