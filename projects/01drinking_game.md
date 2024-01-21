@@ -5,6 +5,8 @@ parent: Projects
 nav_order: 1
 ---
 
+<link rel="stylesheet" href="../css/images.css">
+
 An online version of a drinking game my friends and I play, so that we could continue playing incase we got locked down during COVID.
 
 The rules are intentionally obscure, won't make any sense to new players, and is 100% luck.
