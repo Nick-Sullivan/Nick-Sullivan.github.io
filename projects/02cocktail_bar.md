@@ -13,7 +13,7 @@ My friends and I will occasionally have a cocktail night, where we invent new re
 
 In this app, the recipes are entered as text, and auto-links to ingredients so that they can be filtered by what ingredients you in stock. Here's the [source code].
 
-<div class="gallery" >
+<div class="gallery">
     <img src="../assets/images/cocktail_bar00.png"/>
     <img src="../assets/images/cocktail_bar01.png"/>
     <img src="../assets/images/cocktail_bar02.png"/>

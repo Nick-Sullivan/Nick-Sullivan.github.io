@@ -9,11 +9,11 @@ Overlays a QR code onto a GIF, which I use as a fun way to share links. It's ava
 
 <img src="../assets/images/gif_code01.gif"/>
 
-<div style="overflow: auto; white-space: nowrap;">
-<img src="../assets/images/gif_code02.png" style="height: 350px; width: auto;"/>
-<img src="../assets/images/gif_code03.png" style="height: 350px; width: auto;"/>
-<img src="../assets/images/gif_code04.png" style="height: 350px; width: auto;"/>
-<img src="../assets/images/gif_code05.png" style="height: 350px; width: auto;"/>
+<div class="gallery">
+    <img src="../assets/images/gif_code02.png"/>
+    <img src="../assets/images/gif_code03.png"/>
+    <img src="../assets/images/gif_code04.png"/>
+    <img src="../assets/images/gif_code05.png"/>
 </div>
 
 ---

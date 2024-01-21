@@ -13,13 +13,13 @@ You can find the game here, [good luck!]. And here's the [source code].
 
 I [presented this project] in an Adelaide AWS user group in September 2022.
 
-<div style="overflow: auto; white-space: nowrap;">
-<img src="../assets/images/drinking_game00.png" style="height: 350px; width: auto;"/>
-<img src="../assets/images/drinking_game02.png" style="height: 350px; width: auto;"/>
-<img src="../assets/images/drinking_game06.png" style="height: 350px; width: auto;"/>
-<img src="../assets/images/drinking_game03.png" style="height: 350px; width: auto;"/>
-<img src="../assets/images/drinking_game04.png" style="height: 350px; width: auto;"/>
-<img src="../assets/images/drinking_game05.png" style="height: 350px; width: auto;"/>
+<div class="gallery">
+    <img src="../assets/images/drinking_game00.png"/>
+    <img src="../assets/images/drinking_game02.png"/>
+    <img src="../assets/images/drinking_game06.png"/>
+    <img src="../assets/images/drinking_game03.png"/>
+    <img src="../assets/images/drinking_game04.png"/>
+    <img src="../assets/images/drinking_game05.png"/>
 </div>
 
 ---
