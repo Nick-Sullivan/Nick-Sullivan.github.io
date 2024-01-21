@@ -5,13 +5,7 @@ parent: Projects
 nav_order: 4
 ---
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 <link rel="stylesheet" href="../css/images.css">
-<div id="text">
-</div>
-<script>
-    $("#text").html("jQuery works");
-</script>
 
 Overlays a QR code onto a GIF, which I use as a fun way to share links. It's available on the [Google Play Store], and here's the [source code].
 
