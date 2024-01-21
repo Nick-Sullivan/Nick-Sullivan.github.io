@@ -15,9 +15,9 @@ In this app, the recipes are entered as text, and auto-links to ingredients so t
 
 <div style="overflow: auto; white-space: nowrap;">
 <img src="../assets/images/cocktail_bar00.png" class="screenshot"/>
-<img src="../assets/images/cocktail_bar01.png" style="height: 350px; width: auto;"/>
-<img src="../assets/images/cocktail_bar02.png" style="height: 350px; width: auto;"/>
-<img src="../assets/images/cocktail_bar03.png" style="height: 350px; width: auto;"/>
+<img src="../assets/images/cocktail_bar01.png" class="screenshot"/>
+<img src="../assets/images/cocktail_bar02.png" class="screenshot"/>
+<img src="../assets/images/cocktail_bar03.png" class="screenshot"/>
 </div>
 
 [source code]: https://github.com/Nick-Sullivan/cocktail-bar

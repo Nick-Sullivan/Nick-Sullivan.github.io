@@ -1,4 +1,9 @@
 .screenshot {
     height: 350px;
     width: auto;
+    transition: transform .2s;
+}
+
+.screenshot:hover {
+    transform: scale(1.5);
 }
