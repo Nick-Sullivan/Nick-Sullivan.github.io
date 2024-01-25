@@ -11,7 +11,7 @@ The website domain is managed using AWS CloudFront. the `terraform` folder conta
 
 ---
 
-[personal website]: nickdavesullivan.com
+[personal website]: https://nickdavesullivan.com/
 [Just the Docs]: https://just-the-docs.github.io/just-the-docs/
 [GitHub]: https://nick-sullivan.github.io/
 [GitHub Pages]: https://docs.github.com/en/pages

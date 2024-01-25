@@ -16,7 +16,6 @@ locals {
   prefix_parameter = "/WebsiteCv/production"
   url              = "nickdavesullivan.com"
   url_www          = "www.${local.url}"
-  github_pages_url = "nick-sullivan.github.io"
   tags = {
     Project     = "Website CV"
     Environment = "production"
@@ -83,7 +82,7 @@ module "cloudfront" {
   source            = "./../modules/website_cloudfront"
   domain_name       = local.url
   alternative_names = [local.url_www]
-  redirect_url      = aws_s3_bucket.website.website_endpoint
+  redirect_url      = aws_s3_bucket.website.bucket_domain_name
   zone_id           = aws_route53_zone.website.zone_id
   providers = {
     aws = aws.us-east-1
