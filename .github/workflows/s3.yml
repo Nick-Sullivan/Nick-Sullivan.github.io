@@ -36,7 +36,7 @@ jobs:
 
       - name: Initialise terraform state
         working-directory: terraform/upload
-        run: terraform init"
+        run: terraform init
 
       - name: Apply terraform state
         working-directory: server/terraform/upload
