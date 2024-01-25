@@ -35,7 +35,7 @@ module "template_files" {
   base_dir = local.build_folder
 }
 
-resource "aws_s3_bucket_object" "static_files" {
+resource "aws_s3_object" "static_files" {
   # Loads all files to the s3 bucket
   for_each     = module.template_files.files
   bucket       = data.aws_ssm_parameter.s3_bucket_id.value

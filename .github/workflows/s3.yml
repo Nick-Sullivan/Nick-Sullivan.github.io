@@ -1,9 +1,13 @@
-name: S3
+name: AWS S3
 
 on:
   push:
     branches: ["main"]
   pull_request:
+
+concurrency:
+  group: "s3"
+  cancel-in-progress: true
 
 jobs:
   build:
