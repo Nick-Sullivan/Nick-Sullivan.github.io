@@ -14,7 +14,7 @@ terraform {
 
 locals {
   prefix_parameter = "/WebsiteCv/production"
-  build_folder = "${path.root}/../../_site" # Generated as part of build
+  build_folder = "${path.root}/../../docs/_site" # Generated as part of build
   tags = {
     Project     = "Website CV"
     Environment = "production"

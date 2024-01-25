@@ -3,7 +3,8 @@ name: AWS S3
 on:
   push:
     branches: ["main"]
-  pull_request:
+  paths:
+    - "docs/**"
 
 concurrency:
   group: "s3"
@@ -13,6 +14,9 @@ jobs:
   build:
     name: "Deploy"
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: docs
     timeout-minutes: 10
     steps:
       - name: Checkout
@@ -24,6 +28,7 @@ jobs:
           ruby-version: "3.1" # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
           cache-version: 0 # Increment this number if you need to re-download cached gems
+          working-directory: "${{ github.workspace }}/docs"
 
       - name: Setup AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -47,3 +52,5 @@ jobs:
         run: terraform apply -auto-approve
 
       # TODO invalidated cloudfront
+      # - name: Invalidate CloudFront Cache
+      #   run: aws cloudfront create-invalidateion
