@@ -46,12 +46,10 @@ resource "aws_s3_object" "static_files" {
   etag         = each.value.digests.md5
 }
 
-
 resource "terraform_data" "clear_cloudfront_cache" {
   depends_on = [aws_s3_object.static_files]
 
   provisioner "local-exec" {
     command     = "aws cloudfront create-invalidation --distribution-id ${data.aws_ssm_parameter.cloudfront_distribution_id.value} --paths '/*'"
   }
-
 }
