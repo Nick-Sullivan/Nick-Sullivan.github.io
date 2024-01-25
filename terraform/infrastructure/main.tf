@@ -82,8 +82,10 @@ module "cloudfront" {
   source            = "./../modules/website_cloudfront"
   domain_name       = local.url
   alternative_names = [local.url_www]
-  redirect_url      = aws_s3_bucket.website.bucket_regional_domain_name
-  zone_id           = aws_route53_zone.website.zone_id
+  # We use the URL rather than the bucket_regional_domain_name so that subfolders can be loaded correctly.
+  # From https://stackoverflow.com/questions/31017105/how-do-you-set-a-default-root-object-for-subdirectories-for-a-statically-hosted/65146447#65146447
+  redirect_url = aws_s3_bucket.website.website_endpoint
+  zone_id      = aws_route53_zone.website.zone_id
   providers = {
     aws = aws.us-east-1
   }
