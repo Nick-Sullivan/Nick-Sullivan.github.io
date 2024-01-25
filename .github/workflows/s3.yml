@@ -39,7 +39,7 @@ jobs:
         run: terraform init
 
       - name: Apply terraform state
-        working-directory: server/terraform/upload
+        working-directory: terraform/upload
         run: terraform apply -auto-approve
 
       # TODO invalidated cloudfront
