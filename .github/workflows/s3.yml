@@ -3,8 +3,6 @@ name: AWS S3
 on:
   push:
     branches: ["main"]
-    paths:
-      - "docs/**"
 
 concurrency:
   group: "s3"
