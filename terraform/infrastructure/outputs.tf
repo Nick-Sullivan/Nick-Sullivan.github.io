@@ -10,3 +10,7 @@ resource "aws_ssm_parameter" "cloudfront_distribution_id" {
   type  = "String"
   value = module.cloudfront.distribution_id
 }
+
+output "cloudfront_distribution_id" {
+  value       = module.cloudfront.distribution_id
+}
