@@ -8,7 +8,7 @@ Welcome!
 
 I'm Nick, a software engineer with a Ph.D. in robotics and strong mathematical and data skills. I specialise in back-end software (Python/C#), cloud infrastructure (AWS) and algorithm design. I’m passionate about product-minded engineering, including automation and data analytics. I'm located in Adelaide, Australia.
 
-This website is a collection of my experiments and side projects, that might be as interesting to you as they are to me.
+This website is a collection of my research, experiments, and side projects. Enjoy!
 
 <img src="../assets/images/headshot.jfif" style="width: 177px; height: 177px"/>
 <img src="../assets/images/index06.png" style="height: 177px"/>
