@@ -15,7 +15,7 @@ You can find my [GitHub account].
 And my [LinkedIn].
 
 <img src="../assets/images/gif_code01.gif" style="width: 177px; height: 177px"/>
-<img src="../assets/images/phd03.gif" style="width: 177px; height: 177px"/>
+<img src="../assets/images/phd03.png" style="width: 177px; height: 177px"/>
 
 ---
 

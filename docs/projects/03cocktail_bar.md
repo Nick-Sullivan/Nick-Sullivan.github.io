@@ -1,5 +1,5 @@
 ---
-title: 2020 Cocktail Bar
+title: 2020 - Cocktail Bar
 layout: default
 parent: Projects
 nav_order: 3

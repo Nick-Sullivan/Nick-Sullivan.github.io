@@ -16,8 +16,8 @@ nav_external_links:
   - title: LinkedIn
     url: https://www.linkedin.com/in/nick-dave-sullivan/
     hide_icon: false # set to true to hide the external link icon - defaults to false
-    opens_in_new_tab: false # set to true to open this link in a new tab - defaults to false
+    opens_in_new_tab: true # set to true to open this link in a new tab - defaults to false
   - title: GitHub
     url: https://github.com/Nick-Sullivan/
-    hide_icon: false # set to true to hide the external link icon - defaults to false
-    opens_in_new_tab: false # set to true to open this link in a new tab - defaults to false
+    hide_icon: false
+    opens_in_new_tab: true

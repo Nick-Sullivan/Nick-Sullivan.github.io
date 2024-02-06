@@ -1,5 +1,5 @@
 ---
-title: 2021 Games Night
+title: 2021 - Games Night
 layout: default
 parent: Projects
 nav_order: 4
