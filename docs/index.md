@@ -17,12 +17,12 @@ This website is a collection of my experiments and side projects, that might be 
 <img src="../assets/images/gif_code01.gif" style="width: 177px; height: 177px"/>
 <img src="../assets/images/phd03.png" style="height: 177px"/>
 
-<img src="../assets/images/drinking_game03.png" style="height: 177px"/>
 <img src="../assets/images/index00.jpg" style="height: 177px"/>
 <!-- <img src="../assets/images/index01.png" style="height: 177px"/> -->
 <img src="../assets/images/index05.jpg" style="height: 177px"/>
-<img src="../assets/images/index02.jpg" style="height: 177px"/>
+<img src="../assets/images/drinking_game03.png" style="height: 177px"/>
 
+<img src="../assets/images/index02.jpg" style="height: 177px"/>
 <!-- <img src="../assets/images/index03.gif" style="height: 177px"/> -->
 <!-- <img src="../assets/images/index04.png" style="height: 177px"/> -->
 <img src="../assets/images/autonomous_challenge02.jpg" style="height: 177px"/>
