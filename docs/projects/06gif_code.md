@@ -9,7 +9,7 @@ nav_order: 6
 
 Overlays a QR code onto a GIF, which I use as a fun way to share links. It's available on the [Google Play Store], and here's the [source code].
 
-<img src="../assets/images/gif_code01.gif" style="width: 344px; height: 344px"/>
+<img class=".flex-justify-between" src="../assets/images/gif_code01.gif" style="width: 200px; height: 200px"/>
 
 <div class="gallery">
     <img src="../assets/images/gif_code02.png"/>
