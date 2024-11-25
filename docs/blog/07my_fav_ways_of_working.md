@@ -2,7 +2,7 @@
 title: My Ways Of Working
 layout: default
 parent: Blog
-nav_order: 4
+nav_order: 7
 published: false
 ---
 
