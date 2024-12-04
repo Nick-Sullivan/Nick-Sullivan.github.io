@@ -4,6 +4,7 @@ layout: default
 parent: Blog
 nav_order: 4
 published: false
+date: 2024-08-01
 ---
 
 Take home message: trying to run everything locally is hard

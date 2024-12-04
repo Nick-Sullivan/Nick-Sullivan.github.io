@@ -4,6 +4,7 @@ layout: default
 parent: Blog
 nav_order: 9
 published: false
+date: 2024-11-15
 ---
 
 <!-- Take home message: don't overcomplicate, recognize when to increase the abstraction -->

@@ -4,6 +4,7 @@ layout: default
 parent: Blog
 nav_order: 7
 published: false
+date: 2024-10-01
 ---
 
 <!-- Take home message: practical recommendation for tech company process -->

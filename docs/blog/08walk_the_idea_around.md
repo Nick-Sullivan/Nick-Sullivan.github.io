@@ -4,6 +4,7 @@ layout: default
 parent: Blog
 nav_order: 8
 published: false
+date: 2024-11-01
 ---
 
 <!-- Take home message: convince people before the presentation has started -->

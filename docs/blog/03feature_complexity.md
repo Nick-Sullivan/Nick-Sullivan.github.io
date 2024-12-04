@@ -4,6 +4,7 @@ layout: default
 parent: Blog
 nav_order: 3
 published: false
+date: 2024-07-01
 ---
 
 Take home message: importance of understanding the domain, understand there is no perfect code, only fit-for-purpose code
