@@ -17,30 +17,34 @@ Good ideas can come from anyone. It's important to treat every suggestion with a
 
 I prefer an organic approach here, where people initially discuss ideas with those they are most comfortable with. If it gets a positive reaction, they should discuss it upwards in 1-1s or a skip level. It's important for leaders to make it clear that they are receptive to new ideas.
 
-### Categorise
+### Stream
 
-All ideas that we wish to action get categorised into one of three buckets:
-- Projects
+All ideas that we wish to action get categorised into one of three streams of work:
+- Projects ("On-Project" work)
 
-  Spanning from a week to a few months, projects are scoped, planned, and prioritised by the business. They have high visibility in the company and have upfront solution designs. Teams take time to celebrate when a project is completed.
+  Spanning from a week to a few months, projects are scoped, planned, and prioritised. They have high visibility in the company and have upfront solution designs. Teams take time to do an official kickoff, and to celebrate (lunch/dinner etc.) when a project is completed. 
 
-- Bite-sized work
+  When a team starts a project, all team members focus solely on that project. It minimises context switching, time spent on progress reports, and the number of stakeholders. I know that it often feels more productive to be working on multiple bodies of work, but it is an illusion of productivity that I would recommend avoiding. With context focus, updates can become trivial, reducing the number and duration of meetings.
+
+  Projects are estimated (**realistically** estimated, with a safety buffer, by the engineers!), and it's important that most projects are finished by this date. This includes post-deployment aftercare.
+
+- Bite-sized work ("Off-Project" work)
 
   Usually less than a week. The overhead associated with regular prioritisation and estimation can quickly outweigh the time spent implementing it, so they are treated first-come-first-served in a Kanban style.
 
+  These can be estimated, but don't have deadlines. Work to plan the next project falls in this category - context switching is just as detrimental to senior managers and project leads as it is to software developers. 
+
+  This stream is often less stressful than project work, but also less exciting. It can be used to pay-back any late nights spent by employees to get projects completed on time.
+
 - Bugs
 
-  The way a company handles bugs is a yardstick for its culture. If tech teams are given sufficient time to create a quality product (and have the expertise to do so), then bugs should be minimal, making it feasible to fix all bugs quickly. But if this is not the case, bugs should be treated similarly to bite-sized work. Even "unimportant" bugs should be fixed or masked from error reporting so they do not conceal "important" bugs or create a culture of bugs being acceptable.
+  The way a company handles bugs is a yardstick for its culture. If tech teams are given sufficient time to create a quality product (and have the expertise to do so), then bugs should be minimal, making it feasible to respond to all bugs immediately. But if this is not the case, bugs should be treated similarly to bite-sized work. Even low impact bugs should be fixed or masked from error reporting so they do not conceal high impact bugs or create a culture of bugs being acceptable.
 
-### Implement
-
-When a team starts a project, all team members focus solely on that project. It minimises context switching, time spent on progress reports, and the number of stakeholders. I know that it often feels more productive to be working on multiple bodies of work, but it is an illusion of productivity that I would recommend avoiding.
-
-Once a project is complete, the team celebrates, then shifts over to pulling in bite-sized work. I consider planning the next project as bite-sized work. Do not spend too much time planning the next project while the current one is in progress.
+  If you have multiple teams, they can be working on different phases, so that there is always one team ready to tackle bugs quickly without disrupting projects.
 
 ### Measure
 
-Measuring impact is great for KPIs/OKRs and establishing whether the feature is actually achieving what you set out to do. But the main reason I like this phase is a selfish one: I love seeing the impact of my team's work; the joy in stakeholders' faces, the servers studiously crunching numbers, product usage going up, and bug counts going down. That's my primary motivation for becoming a software engineer: building products that people enjoy.
+Measuring impact is great for KPIs/OKRs and establishing whether the feature is actually achieving what you set out to do. The main reason I like this phase is a selfish one: I love seeing the impact of my team's work; the joy in stakeholders' faces, the servers studiously crunching numbers, product usage going up, and bug counts going down. That's my primary motivation for becoming a software engineer: building products that people enjoy.
 
 
 
