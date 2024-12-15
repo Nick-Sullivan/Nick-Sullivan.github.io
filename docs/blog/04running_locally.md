@@ -1,5 +1,5 @@
 ---
-title: To local or to cloud
+title: 2024-08 To local or to cloud
 layout: default
 parent: Blog
 nav_order: 4

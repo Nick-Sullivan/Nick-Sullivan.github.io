@@ -1,5 +1,5 @@
 ---
-title: Backend Test Levels
+title: 2024-06 Backend Test Levels
 layout: default
 parent: Blog
 nav_order: 2
@@ -39,8 +39,7 @@ Take home message:
 
 - Unit tests (isolated, mock internal + external)
   - good for high permutation, low dependency tests (input validation, calculations)
-- Unit tests (social, mock external)
-  -
+- ## Unit tests (social, mock external)
 - API tests (w/ backdoor)
   - in general i don't like them, but useful if APIs don't expose methods to check or delete.
   - allows APIs to be tested individually

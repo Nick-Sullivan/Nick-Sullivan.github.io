@@ -1,5 +1,5 @@
 ---
-title: Currency
+title: 2024-12 Currency
 layout: default
 parent: Blog
 nav_order: 11

@@ -1,5 +1,5 @@
 ---
-title: Walk The Idea Around
+title: 2024-11 Walk The Idea Around
 layout: default
 parent: Blog
 nav_order: 8

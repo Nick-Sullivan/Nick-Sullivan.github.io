@@ -1,5 +1,5 @@
 ---
-title: Code Audience
+title: 2024-12 Code Audience
 layout: default
 parent: Blog
 nav_order: 10

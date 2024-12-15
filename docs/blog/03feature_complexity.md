@@ -1,5 +1,5 @@
 ---
-title: Why do some features take longer than others?
+title: 2024-07 Why do some features take longer than others?
 layout: default
 parent: Blog
 nav_order: 3

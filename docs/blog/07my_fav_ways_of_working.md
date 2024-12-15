@@ -1,5 +1,5 @@
 ---
-title: My Ways Of Working
+title: 2024-10 My Ways Of Working
 layout: default
 parent: Blog
 nav_order: 7
@@ -20,9 +20,10 @@ I prefer an organic approach here, where people initially discuss ideas with tho
 ### Stream
 
 All ideas that we wish to action get categorised into one of three streams of work:
+
 - Projects ("On-Project" work)
 
-  Spanning from a week to a few months, projects are scoped, planned, and prioritised. They have high visibility in the company and have upfront solution designs. Teams take time to do an official kickoff, and to celebrate (lunch/dinner etc.) when a project is completed. 
+  Spanning from a week to a few months, projects are scoped, planned, and prioritised. They have high visibility in the company and have upfront solution designs. Teams take time to do an official kickoff, and to celebrate (lunch/dinner etc.) when a project is completed.
 
   When a team starts a project, all team members focus solely on that project. It minimises context switching, time spent on progress reports, and the number of stakeholders. I know that it often feels more productive to be working on multiple bodies of work, but it is an illusion of productivity that I would recommend avoiding. With context focus, updates can become trivial, reducing the number and duration of meetings.
 
@@ -32,7 +33,7 @@ All ideas that we wish to action get categorised into one of three streams of wo
 
   Usually less than a week. The overhead associated with regular prioritisation and estimation can quickly outweigh the time spent implementing it, so they are treated first-come-first-served in a Kanban style.
 
-  These can be estimated, but don't have deadlines. Work to plan the next project falls in this category - context switching is just as detrimental to senior managers and project leads as it is to software developers. 
+  These can be estimated, but don't have deadlines. Work to plan the next project falls in this category - context switching is just as detrimental to senior managers and project leads as it is to software developers.
 
   This stream is often less stressful than project work, but also less exciting. It can be used to pay-back any late nights spent by employees to get projects completed on time.
 
@@ -45,7 +46,3 @@ All ideas that we wish to action get categorised into one of three streams of wo
 ### Measure
 
 Measuring impact is great for KPIs/OKRs and establishing whether the feature is actually achieving what you set out to do. The main reason I like this phase is a selfish one: I love seeing the impact of my team's work; the joy in stakeholders' faces, the servers studiously crunching numbers, product usage going up, and bug counts going down. That's my primary motivation for becoming a software engineer: building products that people enjoy.
-
-
-
-
