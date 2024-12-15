@@ -48,7 +48,3 @@ jobs:
       - name: Apply terraform state
         working-directory: terraform/upload
         run: terraform apply -auto-approve
-
-      # TODO invalidated cloudfront
-      # - name: Invalidate CloudFront Cache
-      #   run: aws cloudfront create-invalidateion
