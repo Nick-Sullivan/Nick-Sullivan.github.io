@@ -6,7 +6,7 @@ nav_order: 1
 
 Welcome!
 
-I'm Nick, a software engineer with a Ph.D. in robotics and strong mathematical and data skills. I specialise in back-end software (Python/C#), cloud infrastructure (AWS) and algorithm design. I’m passionate about product-minded engineering, including automation and data analytics. I'm from Adelaide, Australia, currently living in London.
+I'm Nick, fullstack software engineer, Ph.D. I specialise in scaling small companies with technical design and inter-team processes. My expertise includes back-end software (Python/C\#), cloud infrastructure (AWS), front-end software (Typescript) and algorithm design. Known for being open-minded, honest, and candid.
 
 This website is a collection of my research, experiments, and side projects. Enjoy!
 
