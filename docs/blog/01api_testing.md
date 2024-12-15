@@ -3,14 +3,14 @@ title: API Testing Orchestration
 layout: default
 parent: Blog
 nav_order: 1
-published: false
+published: true
 date: 2024-05-01
 ---
 
 I'm a big fan of API tests. While they don't provide the granularity or isolation of unit tests, or have the depth of end-to-end tests, they are a fantastic middleground. Nothing gives me more confidence to refactor than an effective API testing suite, while being relatively simple to maintain.
-But there is one thing about API testing that has never felt quite right to me. It's how testing frameworks handle dependencies. 
+But there is one thing about API testing that has never felt quite right to me. It's how testing frameworks handle dependencies.
 
-Consider an example of simple HR software, with APIs to control the registration of users in organisations. 
+Consider an example of simple HR software, with APIs to control the registration of users in organisations.
 We want to test that the APIs can create and delete new organisations/users.
 
 The standard approach is for each test to set up the state, perform tests, then tear down once the test is finished. One way of doing this in python is using the `pytest` library:
@@ -39,16 +39,17 @@ There are parts about this that doesn't feel quite right. Firstly, if the organi
 Secondly, these tests have bad behaviour if executed independently. The `destroy` test would fail, and the `create` test would leave an unclean state. When developing, I repeatedly run a subset of tests pointing at a locally hosted server, so that I can be confident in the changes before committing them. If the tests can't safely be run independently, it's going to be a cause of pain for me.
 
 What I want from API Testing code:
- 1. Skipping/Auto-failing tests if their dependencies fail
- 2. Able to run individual tests
- 3. Clean, low-boilerplate code, using an existing test framework
+
+1.  Skipping/Auto-failing tests if their dependencies fail
+2.  Able to run individual tests
+3.  Clean, low-boilerplate code, using an existing test framework
 
 I'm going to explore a few options.
-
 
 ### Option 1 - Combine the tests
 
 Test frameworks typically stop as soon as an exception is raised, so one way to enforce dependent tests being skipped is to combine them into the same test. For example:
+
 ```python
 def test_can_create_and_destroy_user():
     response = user_api.create(user_name, organisation=org_name)
@@ -82,7 +83,7 @@ from api import organisation_api
 
 class TestOrganisationSetup(Fixture):
     ORG_NAME = "TestCaseOrg"
-    
+
     def test_setup_and_teardown(self):
         self.setup()
         self.teardown()
@@ -99,7 +100,7 @@ class TestOrganisationSetup(Fixture):
 
 
 class TestOrganisation(Fixture):
-    # I wanted to reference the test classes directly, but other files would require an import statement. 
+    # I wanted to reference the test classes directly, but other files would require an import statement.
     # This causes pytest to percieve the import as another set of tests, leading to duplicate execution.
     depends_on = ["TestOrganisationSetup"]
 
@@ -156,7 +157,7 @@ class Fixture:
 
     @pytest.fixture(autouse=True, scope="session")
     def check_dependencies(self):
-        # Skips the test if the dependency has failed. The test can be run if the dependency passes, 
+        # Skips the test if the dependency has failed. The test can be run if the dependency passes,
         # or if we do not run the the dependency.
         for dependency in self.depends_on:
             if self.has_failed(dependency):
@@ -187,19 +188,16 @@ def topological_sort(source):
 
 ```
 
-
 ### Conclusion
 
 While the implementation ticks my boxes, but still feels a little heavy. It requires sequential tests, and enforces a class-based structure.
 
 I'm not sure how much cleaner it can be without the framework considering the orchestration as a directed acyclic graph. Most API testing frameworks are slight extensions on unit-testing frameworks, which by their nature should have completely indepedent tests.
 
-
 ### Other notes
 
 I also tried this in C#, but without success.
+
 - NUnit can't control ordering
 - MSTest can't control ordering
 - XUnit, setup/teardown is called once for each test, excessive boilerplate to control tests per class
-
-
