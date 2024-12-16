@@ -21,3 +21,5 @@ nav_external_links:
     url: https://github.com/Nick-Sullivan/
     hide_icon: false
     opens_in_new_tab: true
+footer:
+  custom: footer_custom.html
