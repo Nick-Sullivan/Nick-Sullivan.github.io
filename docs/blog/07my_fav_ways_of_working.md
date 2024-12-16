@@ -1,5 +1,5 @@
 ---
-title: 2024-10 My Ways Of Working
+title: My Ways Of Working
 layout: default
 parent: Blog
 nav_order: 7
@@ -8,6 +8,8 @@ date: 2024-10-01
 ---
 
 <!-- Take home message: practical recommendation for tech company process -->
+
+## {{ page.date }} {{ page.title }}
 
 Every company has a unique way of going from ideation to production. I'd like to share with you my favourite approach.
 

@@ -1,5 +1,5 @@
 ---
-title: 2024-12 Currency
+title: Currency
 layout: default
 parent: Blog
 nav_order: 11
@@ -8,6 +8,8 @@ date: 2024-12-04
 ---
 
 <!-- Target what is important to them -->
+
+## {{ page.date }} {{ page.title }}
 
 Here's some advice I wish I could give to my past self about how to give impactful compliments.
 

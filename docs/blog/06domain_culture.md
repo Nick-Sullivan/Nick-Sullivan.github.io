@@ -1,5 +1,5 @@
 ---
-title: 2024-09 To local or to cloud
+title: To local or to cloud
 layout: default
 parent: Blog
 nav_order: 6
@@ -8,6 +8,7 @@ date: 2024-09-01
 ---
 
 <!-- Take home message: importance of tech culture + domain culture understanding each other -->
+## {{ page.date }} {{ page.title }}
 
 everyone has subconsciously honed their problem solving approach to fit their domain, which can be a liability when they start building a tech product
 
