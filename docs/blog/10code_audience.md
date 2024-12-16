@@ -8,7 +8,10 @@ date: 2024-12-03
 ---
 
 <!-- Take home message: Basic software code is for computers, good code is for humans, great code is for the future -->
-## {{ page.date }} {{ page.title }}
+
+## {{ page.title }}
+
+{{ page.date }}
 
 When I talk about my job to people who aren't software engineers (which is almost everyone), they often assume that the hardest part
 of software engineering is writing code. I understand why they think that; writing code is indeed a significant barrier to entry in

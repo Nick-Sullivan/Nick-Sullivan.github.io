@@ -1,11 +1,15 @@
 ---
-title: 2024-05 API Testing Orchestration
+title: API Testing Orchestration
 layout: default
 parent: Blog
 nav_order: 1
 published: true
 date: 2024-05-01
 ---
+
+## {{ page.title }}
+
+{{ page.date }}
 
 I'm a big fan of API tests. While they don't provide the granularity or isolation of unit tests, or have the depth of end-to-end tests, they are a fantastic middleground. Nothing gives me more confidence to refactor than an effective API testing suite, while being relatively simple to maintain.
 But there is one thing about API testing that has never felt quite right to me. It's how testing frameworks handle dependencies.

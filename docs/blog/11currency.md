@@ -9,7 +9,9 @@ date: 2024-12-04
 
 <!-- Target what is important to them -->
 
-## {{ page.date }} {{ page.title }}
+## {{ page.title }}
+
+{{ page.date }}
 
 Here's some advice I wish I could give to my past self about how to give impactful compliments.
 

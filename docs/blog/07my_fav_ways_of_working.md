@@ -9,7 +9,9 @@ date: 2024-10-01
 
 <!-- Take home message: practical recommendation for tech company process -->
 
-## {{ page.date }} {{ page.title }}
+## {{ page.title }}
+
+{{ page.date }}
 
 Every company has a unique way of going from ideation to production. I'd like to share with you my favourite approach.
 

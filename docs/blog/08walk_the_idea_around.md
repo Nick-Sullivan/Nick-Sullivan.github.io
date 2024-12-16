@@ -9,7 +9,9 @@ date: 2024-11-01
 
 <!-- Take home message: convince people before the presentation has started -->
 
-## {{ page.date }} {{ page.title }}
+## {{ page.title }}
+
+{{ page.date }}
 
 This is a short story about a useful piece of advice I recieved to help influence multiple decision makers.
 

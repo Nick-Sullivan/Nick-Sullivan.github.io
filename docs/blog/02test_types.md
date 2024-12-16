@@ -1,13 +1,17 @@
 ---
-title: 2024-06 Backend Test Levels
+title: Backend Test Levels
 layout: default
 parent: Blog
 nav_order: 2
-published: true
+published: false
 date: 2024-06-01
 ---
 
 <!-- Focus tests where the complexity lives, target interfaces-->
+
+## {{ page.title }}
+
+{{ page.date }}
 
 I find discussions around software testing quite frustrating, for two reasons
 

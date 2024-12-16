@@ -9,7 +9,9 @@ date: 2024-12-16
 
 <!-- Serverless architecture is not distinct from traditional architecture -->
 
-## {{ page.date }} {{ page.title }}
+## {{ page.title }}
+
+{{ page.date }}
 
 I like serverless components, but I don't like the tooling around it.
 

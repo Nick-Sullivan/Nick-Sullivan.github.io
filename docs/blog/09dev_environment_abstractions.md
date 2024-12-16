@@ -9,7 +9,9 @@ date: 2024-11-15
 
 <!-- Take home message: don't overcomplicate, recognize when to increase the abstraction -->
 
-## {{ page.date }} {{ page.title }}
+## {{ page.title }}
+
+{{ page.date }}
 
 When it comes to developer setups, my opinion is to use the most convenient abstraction, but recognize when to
 break that abstraction.

@@ -7,7 +7,9 @@ published: false
 date: 2024-07-01
 ---
 
-## {{ page.date }} {{ page.title }}
+## {{ page.title }}
+
+{{ page.date }}
 
 <!-- Take home message: importance of understanding the domain, understand there is no perfect code, only fit-for-purpose code -->
 

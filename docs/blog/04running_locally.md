@@ -9,7 +9,9 @@ date: 2024-08-01
 
 <!-- Take home message: trying to run everything locally is hard -->
 
-## {{ page.date }} {{ page.title }}
+## {{ page.title }}
+
+{{ page.date }}
 
 
 - just run the code, pointing at an environment
