@@ -28,7 +28,8 @@ jobs:
 
       - name: Astro Deploy
         uses: withastro/action@v3.0.0
-        path: browser
+        with:
+          path: browser
 
   deploy:
     environment:
