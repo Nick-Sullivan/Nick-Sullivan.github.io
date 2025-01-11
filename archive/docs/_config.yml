@@ -1,0 +1,25 @@
+# https://just-the-docs.github.io/just-the-docs/docs/configuration/
+title: Nick Sullivan
+description: A starter template for a Jeykll site using the Just the Docs theme!
+theme: just-the-docs
+
+url: https://nick-sullivan.github.io
+
+favicon_ico: "/assets/images/favicon.ico"
+search_enabled: false
+footer_enabled: false
+# aux_links:
+#   "Just the Docs on GitHub":
+#     - "//github.com/just-the-docs/just-the-docs"
+
+nav_external_links:
+  - title: LinkedIn
+    url: https://www.linkedin.com/in/nick-dave-sullivan/
+    hide_icon: false # set to true to hide the external link icon - defaults to false
+    opens_in_new_tab: true # set to true to open this link in a new tab - defaults to false
+  - title: GitHub
+    url: https://github.com/Nick-Sullivan/
+    hide_icon: false
+    opens_in_new_tab: true
+footer:
+  custom: footer_custom.html

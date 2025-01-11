@@ -1,0 +1,50 @@
+name: AWS S3
+
+on:
+  push:
+    branches: ["main"]
+
+concurrency:
+  group: "s3"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: "Deploy"
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: docs
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.1" # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+          cache-version: 0 # Increment this number if you need to re-download cached gems
+          working-directory: "${{ github.workspace }}/docs"
+
+      - name: Setup AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: "ap-southeast-2"
+
+      - name: Setup terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Build with Jekyll
+        run: bundle exec jekyll build
+
+      - name: Initialise terraform state
+        working-directory: terraform/upload
+        run: terraform init
+
+      - name: Apply terraform state
+        working-directory: terraform/upload
+        run: terraform apply -auto-approve
