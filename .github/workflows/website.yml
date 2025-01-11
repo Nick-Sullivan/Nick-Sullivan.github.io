@@ -1,4 +1,4 @@
-name: GitHub Pages
+name: Website
 
 on:
   push:
@@ -13,7 +13,7 @@ permissions:
 
 # Allow one concurrent deployment
 concurrency:
-  group: "pages"
+  group: "website"
   cancel-in-progress: true
 
 jobs:
@@ -30,6 +30,24 @@ jobs:
         uses: withastro/action@v3.0.0
         with:
           path: browser
+
+      - name: Setup AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: "ap-southeast-2"
+
+      - name: Setup terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Initialise terraform state (website)
+        working-directory: terraform/website/upload
+        run: terraform init
+
+      - name: Apply terraform state (website)
+        working-directory: terraform/website/upload
+        run: terraform apply -auto-approve
 
   deploy:
     environment:

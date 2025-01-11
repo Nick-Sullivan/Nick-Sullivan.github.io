@@ -26,13 +26,6 @@ jobs:
       - name: Setup terraform
         uses: hashicorp/setup-terraform@v3
 
-      - name: Initialise terraform state (website)
-        working-directory: terraform/website/upload
-        run: terraform init
-
-      - name: Apply terraform state (website)
-        working-directory: terraform/website/upload
-        run: terraform apply -auto-approve
       - name: Initialise terraform state (rust-chat-room)
         working-directory: terraform/rust-chat-room
         run: terraform init

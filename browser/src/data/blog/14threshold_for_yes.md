@@ -7,10 +7,10 @@ published: True
 
 If you ran into a wall, there is a non-zero chance that you would [phase through it](https://en.wikipedia.org/wiki/Quantum_tunnelling).
 But if you were to design a building to account for quantum tunnelling risk, you would be laughed out of the room for wasting everyone's time.
-Because despite being technically incorrect, the answer to "will you ever phase through a wall?" is _no_ for most purposes.
+Because despite being technically incorrect, the answer to "will you ever phase through a wall?" is _no_ for basically all purposes.
 
 Abstracting away unnecessary detail is necessary for efficient communication at a high level. The challenge is discerning what information
-is necessary for this person at this time. I've noticed that this can be difficult for those whose roles demand mastery in the details.
+is necessary for a person at that moment. I've noticed that this can be difficult for those whose roles demand mastery in the details.
 It can feel dishonest to skip certain details, or unfair to only address visible work. Or they assume that everyone is as interested in the details as they are.
 
 ### Impact
@@ -43,4 +43,4 @@ availability guides such as [this](https://docs.aws.amazon.com/wellarchitected/l
 | 99.99%       | 52 minutes                        | Video delivery, broadcast workloads                        |
 | 99.999%      | 5 minutes                         | ATM transactions, telecommunications workloads             |
 
-Remember that nobody expects you to be perfect. If you believe that there is a 99% chance of it working, then saying _yes_ will mean you are right 99 times out of 100. If it goes wrong, jump on it and fix it until it's right. In some cases, seeing you put out the fire is more visible than preventing the fire.
+Remember that nobody expects you to be perfect. If you believe that there is a 99% chance of it working, then saying _yes_ will mean you are right 99 times out of 100. If it goes wrong, jump on it and fix it until it's right. In some cases, seeing you put out the fire gets you more credibility than preventing the fire.

@@ -14,7 +14,7 @@ terraform {
 
 locals {
   prefix_parameter = "/WebsiteCv/production"
-  build_folder     = "${path.root}/../../docs/_site" # Generated as part of build
+  build_folder     = "${path.root}/../../../browser/dist" # Generated as part of build
   tags = {
     Project     = "Website CV"
     Environment = "production"
@@ -47,10 +47,10 @@ resource "aws_s3_object" "static_files" {
 }
 
 resource "terraform_data" "clear_cloudfront_cache" {
-  depends_on = [aws_s3_object.static_files]
-  triggers_replace = [timestamp()]  # Triggers every time
+  depends_on       = [aws_s3_object.static_files]
+  triggers_replace = [timestamp()] # Triggers every time
 
   provisioner "local-exec" {
-    command     = "aws cloudfront create-invalidation --distribution-id ${data.aws_ssm_parameter.cloudfront_distribution_id.value} --paths '/*'"
+    command = "aws cloudfront create-invalidation --distribution-id ${data.aws_ssm_parameter.cloudfront_distribution_id.value} --paths '/*'"
   }
 }
