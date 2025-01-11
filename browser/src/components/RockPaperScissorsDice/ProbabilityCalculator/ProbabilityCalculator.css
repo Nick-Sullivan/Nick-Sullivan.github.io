@@ -1,0 +1,11 @@
+.probability-calculator .input-and-output {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.probability-calculator h3 {
+  text-align: center;
+}

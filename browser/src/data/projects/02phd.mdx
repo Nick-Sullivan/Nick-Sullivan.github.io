@@ -1,0 +1,78 @@
+---
+title: Ph.D.
+date: 2019-02-01
+description: "My doctoral thesis."
+published: true
+---
+
+import { Image } from "astro:assets";
+import phd01 from "../../assets/images/phd01.png";
+import phd02 from "../../assets/images/phd02.png";
+import phd03 from "../../assets/images/phd03.png";
+import phd04 from "../../assets/images/phd04.png";
+import phd05 from "../../assets/images/phd05.png";
+import phd06 from "../../assets/images/phd06.png";
+
+My Ph.D. on Task Allocation and Collaborative Localisation in Multi-Robot Systems was completed at the [University of Adelaide] in 2019.
+
+<a href="/pdf/phd.pdf" download="nick-sullivan">
+  You can download it here.
+</a>
+
+In short, it introduced new methods in the overlap of task allocation and collaborative localisation. Task allocation is the decision making of how to allocate agents to multiple jobs, and collaborative localisation is a sensor fusion technique to allow multiple agents to improve their understanding of their location and orientation.
+
+I developed a highly scalable path planning algorithm that ensures agents stay near one another, and applied it to autonomous vehicles with differing sensing capabilities:
+
+<div class="image-gallery">
+  <Image
+    src={phd01}
+    alt="Graphs indicating formation-based routing."
+    className="image"
+    height="350"
+  />
+  <Image
+    src={phd02}
+    alt="Paths taken by robots using this algorith."
+    className="image"
+    height="350"
+  />
+  <Image
+    src={phd03}
+    alt="Four autonomous vehicles."
+    className="image"
+    height="350"
+  />
+</div>
+---
+
+I assessed the impact of sensor noise on collaborative localisation.
+
+<div class="image-gallery">
+  <Image
+    src={phd05}
+    alt="Hardware setup of small, indoor autonomous vehicles."
+    className="image"
+    height="350"
+  />
+  <Image
+    src={phd04}
+    alt="OptiTrack hardware setup showing how the robots were tracked."
+    className="image"
+    height="350"
+  />
+</div>
+---
+
+I introduced improvements to auction-based allocation when the agents have different capabilities.
+
+<div class="image-gallery">
+  <Image
+    src={phd06}
+    alt="Graphs showing planned dispatching algorithms."
+    className="image"
+    height="350"
+  />
+</div>
+---
+
+[University of Adelaide]: https://digital.library.adelaide.edu.au/dspace/handle/2440/120578

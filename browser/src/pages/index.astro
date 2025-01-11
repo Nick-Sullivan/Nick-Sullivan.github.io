@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import headshot from "../assets/images/headshot.jfif";
+import image00 from "../assets/images/index06.png";
+import image01 from "../assets/images/cocktail_bar01.png";
+import image02 from "../assets/images/gif_code01.gif";
+import image03 from "../assets/images/phd03.png";
+import image04 from "../assets/images/index00.jpg";
+import image05 from "../assets/images/index05.jpg";
+import image06 from "../assets/images/drinking_game03.png";
+import image07 from "../assets/images/index02.jpg";
+import image08 from "../assets/images/autonomous_challenge02.jpg";
+import ImageGallery from "../components/ImageGallery.astro";
+
+const images = [
+  {
+    src: headshot,
+    alt: "My headshot.",
+  },
+  { src: image00.src, alt: "Some of the team at Tiimely." },
+  { src: image01.src, alt: "A drink app hobby project." },
+  { src: image02.src, alt: "A GIF QR code hobby project." },
+  { src: image03.src, alt: "Autonomous ground vehicles from my Ph.D." },
+  { src: image04.src, alt: "A mining truck as part of my work at MaxMine." },
+  { src: image05.src, alt: "Me on vacation." },
+  { src: image06.src, alt: "A drinking game hobby project." },
+  { src: image07.src, alt: "Some autonomous vehicles as part of my Ph.D." },
+  {
+    src: image08.src,
+    alt: "A hobby entry in an autonomous ground vehicle competition.",
+  },
+];
+
+const pageTitle = "Nick Sullivan";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <p>
+    Welcome! I'm Nick, fullstack software engineer, Ph.D. I specialise in
+    scaling small companies with technical design and inter-team processes. My
+    expertise includes back-end software (Python/C\#), cloud infrastructure
+    (AWS), front-end software (Typescript) and algorithm design. Known for being
+    open-minded, honest, and candid. This website is a collection of my
+    research, experiments, and side projects. Enjoy!
+  </p>
+  <ImageGallery images={images} />
+</BaseLayout>

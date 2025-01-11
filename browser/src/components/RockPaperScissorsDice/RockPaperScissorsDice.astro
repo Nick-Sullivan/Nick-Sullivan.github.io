@@ -1,0 +1,12 @@
+---
+import ProbabilityCalculator from "./ProbabilityCalculator/ProbabilityCalculator";
+
+const { initialValues, isEditable, rounds = 1 } = Astro.props;
+---
+
+<ProbabilityCalculator
+  initialValues={initialValues}
+  isEditable={isEditable}
+  rounds={rounds}
+  client:load
+/>

@@ -1,0 +1,19 @@
+---
+const { url, title, date } = Astro.props;
+
+const formattedDate = new Date(date).toISOString().slice(0, 7);
+---
+
+<li>
+  {formattedDate}
+  <a href={url}>{title}</a>
+</li>
+
+<style>
+  li {
+    padding-bottom: 10px;
+  }
+  a {
+    margin-left: 10px;
+  }
+</style>

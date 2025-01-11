@@ -1,0 +1,33 @@
+.dice-inputs {
+  margin-right: 20px;
+}
+
+.dice-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dice-row label {
+  font-weight: bold;
+}
+
+.dice-row input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100px;
+}
+
+.dice-buttons button {
+  padding: 5px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  color: #7253ef;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #dcdcdc;
+}

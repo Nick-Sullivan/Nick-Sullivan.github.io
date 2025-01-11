@@ -1,0 +1,62 @@
+---
+title: GIF QR Code Generator
+date: 2023-10-01
+description: "Overlays a QR code onto a GIF, which I use as a fun way to share links."
+published: true
+---
+
+import { Image } from "astro:assets";
+import image00 from "../../assets/images/gif_code00.png";
+import image01 from "../../assets/images/gif_code01.gif";
+import image02 from "../../assets/images/gif_code02.png";
+import image03 from "../../assets/images/gif_code03.png";
+import image04 from "../../assets/images/gif_code04.png";
+import image05 from "../../assets/images/gif_code05.png";
+
+It's available on the [Google Play Store], and here's the [source code].
+
+<div class="image-gallery">
+  <Image
+    src={image01}
+    alt="QR Code on a celebration GIF."
+    className="image"
+    height="350"
+  />
+  <Image
+    src={image02}
+    alt="Entering text in the app."
+    className="image"
+    height="350"
+  />
+  <Image src={image03} alt="Selecting a GIF." className="image" height="350" />
+  <Image
+    src={image04}
+    alt="The app showing the assembled GIF Code."
+    className="image"
+    height="350"
+  />
+  <Image
+    src={image05}
+    alt="The app collection."
+    className="image"
+    height="350"
+  />
+</div>
+
+---
+
+When your phone scans a QR code, it uses the corner boxes to calibrate position and orientation of the image. It then uses the centre of each image to determine if the block is black or white. The edges of each box can be made transparent without significantly impacting the readability of the QR code.
+
+It uses flutter as the front-end, which talks to the GIPHY API to preview and select GIFs. A request is sent to a Python backend that generates a QR Code, adds transparency, and overlays it on each frame in the GIF. The result is saved into an S3 bucket, which is loaded by the flutter app and cached on the phone.
+
+<div class="image-gallery">
+  <Image
+    src={image00}
+    alt="Architectural diagram."
+    className="image"
+    height="350"
+  />
+</div>
+
+[Google Play Store]: https://play.google.com/store/apps/details?id=com.gif_code
+[source code]: https://github.com/Nick-Sullivan/gif-code

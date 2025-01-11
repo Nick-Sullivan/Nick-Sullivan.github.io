@@ -1,0 +1,167 @@
+---
+title: Intransitive Dice
+date: 2025-01-08
+description: "A stochastic game of rock-paper-scissors."
+published: true
+---
+
+import RockPaperScissorsDice from "../../components/RockPaperScissorsDice/RockPaperScissorsDice.astro";
+
+There exists three dice where A rolls higher than B more than 50% of the time, B rolls
+higher than C more than 50% of the time, and C rolls higher than A more than 50% of the time.
+This is known as [Intransitive Dice](https://en.m.wikipedia.org/wiki/Intransitive_dice).
+
+For example, here are three 3-sided dice with this property, which you can modify to see
+the win percentages update:
+
+<RockPaperScissorsDice
+  initialValues={[
+    [2, 6, 7],
+    [1, 5, 9],
+    [3, 4, 8],
+  ]}
+  isEditable={true}
+/>
+
+I found this really fascinating, and wanted to discover more cases.
+I was interested in whether I could use them to create a game, similar
+to how type advantages work in games like Pokemon (water beats fire etc.).
+
+I approached this as an optimisation problem, with my objective function
+measuring differences in win percentages. If my "water" dice only has a 51% win rate
+against your "fire" dice, that's not very satisfying.
+
+For constraints, I wanted all the dice to be fair, in that no dice had a
+net advantage over the others. The sum of all advantages and all disadvantages for
+a particular dice should be 0%.
+
+First, I wanted to get a feel for what intransitive dice looked like. I started with a
+quick Python script that used recursion to select the next face.
+
+To minimise ties (and to be frank, to make the code easier to write), I opted to not
+use the same value twice[^1]. This means that N dice with M sides would consist of the
+numbers from 1 to N\*M.
+
+Here's the best solution for 3 dice with 4 sides:
+
+<RockPaperScissorsDice
+  initialValues={[
+    [1, 3, 10, 12],
+    [2, 7, 8, 9],
+    [4, 5, 6, 11],
+  ]}
+  isEditable={false}
+/>
+
+Viewing a few solutions, I noticed something interesting. The sum of each dice were equal:
+
+- 1 + 3 + 10 + 12 = 26
+- 2 + 7 + 8 + 9 = 26
+- 4 + 5 + 6 + 11 = 26
+
+In fact, every solution I could find had this property. Assuming it held true for all cases
+(and maybe it doesn't), this meant I could discard any permutations where the sum did not add up to this
+total. And importantly, I could discard them early in the search. I didn't need to populate all
+N\*M faces to invalidate a permutation.
+
+Looking at more solutions. I found that _simplicity_ was also a very important objective, consider
+these two cases of 6 dice with 4 sides:
+
+<RockPaperScissorsDice
+  initialValues={[
+    [1, 8, 19, 22],
+    [2, 15, 16, 17],
+    [3, 4, 20, 23],
+    [5, 6, 18, 21],
+    [7, 9, 10, 24],
+    [11, 12, 13, 14],
+  ]}
+  isEditable={false}
+/>
+
+<RockPaperScissorsDice
+  initialValues={[
+    [1, 12, 18, 19],
+    [2, 3, 22, 23],
+    [4, 5, 20, 21],
+    [6, 7, 13, 24],
+    [8, 9, 16, 17],
+    [10, 11, 14, 15],
+  ]}
+  isEditable={false}
+/>
+
+The first case has bigger differences, but the second case is easier to follow because there are
+only 3 chances: advantage (62.5% win rate), disadvantage (37.5% win rate) and neutral (50.0% win rate).
+
+I now had a second objective, which I handled by storing the solutions as a
+[Pareto front](https://en.wikipedia.org/wiki/Pareto_front).
+
+Note that the percentages in this graph is win percentage minus loss percentage.
+
+<iframe src="/html/pareto_8d_4s.html" width="100%" height="500px" />
+
+I also had to spend a lot of time optimising my search algorithm, as processing was taking too long even for
+small numbers of dice and faces. I migrated from Python to Rust, introduced multithreading, cached comparisons,
+and used an O(M) comparison algorithm. This brought the processing time for 7 dice with 4 sides down from
+5 minutes to 0.5 seconds.
+
+My favourite case[^2], and the one I ultimately created custom dice with, is this one. It uses 6 sided dice,
+has 1 neutral dice and 4 intransitive dice:
+
+<RockPaperScissorsDice
+  initialValues={[
+    [1, 2, 3, 28, 29, 30],
+    [4, 5, 17, 20, 21, 26],
+    [6, 7, 8, 22, 23, 27],
+    [9, 10, 11, 14, 24, 25],
+    [12, 13, 15, 16, 18, 19],
+  ]}
+  isEditable={false}
+/>
+
+I also like this solution for 3 dice with 8 sides:
+
+<RockPaperScissorsDice
+  initialValues={[
+    [1, 2, 3, 16, 18, 19, 20, 21],
+    [4, 5, 6, 7, 9, 22, 23, 24],
+    [8, 10, 11, 12, 13, 14, 15, 17],
+  ]}
+  isEditable={false}
+/>
+
+And 3 dice with 5 sides:
+
+<RockPaperScissorsDice
+  initialValues={[
+    [1, 2, 11, 12, 14],
+    [3, 4, 5, 13, 15],
+    [6, 7, 8, 9, 10],
+  ]}
+  isEditable={false}
+/>
+---
+
+[^1]:
+    If I wanted to bring duplicates back, this could be a
+    post-processing step where incremental values are joined together.
+    For example, a dice with [1, 2, 7] could become [1, 1, 7].
+
+[^2]:
+    To increase the advantage, multiple rounds of rolling could be performed.
+    The winner is whoever wins the majority of rounds.
+    Applying 3 rounds to this case adjusts the win chance pleasingly
+    close to 2/3.
+
+    <RockPaperScissorsDice
+      initialValues={[
+        [1, 2, 3, 28, 29, 30],
+        [4, 5, 17, 20, 21, 26],
+        [6, 7, 8, 22, 23, 27],
+        [9, 10, 11, 14, 24, 25],
+        [12, 13, 15, 16, 18, 19],
+      ]}
+      isEditable={false}
+      rounds={3}
+    />

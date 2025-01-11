@@ -1,0 +1,46 @@
+---
+title: Chat Room
+date: 2024-12-01
+description: "Serverless chat room using Rust."
+published: true
+---
+
+import { Image } from "astro:assets";
+import image01 from "../../assets/images/chat_room01.png";
+
+I spent a weekend creating a basic chat room as a means to explore API development
+in Rust and React development in AstroJS.
+You can see it in action <a href="/room/one">here</a>.
+If anyone else goes to the same URL, they will automatically be connected.
+
+I used a single lambda running Axum that handles all websocket connections (`$connect`, `$disconnect`, `$default`).
+This is non-standard, the general recommendation is to use a different Lambda for each endpoint.
+I did this is partly because I wanted to try out a routing library in Rust, but also because its easier to run locally,
+and it provides flexibility to deploy to a dedicated server if I decided to. I talk about this more in <a href="/blog/13serverless">this blog post</a>.
+The source code for this is <a href="https://github.com/Nick-Sullivan/rust-chat-room">here.</a>
+
+Creating a service that has multiple entrypoints (such as from API Gateway and from a local server), or multiple
+providers (e.g. a local in-memory database or a cloud database) doesn't feel well supported.
+Rust "features" didn't quite fit, it required a full rebuild whenever I changed feature set.
+Multiple binaries works better, but still needed a few snippets to tell the compiler that "unused code" was okay.
+
+Once it was up and running, I was very happy with the development lifecycle:
+
+- Running locally with a local in-memory database (for fast iteration)
+- Running locally using a cloud database (for confirmation of logic & fast debugging)
+- Running in the cloud
+
+And happy with the end result
+
+- ~60ms to send a message
+- Cold boot once, not once per endpoint
+- Reusable structure for future Rust projects
+
+<div class="image-gallery">
+  <Image
+    src={image01}
+    alt="Cloud architecture."
+    className="image"
+    height="350"
+  />
+</div>

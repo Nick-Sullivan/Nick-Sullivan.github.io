@@ -1,0 +1,26 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogLink from "../components/BlogLink.astro";
+
+const posts = await getCollection("projects", ({ data }) => {
+  return data.published === true;
+});
+posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const pageTitle = "Projects";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <p>A collection of experiments and technical exploration.</p>
+  <ul>
+    {
+      posts.map((post) => (
+        <BlogLink
+          url={`/projects/${post.id}`}
+          title={post.data.title}
+          date={post.data.date}
+        />
+      ))
+    }
+  </ul>
+</BaseLayout>

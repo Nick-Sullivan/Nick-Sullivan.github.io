@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "Contact";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <p>
+    Hello! I live in Adelaide, South Australia. The best way to contact me is to
+    send me an email or a LinkedIn message.
+  </p>
+  <ul>
+    <li>
+      <a href="mailto:nick.dave.sullivan@gmail.com/">
+        <i class="fa-solid fa-envelope"></i> Email
+      </a>
+    </li>
+    <li>
+      <a href="https://www.linkedin.com/in/nick-dave-sullivan/">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
+      </a>
+    </li>
+    <li>
+      <a href="https://www.github.com/Nick-Sullivan/">
+        <i class="fa-brands fa-github"></i> GitHub
+      </a>
+    </li>
+    <li>
+      <a href="/pdf/resume.pdf" download="nick-sullivan">
+        <i class="fa-solid fa-file"></i> Resume
+      </a>
+    </li>
+  </ul>
+  <iframe src="/pdf/resume.pdf#toolbar=0" width="100%" height="440px"></iframe>
+</BaseLayout>
+
+<style>
+  li {
+    padding-bottom: 10px;
+  }
+  a {
+    margin-left: 10px;
+  }
+</style>

@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+.room {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(to bottom, #e0e7ff, #cbd5e1);
+  font-family: "Poppins", sans-serif;
+}

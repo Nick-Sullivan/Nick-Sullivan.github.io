@@ -1,0 +1,10 @@
+---
+import type { ImageItem } from "../types/types";
+import "../styles/global.css";
+
+const { images = [] }: { images?: ImageItem[] } = Astro.props;
+---
+
+<div class="image-gallery">
+  {images.map((image) => <img src={image.src} alt={image.alt} />)}
+</div>

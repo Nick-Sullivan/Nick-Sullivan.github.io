@@ -1,0 +1,44 @@
+---
+import Header from "../components/Header.astro";
+import NavColumn from "../components/NavColumn.astro";
+import "../styles/global.css";
+const { pageTitle } = Astro.props;
+---
+
+<html lang="en">
+  <Header pageTitle={pageTitle} />
+  <body>
+    <div class="layout-base">
+      <NavColumn />
+      <div class="content-outer">
+        <div class="content-inner">
+          <h1>{pageTitle}</h1>
+          <slot />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<style>
+  body {
+    overflow: hidden;
+  }
+  .layout-base {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    height: 100vh;
+  }
+  .content-outer {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 100vh;
+  }
+  .content-inner {
+    overflow: auto;
+  }
+</style>

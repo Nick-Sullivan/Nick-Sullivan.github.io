@@ -1,0 +1,26 @@
+---
+import "../styles/global.css";
+import BaseLayout from "./BaseLayout.astro";
+const { post } = Astro.props;
+---
+
+<BaseLayout pageTitle={post.data.title}>
+  <p class="date">{post.data.date.toString().slice(0, 10)}</p>
+  <p class="description"><em>{post.data.description}</em></p>
+  <slot />
+  <div class="footer"></div>
+</BaseLayout>
+
+<style>
+  .date {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .description {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .footer {
+    height: 50px;
+  }
+</style>

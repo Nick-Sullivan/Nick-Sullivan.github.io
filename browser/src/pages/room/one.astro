@@ -1,0 +1,10 @@
+---
+import { wsUrl } from "../../../terraform-output.js";
+import ChatRoom from "../../components/ChatRoom/ChatRoom/ChatRoom";
+import BaseLayoutMinimal from "../../layouts/BaseLayoutMinimal.astro";
+const roomId = "one";
+---
+
+<BaseLayoutMinimal pageTitle="Chat Room">
+  <ChatRoom roomId={roomId} wsUrl={wsUrl} client:load />
+</BaseLayoutMinimal>
