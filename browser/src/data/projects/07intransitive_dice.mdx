@@ -7,11 +7,11 @@ published: true
 
 import RockPaperScissorsDice from "../../components/RockPaperScissorsDice/RockPaperScissorsDice.astro";
 
-There exists three dice where A rolls higher than B more than 50% of the time, B rolls
+There exists dice where A rolls higher than B more than 50% of the time, B rolls
 higher than C more than 50% of the time, and C rolls higher than A more than 50% of the time.
-This is known as [Intransitive Dice](https://en.m.wikipedia.org/wiki/Intransitive_dice).
+These are known as [Intransitive Dice](https://en.m.wikipedia.org/wiki/Intransitive_dice).
 
-For example, here are three 3-sided dice with this property, which you can modify to see
+For example, here are 3-sided dice with this property, which you can modify to see
 the win percentages update:
 
 <RockPaperScissorsDice
@@ -27,8 +27,8 @@ I found this really fascinating, and wanted to discover more cases.
 I was interested in whether I could use them to create a game, similar
 to how type advantages work in games like Pokemon (water beats fire etc.).
 
-I approached this as an optimisation problem, with my objective function
-measuring differences in win percentages. If my "water" dice only has a 51% win rate
+I approached this as an optimisation problem, trying to maximise the
+differences in win percentages. If my "water" dice only has a 51% win rate
 against your "fire" dice, that's not very satisfying.
 
 For constraints, I wanted all the dice to be fair, in that no dice had a
@@ -38,7 +38,7 @@ a particular dice should be 0%.
 First, I wanted to get a feel for what intransitive dice looked like. I started with a
 quick Python script that used recursion to select the next face.
 
-To minimise ties (and to be frank, to make the code easier to write), I opted to not
+To minimise ties (and to make the code easier to write), I opted to not
 use the same value twice[^1]. This means that N dice with M sides would consist of the
 numbers from 1 to N\*M.
 
@@ -104,7 +104,7 @@ Note that the percentages in this graph is win percentage minus loss percentage.
 I also had to spend a lot of time optimising my search algorithm, as processing was taking too long even for
 small numbers of dice and faces. I migrated from Python to Rust, introduced multithreading, cached comparisons,
 and used an O(M) comparison algorithm. This brought the processing time for 7 dice with 4 sides down from
-5 minutes to 0.5 seconds.
+5 minutes to 0.5 seconds. Source code is [here.](https://github.com/Nick-Sullivan/rock-paper-scissors-dice?tab=readme-ov-file)
 
 My favourite case[^2], and the one I ultimately created custom dice with, is this one. It uses 6 sided dice,
 has 1 neutral dice and 4 intransitive dice:
