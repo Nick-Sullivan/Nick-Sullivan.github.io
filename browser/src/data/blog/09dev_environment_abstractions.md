@@ -1,7 +1,7 @@
 ---
 title: Environment Abstractions
 date: 2024-11-15
-description: Don't overcomplicate, start simple and recognise when to increase the level of abstraction.
+description: I, as a software engineer, want nothing more than to pretend software doesn't exist.
 published: true
 ---
 

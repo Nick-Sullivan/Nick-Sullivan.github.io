@@ -1,7 +1,7 @@
 ---
 title: My Ways Of Working
 date: 2024-10-01
-description: My ideal ways of working.
+description: The glue that holds the gears together.
 published: true
 ---
 
@@ -27,7 +27,7 @@ All ideas that we wish to action get categorised into one of three streams of wo
 
 - Bite-sized work ("Off-Project" work)
 
-  Usually less than a week. The overhead associated with regular prioritisation and estimation can quickly outweigh the time spent implementing it, so they are treated first-come-first-served in a Kanban style.
+  Small blocks of work, usually less than one person-week. The overhead associated with regular prioritisation and estimation can quickly outweigh the time spent implementing it, so they are treated first-come-first-served in a Kanban style.
 
   These can be estimated, but don't have deadlines. Work to plan the next project falls in this category - context switching is just as detrimental to senior managers and project leads as it is to software developers.
 

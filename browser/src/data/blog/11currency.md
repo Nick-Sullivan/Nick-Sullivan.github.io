@@ -1,11 +1,11 @@
 ---
-title: Currency
+title: Positive Feedback
 date: 2024-12-04
-description: Identify what each person values.
+description: "It's not what you look at that matters, it's what you see."
 published: true
 ---
 
-Here's some advice I wish I could give to my past self about how to give impactful compliments.
+Here's some advice I wish I could give to my past self about how to give impactful positive feedback.
 
 Two experiences led me to this realisation.
 
@@ -15,6 +15,6 @@ The second experience was when I volunteered to be part of the skeleton crew bet
 
 The key difference between these examples is what I cared about. The start-sprint example didn't matter to me; it wouldn't even make my list of achievements at this company. But I took immense pride in the second example. I identified a risk, took practical steps to address it, and completed it efficiently and on time.
 
-Years later, I learned during a leadership course that this concept has a name: _currency_, what someone values. Actions and behaviour have a more significant impact if they align with someone's currency.
+Years later, I learned that this concept has a name: *personal currency*. Actions and behaviour are "worth more" if they align with someone's values.
 
-Consciously try to learn what someone values, and focus your positivity towards it.
+Consciously try to learn their personal currency, and focus your positivity towards it.

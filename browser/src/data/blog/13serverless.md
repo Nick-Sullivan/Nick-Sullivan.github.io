@@ -1,7 +1,7 @@
 ---
 title: Serverless
 date: 2024-12-16
-description: I like serverless components, but I don't like the tooling around it.
+description: "Old man yells at cloud."
 published: true
 ---
 
