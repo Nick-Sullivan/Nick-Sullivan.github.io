@@ -2,7 +2,7 @@
 title: Threshold for yes
 date: 2024-12-18
 description: "High level communication requires abstraction."
-published: True
+published: true
 ---
 
 If you ran into a wall, there is a non-zero chance that you would [phase through it](https://en.wikipedia.org/wiki/Quantum_tunnelling).
