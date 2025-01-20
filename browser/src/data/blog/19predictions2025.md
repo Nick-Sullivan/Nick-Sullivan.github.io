@@ -9,27 +9,28 @@ published: true
 
 - Code assistance will use voice
 
-    AI autocomplete is good when it doesn't break your flow. What does break my flow is clicking clicking away, typing a prompt, iterating, and copying the result once I'm happy with it. Using voice would allow me to see an autocomplete, tell AI what needs to change, then hit tab once I'm happy with it.
-    The biggest barrier to this is the noise it would create in an office setting. Maybe it would create a push for more working from home?
+    AI autocomplete is fantastic when it seamlessly integrates into your workflow. However, the current process of clicking away, typing prompts, iterating, and then copying the result can be disruptive. Imagine using voice commands to interact with AI: you see an autocomplete suggestion, tell the AI what to tweak, and simply hit tab when it's ready.
+    A problem with this is the potential noise in an office environment. This could actually drive a trend towards more remote work, where voice interactions with AI can be done without disturbing colleagues.
 
 - Code assistance sandboxes
 
-    Self contained environments that AI can use to verify their suggestions can compile and run. It would catch the biggest sources of my frustration, when it suggests functions that don't exist.
-    I'm not sure whether this would be an interactive sandbox (AI creates the template, and you can tweak until it works) or if it would be a behind-the-scenes sandbox. I predict the latter.
+    Imagine self-contained environments where AI can verify its suggestions by compiling and running them. This would eliminate one of my biggest frustrations: when AI suggests functions that don't exist.
+    I'm not sure whether this would be an interactive sandbox, where AI creates a template you can tweak until it works, or a behind-the-scenes sandbox. My bet is on the latter.
 
 - Sponsored content
 
-    Right now, companies are losing money trying to gain market share. Once they have it, there's no reason to believe it won't monetize your attention in a way we've seen countless times before. Ads. Companies will pay for AI to recommend their service over other services.
+    Currently, companies are burning cash to capture market share. Once they succeed, it's inevitable they'll monetize your attention just like we've seen countless times before: with ads. Companies will pay for AI to recommend their services over others.
 
 **Architecture**
 
 - Design patterns for AI assistance
 
-    When computers were first being used to play chess, strategies were invented specifically to play against them (in short, keeping lots of pieces around so there were many options to consider). Likewise, I believe the rise of AI produced code will call for specific design patterns that constrain the scope of AI written code, so that it can be used safely.
+    When computers first started playing chess, new strategies were developed specifically to counter them, such as keeping many pieces on the board to increase complexity. Similarly, I believe the rise of AI-generated code will necessitate specific design patterns that constrain the scope of AI-written code, ensuring it can be used safely.
 
 - Infrastructure as diagrams
 
-    I love infrastructure as code. Love it love it love it. But I've found myself creating new projects by combining components from other projects. I think in *most* cases I could map each component to a symbol, and draw these components together (a queue points to a service, a service points to a database etc.). And while plenty of low-code/no-code solutions exist, most opt for a lock-in monetisation strategy, which I see as the biggest reason none have hit mainstream. There's just too much risk that we would hit a wall that the tool cannot support, and you have to drop the tool and start again. It is inevitable that our tooling moves towards low-code/no-code, and I believe architectural components are the most likely to be adopted first.
+    I love infrastructure as code. Love it, love it, love it. But I've found myself creating new projects by combining components from other projects. In most cases, I could map each component to a symbol and draw these components together (a queue points to a service, a service points to a database, etc.). 
+    While plenty of low-code/no-code solutions exist, most opt for a lock-in monetization strategy, which I see as the biggest reason none have hit mainstream. There's just too much risk that we would hit a wall that the tool cannot support, and we would have to drop the tool and start again. It is inevitable that our tooling moves towards low-code/no-code, but I believe a different financial model will make it work. And I believe architectural components are the most likely to be adopted first.
 
 **Data**
 
@@ -41,4 +42,4 @@ published: true
 
 - Fewer new tools & languages
 
-    There are two reasons for this. The first is that people are becoming more reliant on AI to learn, and AI is unlikely to recommend tools that don't have sufficient popularity. The second is that as we increasingly use AI to create low-level components, there's less demand to make these components user friendly.
+    There are two reasons for this. First, people are becoming more reliant on AI to learn, and AI is unlikely to recommend tools that lack sufficient popularity. Second, as we increasingly use AI to create low-level components, there's less demand to make these components user-friendly.
