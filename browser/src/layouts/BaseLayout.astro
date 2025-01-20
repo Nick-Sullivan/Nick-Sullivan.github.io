@@ -36,8 +36,10 @@ const { pageTitle } = Astro.props;
     padding-left: 20px;
     padding-right: 20px;
     height: 100vh;
+    overflow-y: auto;
   }
   .content-inner {
-    overflow: auto;
+    max-width: 600px;
+    margin: 0 auto;
   }
 </style>
