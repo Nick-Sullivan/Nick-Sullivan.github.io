@@ -13,6 +13,6 @@ Following a naval disaster, the British Parliament offered a bounty of £20,000 
 
 After the exhibition, the narrative focused solely on John Harrison as a genius. That he is one of the top 100 Greatest Britons. This felt odd to me. Did we hear the same story? I heard about many contributors: the astronomers for their celestial research, the British Parliament for offering the bounty, John Harrison for his clock designs, the Longitude Board and John's son for building and testing, and John's wife for managing other aspects of his life.
 
-This is why I've always felt uneasy about celebrity culture in the news, politics, business, academia, and carbed in marble statues. We hear a lot about individuals. It's a simplification that aids understanding, sure, but it promotes the idea that those in the spotlight are superior to those who aren't. It's so unintuitive to me for that to be the focus. And I believe it's harmful. This mindset leads to figures like Trump.
+This is why I've always felt uneasy about celebrity culture in the news, politics, business, academia, and carved in marble statues. We hear a lot about individuals. It's so unintuitive to me for that to be the focus. It's a simplification that aids understanding, sure, but it promotes the idea that those in the spotlight are superior to those who aren't. And I believe it's harmful. This mindset leads to the creation of figures like Trump.
 
-John's marine clocks are remarkable. But the story of their invention is a lot more than one person.
+John's marine clocks are remarkable. But the story of their invention is so much more.
