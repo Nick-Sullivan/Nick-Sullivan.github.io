@@ -7,6 +7,7 @@ import react from "@astrojs/react";
 export default defineConfig({
   prefetch: {
     prefetchAll: true,
+    defaultStrategy: "viewport",
   },
   integrations: [mdx(), react()],
   markdown: {
