@@ -1,7 +1,7 @@
 ---
 title: Stars
 date: 2025-01-20
-description: ""
+description: "Celebrity culture undervalues the contributions of many."
 published: true
 ---
 
