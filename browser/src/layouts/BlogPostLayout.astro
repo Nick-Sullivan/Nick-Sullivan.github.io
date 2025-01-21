@@ -1,10 +1,14 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import FormattedDate from "../components/FormattedDate.astro";
 const { post } = Astro.props;
 ---
 
 <BaseLayout pageTitle={post.data.title}>
-  <p class="date">{post.data.date.toString().slice(0, 10)}</p>
+  <p class="date">
+    <i class="fa-regular fa-calendar"></i>
+    <FormattedDate date={new Date(post.data.date)} />
+  </p>
   <p class="description"><em>{post.data.description}</em></p>
   <slot />
   <div class="footer"></div>

@@ -7,7 +7,7 @@ published: true
 
 When I talk about my job to people who aren't software engineers (which is almost everyone), they often assume that the hardest part
 of software engineering is writing code. I understand why they think that; writing code is indeed a significant barrier to entry in
-this profession. To explain, I use an analogy: it's like being an author of a novel. Being able to read and write is essential, but he best novelists don't necessarily win spelling bees. The words are just the medium used to create stories, characters, and ideas. 
+this profession. To explain, I use an analogy: it's like being an author of a novel. Being able to read and write is essential, but the best novelists don't necessarily win spelling bees. The words are just the medium used to create stories, characters, and ideas.
 
 To explain this further (without an analogy), I think it's helpful to talk about who we are writing code for.
 
@@ -16,7 +16,7 @@ To explain this further (without an analogy), I think it's helpful to talk about
 Obviously, the primary requirement of code is for computers to execute it. We must use a language they understand, with no tolerance for
 ambiguity or syntactical errors.
 
-We write *code*.
+We write _code_.
 
 2. **Humans**
 
@@ -25,7 +25,7 @@ tolerate ambiguity but have limited abilities to reason about complex systems. T
 by categorising functionality so it can be abstracted (e.g., a front-end and a back-end), adhering to standards (e.g., linters and
 architectural patterns), and using consistent approaches throughout the codebase.
 
-We build *software*.
+We build _software_.
 
 3. **Businesses**
 
@@ -38,4 +38,4 @@ of software cost and business impact to make efficient trade-offs and justify sp
 You need influence among product decision-makers so you can guide them towards a future where product requirements and software
 capabilities align.
 
-We build *products*.
+We build _products_.

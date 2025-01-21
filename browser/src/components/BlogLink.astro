@@ -1,11 +1,10 @@
 ---
+import FormattedDate from "../components/FormattedDate.astro";
 const { url, title, date } = Astro.props;
-
-const formattedDate = new Date(date).toISOString().slice(0, 7);
 ---
 
 <li>
-  {formattedDate}
+  <FormattedDate date={date} />
   <a href={url}>{title}</a>
 </li>
 
