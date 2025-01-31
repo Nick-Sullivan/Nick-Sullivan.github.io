@@ -9,7 +9,7 @@ When hiring, it's easy to fall into the trap of selecting the candidate whose re
 
 # Hygiene
 
-These are non-negotiable minimum criteria. They include requirements such as being able to speak English, not being a jerk, and maintaining basic hygiene (hence the name). Exceeding these minimums isn't crucial; the best leetcoder isn't necessarily the best software engineer. A top leetcoder might spend a lot of time on coding challenges, while a great software engineer focuses on building excellent software.
+These are non-negotiable minimum criteria. They include requirements such as being able to speak English, not being a jerk, and maintaining basic hygiene (hence the name). Maximising these criteria isn't crucial; the best leetcoder isn't necessarily the best software engineer. A top leetcoder might spend a lot of time on coding challenges, while a great software engineer focuses on building excellent software.
 
 # Nice-to-have's
 
