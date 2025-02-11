@@ -53,3 +53,24 @@ buying journalists
 
 If you decide that its not too late, (change the worlds fate)
 please keep in mind, they won't hesitate.
+
+### Threads
+
+26/01/2025
+
+Every day passing is another day woven.
+The threads coalesce, forming who we are.
+Their tension pulls onwards, and onwards, and onwards.
+"Don't waste a moment", we think to ourselves.
+It helps to enlist some divine expectations.
+Have no regret, living who we are.
+
+But I was wrong, I suppose.
+Threads will tire, and cease.
+This rock is not held by billions of fibres.
+It spins, and it floats, with insulting disregard.
+
+At least we can feel,
+what your threads once held.
+Something, so heavy,
+We now carry its weight.

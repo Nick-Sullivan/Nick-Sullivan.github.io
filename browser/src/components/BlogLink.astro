@@ -1,18 +1,33 @@
 ---
-import FormattedDate from "../components/FormattedDate.astro";
 const { url, title, date } = Astro.props;
+
+const day = date.getDate();
+const month = date.toLocaleString("default", { month: "short" });
+const daySuffix = (day: number) => {
+  if (day > 3 && day < 21) return "th";
+  switch (day % 10) {
+    case 1:
+      return "st";
+    case 2:
+      return "nd";
+    case 3:
+      return "rd";
+    default:
+      return "th";
+  }
+};
+const dateStr = `${day}${daySuffix(day)} ${month}`;
 ---
 
-<li>
-  <FormattedDate date={date} />
-  <a href={url}>{title}</a>
-</li>
+<a href={url}>{title}</a>
+<div class="date">
+  {dateStr}
+</div>
 
 <style>
-  li {
-    padding-bottom: 10px;
-  }
-  a {
-    margin-left: 10px;
+  .date {
+    font-size: 0.8em;
+    color: #666;
+    text-align: right;
   }
 </style>

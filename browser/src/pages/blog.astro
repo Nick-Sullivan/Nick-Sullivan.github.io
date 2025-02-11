@@ -3,25 +3,61 @@ import "../styles/global.css";
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogLink from "../components/BlogLink.astro";
+import type { Blog, BlogEntry } from "../content.config";
 
-const posts = await getCollection("blog", ({ data }) => {
+type GroupedBlogs = {
+  [year: string]: BlogEntry[];
+};
+
+const posts: BlogEntry[] = await getCollection("blog", ({ data }) => {
   return data.published === true;
 });
 posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const groupedPosts: GroupedBlogs = posts.reduce(
+  (acc: GroupedBlogs, post: BlogEntry) => {
+    const year = post.data.date.getFullYear().toString();
+    if (!acc[year]) {
+      acc[year] = [];
+    }
+    acc[year].push(post);
+    return acc;
+  },
+  {}
+);
 const pageTitle = "Blog";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <p>A collection of ramblings.</p>
-  <ul>
-    {
-      posts.map((post) => (
-        <BlogLink
-          url={`/blog/${post.id}`}
-          title={post.data.title}
-          date={post.data.date}
-        />
+  <p>A collection of my ramblings.</p>
+  {
+    Object.keys(groupedPosts)
+      .sort((a, b) => parseInt(b) - parseInt(a))
+      .map((year) => (
+        <div>
+          <h3>{year}</h3>
+          <ul>
+            {groupedPosts[year].map((post) => (
+              <li>
+                <BlogLink
+                  url={`/blog/${post.id}`}
+                  title={post.data.title}
+                  date={post.data.date}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
       ))
-    }
-  </ul>
+  }
 </BaseLayout>
+
+<style>
+  ul {
+    width: 80%;
+  }
+  li {
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+</style>

@@ -29,12 +29,13 @@ h3 {
 }
 a {
   color: #7253ef;
-  text-decoration: underline;
+  text-decoration: none;
   text-decoration-color: #eeebee;
   text-decoration-thickness: 1px;
 }
 
 a:hover {
+  text-decoration: underline;
   text-decoration-color: #7253ef;
   text-decoration-thickness: 0.5px;
 }

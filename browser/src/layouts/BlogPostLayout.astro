@@ -1,13 +1,31 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import FormattedDate from "../components/FormattedDate.astro";
 const { post } = Astro.props;
+
+const date = new Date(post.data.date);
+const day = date.getDate();
+const month = date.toLocaleString("default", { month: "short" });
+const year = date.getFullYear();
+const daySuffix = (day: number) => {
+  if (day > 3 && day < 21) return "th";
+  switch (day % 10) {
+    case 1:
+      return "st";
+    case 2:
+      return "nd";
+    case 3:
+      return "rd";
+    default:
+      return "th";
+  }
+};
+const dateStr = `${day}${daySuffix(day)} ${month} ${year}`;
 ---
 
 <BaseLayout pageTitle={post.data.title}>
   <p class="date">
     <i class="fa-regular fa-calendar"></i>
-    <FormattedDate date={new Date(post.data.date)} />
+    {dateStr}
   </p>
   <p class="description"><em>{post.data.description}</em></p>
   <slot />

@@ -1,0 +1,25 @@
+---
+const { testimonial, author } = Astro.props;
+---
+
+<div class="testimonial-card">
+  <p class="author">{author}</p>
+  <p>{testimonial}</p>
+</div>
+
+<style>
+  .testimonial-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  .author {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+</style>

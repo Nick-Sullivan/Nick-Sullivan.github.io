@@ -9,20 +9,15 @@ const links = [
 
 <div class="nav-column" id="nav-column">
   <div class="nav-header">
+    <img src="/favicon.ico" alt="Favicon" class="favicon" />
     <button id="toggle-button">
       <i class="fa-solid fa-bars" id="expand-icon"></i>
     </button>
     <p class="nav-name">Nick Sullivan</p>
   </div>
-  <nav>
+  <nav class="nav-links">
     <ul>
-      {
-        links.map((link) => (
-          <li>
-            <a href={link.href}>{link.text}</a>
-          </li>
-        ))
-      }
+      {links.map((link) => <a href={link.href}>{link.text}</a>)}
     </ul>
   </nav>
 </div>
@@ -59,7 +54,8 @@ const links = [
   .nav-header {
     display: flex;
     flex-direction: row;
-    padding-top: 5px;
+    justify-content: space-between;
+    padding-top: 7px;
     padding-bottom: 5px;
     padding-left: 20px;
     padding-right: 20px;
@@ -67,6 +63,11 @@ const links = [
   }
   .nav-name {
     display: none;
+  }
+  .favicon {
+    display: block;
+    width: 20px;
+    height: 20px;
   }
   .nav-column ul {
     display: none;
@@ -88,6 +89,11 @@ const links = [
   nav a:hover {
     background: linear-gradient(to right, #f4f4f4, #dcdcdc);
     text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   #toggle-button {
     border: none;
@@ -126,6 +132,9 @@ const links = [
       text-align: center;
       white-space: nowrap;
       margin: 0;
+    }
+    .favicon {
+      display: none;
     }
     .nav-column ul {
       list-style: none;
