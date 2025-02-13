@@ -1,9 +1,18 @@
 ---
+const currentPath = Astro.url.pathname;
 const links = [
-  { href: "/", text: "Home" },
-  { href: "/blog", text: "Blog" },
-  { href: "/projects", text: "Projects" },
-  { href: "/contact", text: "Contact" },
+  { href: "/", text: "Home", isActive: currentPath === "/" },
+  { href: "/blog", text: "Blog", isActive: currentPath.startsWith("/blog") },
+  {
+    href: "/projects",
+    text: "Projects",
+    isActive: currentPath.startsWith("/projects"),
+  },
+  {
+    href: "/contact",
+    text: "Contact",
+    isActive: currentPath.startsWith("/contact"),
+  },
 ];
 ---
 
@@ -17,7 +26,13 @@ const links = [
   </div>
   <nav class="nav-links">
     <ul>
-      {links.map((link) => <a href={link.href}>{link.text}</a>)}
+      {
+        links.map((link) => (
+          <a href={link.href} class={link.isActive ? "active" : ""}>
+            {link.text}
+          </a>
+        ))
+      }
     </ul>
   </nav>
 </div>
@@ -60,6 +75,7 @@ const links = [
     padding-left: 20px;
     padding-right: 20px;
     border-bottom: 1px solid #ddd;
+    align-items: center;
   }
   .nav-name {
     display: none;
@@ -89,6 +105,9 @@ const links = [
   nav a:hover {
     background: linear-gradient(to right, #f4f4f4, #dcdcdc);
     text-decoration: none;
+  }
+  nav a.active {
+    font-weight: bold;
   }
   .nav-links {
     display: flex;
@@ -124,6 +143,7 @@ const links = [
       padding-left: 20px;
       padding-right: 20px;
       border-bottom: 1px solid #ddd;
+      align-items: center;
     }
     .nav-name {
       display: block;
