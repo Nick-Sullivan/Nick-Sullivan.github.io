@@ -23,7 +23,6 @@ const { pageTitle } = Astro.props;
   /* Small screen */
   body {
     overflow: hidden;
-    width: 100%;
   }
   .layout-base {
     display: flex;
@@ -36,16 +35,17 @@ const { pageTitle } = Astro.props;
     display: flex;
     flex: 1;
     flex-direction: column;
-    padding-left: 20px;
-    padding-right: 20px;
     height: 100vh;
     overflow-y: auto;
     width: 100%;
+    align-items: center;
   }
   .content-inner {
     max-width: 600px;
     width: 100%;
-    margin: 0 auto;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   .footnotes {
     scroll-margin-top: 20px;
