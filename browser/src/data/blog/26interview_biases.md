@@ -1,6 +1,6 @@
 ---
 title: Interviewer biases
-date: 2025-02-14
+date: 2025-02-16
 description: ""
 published: true
 ---

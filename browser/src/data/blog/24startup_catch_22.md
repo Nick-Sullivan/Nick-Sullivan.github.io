@@ -1,6 +1,6 @@
 ---
 title: Startup catch-22
-date: 2025-02-14
+date: 2025-02-15
 description: "So much time and so little to do. Strike that, reverse it."
 published: true
 ---
