@@ -29,7 +29,7 @@ I consider this a [hygiene check](/blogs/21hygiene); you aren't hiring for the b
 
 **Code Review - 1 hour**
 
-In this hypothetical scenario, a junior engineer has created a new feature and provided the candidate with a system design and associated merge requests. Their team is out sick and has asked you to review it for them. They've given the candidate little-to-no context but will happily answer any questions they have.
+In this hypothetical scenario, a junior engineer has created a new feature and provided the candidate with a system design and associated merge requests. Their team is out sick and has asked the candidate to review it for them. They've given the candidate little-to-no context but will happily answer any questions they have.
 
 My favourite part of this approach is that it gives candidates the ability to focus on the part they are best at, whether it be the infrastructure, the backend, the frontend, or how they would communicate to a junior. And I love that it can feel comfortable even if a candidate is not doing well, whereas coding challenges can get extremely tense.
 
@@ -41,8 +41,8 @@ The downside of this is that it requires more effort to tailor this for each can
 
 **Meet the team - 30 mins**
 
-This is basically a test for culture. You should already have a feel for this from the previous rounds, but it can be different when having a chat. Try to do this in person.
-This is also a chance to "sell" the company, highlighting the good things about working here. Be truthful and not afraid to talk about the bad things as well, but the day-to-day experience is a big part of the job, and if you've genuinely tried to make the workplace a great place to work, it can be a differentiator to any other offers they have.
+This is basically a test for culture. You should already have a feel for this from the previous rounds, but it can be different when there's no code to focus on. Try to do this in person.
+This is also a chance to "sell" the company, highlighting the good things about working here. Be truthful and not afraid to talk about the bad things as well, but the day-to-day experience is a big part of the job, and if you've genuinely tried to make the workplace a great place to work, it can be a differentiator to other offers they may have.
 
 **Notes**
 
