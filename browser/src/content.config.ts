@@ -8,7 +8,7 @@ const blogSchema = z.object({
   published: z.boolean(),
 });
 const blog = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/data/blog" }),
+  loader: glob({ pattern: "**/*.md*", base: "./src/data/blog" }),
   schema: blogSchema,
 });
 const projectsSchema = z.object({
@@ -18,7 +18,7 @@ const projectsSchema = z.object({
   published: z.boolean(),
 });
 const projects = defineCollection({
-  loader: glob({ pattern: "**/*.mdx", base: "./src/data/projects" }),
+  loader: glob({ pattern: "**/*.md*", base: "./src/data/projects" }),
   schema: projectsSchema,
 });
 
