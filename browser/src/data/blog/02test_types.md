@@ -1,5 +1,5 @@
 ---
-title: Software Testing Guidelines
+title: Software testing guidelines
 date: 2025-01-16
 description: Out with the pyramid, in with the rhombic dodecahedron.
 published: true

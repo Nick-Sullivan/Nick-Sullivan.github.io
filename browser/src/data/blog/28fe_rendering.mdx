@@ -1,0 +1,97 @@
+---
+title: "Frontend infrastructure part 2: rendering"
+date: 2025-02-18
+description: ""
+published: false
+---
+
+import { Image } from "astro:assets";
+import rendering01 from "../../assets/images/rendering01.png";
+import rendering02 from "../../assets/images/rendering02.png";
+import rendering03 from "../../assets/images/rendering03.png";
+
+This is part 1 of posts about front-end infrastructure, [View the previous post in this series here.](/blog/27fe_considerations)
+
+One of the biggest decisions to make about infrastructure is *when to render your code*.
+
+## Static Pre-Rendering
+
+This is the simplest of the three options. When you build your code, it is converted into HTML, CSS, and JavaScript. When a user's browser requests to see your page, a server provides these files. It is considered _static_ because the server provides the same content to every request.
+
+<div class="image-gallery" style="text-align: center;">
+  <Image
+    src={rendering01}
+    alt="Diagram of static website flow."
+    className="image"
+    height="350"
+  />
+</div>
+
+This doesn't mean that the page is not interactive; CSS and JavaScript can be used to create animations, forms, buttons etc.
+
+Static websites are extremely efficient to cache, giving them the *fastest initial load*.
+
+But static sites have limitations. If you had custom URL endpoints like `mywebsite.com/posts/$id` where `$id` is the ID of a blog post, a new post would only become available when the code is rebuilt. This means it *isn't suitable for user interactions requiring subsequent loads* with new content, or for user customisation.
+
+As a general rule, if a static website meets your needs, use it. It's the *simplest, fastest, and cheapest* option.
+
+**Suitable for**
+
+Pages where it's acceptable for content to be available only when the developer builds it.
+Great for personal blogs and small company home pages.
+
+## Dynamic Rendering
+
+To overcome the limitations of a static website, we can split the rendering into two steps: first, we build a skeleton which dictates how to generate pages, then we combine it with data to render the page. This rendering can be done on the client side in the user's browser, or the server side on a machine that we control.
+
+### Client-Side Rendering (CSR)
+
+The user's browser retrieves the skeleton which describes how to make a page, and retrieves the data, then combines the two to render the page. This overcomes the limitations of a static site, as the data will be up-to-date with the database.
+
+<div class="image-gallery" style="text-align: center;">
+  <Image
+    src={rendering02}
+    alt="Diagram of client-side rendering flow."
+    className="image"
+    height="350"
+  />
+</div>
+
+The main issue with this approach is the *latency of the initial load*. It's using the user's internet connection to get data, and their CPU to render it. If the user has slow internet, or is viewing the page on a cheap device, this could cause a long wait until the user can see the fully rendered page.
+After the initial load, however, *page updates can happen very quickly*, as we can re-render subcomponents of the page as needed.
+It is also *relatively cheap*, because the site is being built on a device that you aren't paying for.
+
+**Suitable for**
+
+Pages with dynamic content, where fast responses to user input are more important than initial load time, such as Google Maps.
+
+### Server-Side Rendering (SSR)
+
+Similarly to client-side rendering, the server that retrieves the skeleton also retrieves the data, combining the two to generate the page.
+
+<div class="image-gallery" style="text-align: center;">
+  <Image
+    src={rendering03}
+    alt="Diagram of server-side rendering flow."
+    className="image"
+    height="350"
+  />
+</div>
+
+The main advantage of doing this is the *fast initial response time*. The server is within our control, so we can build on a high-powered machine with very fast internet. It also doesn't need to communicate as much information back to the user's device, because the built page is usually much smaller than the skeleton & data.
+
+However, this can be *expensive* for sites with a lot of traffic. It also adds more *complexity* to your service.
+
+**Suitable for**
+
+Pages with dynamic content wanting fast initial load time, such as blogs and shopping sites.
+
+## Hybrid Rendering
+
+It's become popular for frameworks to support hybrid approaches, allowing developers to indicate when a page should be rendered. 
+
+The initial request is rendered server-side (or pre-rendered if applicable), providing a fast initial load time, and subsequent interactions are rendered by the client. It provides the fastest user experience, but at the cost of added complexity.
+
+
+
+[View the next post in this series here.](/blog/29fe_pages)

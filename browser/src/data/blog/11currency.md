@@ -1,5 +1,5 @@
 ---
-title: Positive Feedback
+title: Positive feedback
 date: 2024-12-04
 description: "It's not what you look at that matters, it's what you see."
 published: true

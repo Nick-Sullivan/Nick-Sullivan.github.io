@@ -1,5 +1,5 @@
 ---
-title: High Leverage Development
+title: High leverage development
 date: 2025-02-05
 description: ""
 published: false

@@ -1,5 +1,5 @@
 ---
-title: Walk The Idea Around
+title: Walk the idea around
 date: 2024-11-01
 description: Success before the meeting has even started.
 published: true

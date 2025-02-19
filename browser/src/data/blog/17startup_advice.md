@@ -1,5 +1,5 @@
 ---
-title: Startup Mistakes
+title: Startup mistakes
 date: 2024-12-18
 description: asdf
 published: false

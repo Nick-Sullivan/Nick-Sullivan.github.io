@@ -1,5 +1,5 @@
 ---
-title: My Ways Of Working
+title: My ways of working
 date: 2024-10-01
 description: The glue that holds the gears together.
 published: true

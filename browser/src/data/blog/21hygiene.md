@@ -1,5 +1,5 @@
 ---
-title: Hiring Hygiene
+title: Hiring hygiene
 date: 2025-01-31
 description: ""
 published: true

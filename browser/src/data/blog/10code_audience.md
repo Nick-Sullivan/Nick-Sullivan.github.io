@@ -1,5 +1,5 @@
 ---
-title: Code Audience
+title: Code audience
 date: 2024-12-03
 description: What do software engineers even do?
 published: true

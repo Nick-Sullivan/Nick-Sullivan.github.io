@@ -1,5 +1,5 @@
 ---
-title: Environment Abstractions
+title: Environment abstractions
 date: 2024-11-15
 description: I, as a software engineer, want nothing more than to pretend software doesn't exist.
 published: true

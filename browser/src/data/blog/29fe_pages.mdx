@@ -1,0 +1,71 @@
+---
+title: "Frontend infrastructure part 3: pages"
+date: 2025-02-16
+description: ""
+published: false
+---
+
+import { Image } from "astro:assets";
+import spa01 from "../../assets/images/spa01.png";
+import spa02 from "../../assets/images/spa02.png";
+
+This is part 3 of posts about front-end infrastructure, [View the previous post in this series here.](/blog/28fe_rendering)
+
+This post will talk about the structure of the website, in particular how they relate to rendering.
+
+# Multi Page Applications (MPA)
+
+In a multi page application, each URL *path* represents a different *page*.
+
+What's a URL path? URLs are in the form `https://www.$domain/$path`.
+
+For example, this page (https://www.nickdavesullivan.com/blog/28single_page_applications) has domain `nickdavesullivan.com`, and path `blog/28single_page_applications`.
+
+Every time you click different blog post, it will send a new request to the server, which will respond with the content to view that page.
+
+<div class="image-gallery" style="text-align: center;">
+  <Image
+    src={spa01}
+    alt="Diagram of a multi page application."
+    className="image"
+    height="350"
+  />
+</div>
+
+This has a fast *initial load*, because it is only loading the data that is relevant for the current page. But every *subsequent load will take just as long*.
+
+It's possible to speed up subsequent page loads using prefetch, where we load the pages we think the user will click. This site uses prefetch on viewport, which means if you can see a link to another blog post, your browser will load it in the background.
+
+MPAs are quite *simple to implement and scale*. Each page operates independently so you don't have to worry about how each page may impact other pages.
+
+**Pairings**
+
+- Static Pre-Rendering: A sensible pairing for simple applications aiming for fast initial loads.
+- Client Side Rendering: Not usually appropriate, CSR has a slow initial load time and fast re-rendering, which is the opposite of what MPA provides.
+- Server Side Rendering: A sensible pairing for more complex, dynamic applications that want fast initial loads.
+
+# Single Page Applications (SPA)
+
+Single page applications request page information from the server once, recieving all the information it needs to show any URL path.
+
+<div class="image-gallery" style="text-align: center;">
+  <Image
+    src={spa02}
+    alt="Diagram of single page application."
+    className="image"
+    height="350"
+  />
+</div>
+
+This has a *slower initial load* because its receiving more data, but *fast subsequent loads* because it doesn't need to send another request to the server.
+
+They are well suited for websites that need to carry state between different sections of the website.
+
+**Pairings**
+
+- Static Pre-Rendering: SPAs can use pre-rendered content to speed up the initial load time, but subsquent renders are usually performed with CSR. 
+- Client Side Rendering: Most SPAs will use CSR, it will load up all the data and re-render it on the users device, maximising re-rendering speed.
+- Server Side Rendering: Similarly to static pre-rendering, SSR to speesd up the initial load time, with CSR handling subsequent renders. 
+
+
+[View the next post in this series here.](/blog/30fe_technologies)
