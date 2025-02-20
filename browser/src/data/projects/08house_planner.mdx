@@ -1,0 +1,48 @@
+---
+title: House Planner
+date: 2025-01-08
+description: ""
+published: false
+---
+
+import { Image } from "astro:assets";
+import image01 from "../../assets/images/houseplanner01.png";
+
+I've been in London for almost a year now, and one of the most interesting things is how it's made of up so many different bubbles of culture. Every borough has its own style of architectures, accents, and food. These borough's are all tightly interconnected by a series of tube lines (trains). People are so reliant on the tube that it's  common to not own a car, making the ability to travel from point A to point B largely dependent on a tube line paths, crossovers, and station locations.
+
+This made it very difficult for my colleagues who were looking to buy or rent a house. It isn't intuitive how long it would take to travel. Especially compared to Adelaide, we're almost everyone drives, making travel duration synonymous with distance.  
+
+<div class="image-gallery">
+  <Image
+    src={image00}
+    alt="Circles representing distances to locations."
+    className="image"
+    height="350"
+  />
+</div>
+
+I decided to make a website to make this easier.
+
+## The houses
+
+In my proof of concept, I started with Adelaide because there are fewer houses, a smaller geography, and I knew the goegraphy much better. 
+
+I created a quick [web scraper](https://playwright.dev/python/) to get houses that are for sale. The sites had some anti-scrape protection, which I bypassed using some helpful libraries. I justify the use of scraping because I will link users to their site for more information about the houses, which is profitable for their business.
+
+I then used the [Google Maps Places API](https://developers.google.com/maps/documentation/places/web-service/overview) to get the latitude and longitude of each address., and dumped the data into a small CSV, wrapped with an [API router](https://github.com/Nick-Sullivan/house-planner/blob/main/server/src/serve.rs) to serve up a paginated list of houses.
+
+## The locations of interest
+
+Users need to provide their locations of interest, their method of travel, and their tolerated duration. I opted for a standard two-pane layout with a dynamic number of location cards. Each address entry uses Google Maps autocomplete, which I was impressed at how simple it was to integrate. Copilot got it right first try.
+
+A complex feature here is "one of" locations, such as those who want to be near *a* grocery store. Manually entering in every grocery store would be a terrible experience, but I wanted users to have the ability edit this to match their preferences. 
+
+TODO - FILL THIS IN ONCE I DECIDE WHAT TO DO
+
+## The map
+
+I wanted to show a [cloropleth map](https://en.wikipedia.org/wiki/Choropleth_map) that indicates how potential properties correspond to travel durations. Partly because it would look really cool. And partly so it could be used for other non-house-purchase projects, like deciding on meeting spots. But mostly because it looked cool.
+
+The server indexes all locations to [h3](https://www.uber.com/en-GB/blog/h3/) are resolution 10, and then uses the [Google Maps Directions API](https://developers.google.com/maps/documentation/directions/overview) to calculate the distance between the centres of each h3 node. The results are cached in a database to avoid needing to recompute.
+
+TODO - FILL IN HOW TO DISPLAY IT

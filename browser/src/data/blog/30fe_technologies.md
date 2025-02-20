@@ -86,4 +86,4 @@ In React Router, nested routes can act like a single-page architecture, so going
 
 For deployments, I use the same process as I described for the simple content site.
 
-As a side note, I'm keen to use Svelte, but at the moment it doesn't have the benefits of the size that React does. React has so many more integrations, UI libraries, and all my workplaces have used React.
+As a side note, I'm keen to use Svelte, but at the moment it doesn't have the benefits of the size that React does. React has so many more integrations, UI libraries, and most of my workplaces have used React.
