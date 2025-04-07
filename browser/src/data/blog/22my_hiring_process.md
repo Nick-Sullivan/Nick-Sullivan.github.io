@@ -25,7 +25,7 @@ I have mixed feelings about coding challenges. On one hand, it doesn't align wit
 
 Use a service for this, automated so they don't feel watched, give the candidate more time than you think they would need (it's stressful, after all), let them use whatever language they are comfortable with, and review the recording at 5x speed to catch cheaters.
 
-I consider this a [hygiene check](/blogs/21hygiene); you aren't hiring for the best coder, but being able to code is a requirement.
+I consider this a [hygiene check](/blog/21hygiene); you aren't hiring for the best coder, but being able to code is a requirement.
 
 **Code Review - 1 hour**
 
@@ -41,8 +41,10 @@ The downside of this is that it requires more effort to tailor this for each can
 
 **Meet the team - 30 mins**
 
-This is basically a test for culture. You should already have a feel for this from the previous rounds, but it can be different when there's no code to focus on. Try to do this in person.
+Emphasise that this section is for the candidate, it's a chance to ask any and all questions they have, and to give a feeling for what it would be like to work here.
+If they don't have questions, it's still worth going over the type of work you do, such as recent projects.
 This is also a chance to "sell" the company, highlighting the good things about working here. Be truthful and not afraid to talk about the bad things as well, but the day-to-day experience is a big part of the job, and if you've genuinely tried to make the workplace a great place to work, it can be a differentiator to other offers they may have.
+This is also a final chance to see if any big red flags come out of the woodwork, such as racism or sexism.
 
 **Notes**
 
