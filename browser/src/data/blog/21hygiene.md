@@ -5,7 +5,7 @@ description: ""
 published: true
 ---
 
-When hiring, it's easy to fall into the trap of selecting the candidate whose resume most closely matches the job description or who scores highest on a technical challenge. To avoid this, I categorize criteria into three groups: hygiene, nice-to-haves, and optimization.
+When hiring, it's easy to fall into the trap of selecting the candidate whose resume most closely matches the job description, or who scores highest on a technical challenge. To avoid this, I categorise criteria into three groups: hygiene, nice-to-haves, and optimization.
 
 **Hygiene**
 
@@ -13,10 +13,10 @@ These are non-negotiable minimum criteria. They include requirements such as bei
 
 **Nice-to-have's**
 
-It's beneficial if a candidate has experience with your tech stack. In some cases, you might urgently need someone with specific tool or domain knowledge, making it a hygiene constraint. However, in most cases, the exact tech stack isn't critical. I find these criteria most applicable to differentiate similarly qualified candidates.
+It's beneficial if a candidate has experience with your tech stack. In some cases, you might urgently need someone with specific tool or domain knowledge, making it a hygiene constraint. However, in most cases, the exact tech stack isn't critical. I use nice-to-haves differentiate similarly qualified candidates.
 
 **Optimisation**
 
-These are high-level criteria that reflect the role's responsibilities, such as "able to build scalable software," "skilled at mentoring others," or "able to create high impact." Ultimately, the key criterion is the person who brings the most value. This varies for each role and trying to quantify it with a rigid set of rankings can be time-consuming and fail to capture the nuances of individual skills. I prefer not to use scorecards to quantify charm, motivation, energy, sense of humor, moral compass, attention to detail, etc.
+These are high-level criteria that reflect the role's responsibilities, such as "able to build scalable software," "skilled at mentoring others," or "able to create high impact." Ultimately, the key criterion is the person who brings the most value. This varies for each role and trying to quantify it with a rigid set of rankings can be time-consuming and fail to capture the nuances of individual skills. I prefer not to use scorecards to quantify charm, motivation, energy, sense of humor, moral compass, attention to detail, etc. Instead, have an open mind and explore what each candidate brings.
 
 My recommendation is to use hygiene criteria to filter out candidates, optimize for those who add the most value, and use nice-to-haves to break ties.
