@@ -29,7 +29,7 @@ crunch the numbers and check that it's logical and consistent. You suggest showi
 what they see day to day.
 
 _No_, your partner says. _We're not going to show it to **some** people, we're going to show it to **everyone**, one at a time_.
-This is what we calls, "walking the idea around".
+This is what we call, "walking the idea around".
 
 We start with the most technical people, the ones most likely to understand that automation is written by humans, and can initially be incorrect.
 We iterate on our analysis until we can't find any flaws. We show how our software is telling them "what they've been telling upper management
