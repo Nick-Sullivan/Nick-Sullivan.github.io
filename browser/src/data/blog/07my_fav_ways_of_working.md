@@ -25,17 +25,17 @@ All ideas that we wish to action get categorised into one of three streams of wo
 
   Projects are estimated (**realistically** estimated, with a safety buffer, by the engineers!), and it's important that most projects are finished by this date. This includes post-deployment aftercare.
 
-- Bite-sized work ("Off-Project" work)
+- Backlog ("Off-Project" work)
 
   Small blocks of work, usually less than one person-week. The overhead associated with regular prioritisation and estimation can quickly outweigh the time spent implementing it, so they are treated first-come-first-served in a Kanban style.
 
-  These can be estimated, but don't have deadlines. Work to plan the next project falls in this category - context switching is just as detrimental to senior managers and project leads as it is to software developers.
+  These can be estimated, but don't have deadlines. Planning of the next project falls in this category - context switching is just as detrimental to senior managers and project leads as it is to software developers.
 
   This stream is often less stressful than project work, but also less exciting. It can be used to pay-back any late nights spent by employees to get projects completed on time.
 
 - Bugs
 
-  The way a company handles bugs is a yardstick for its culture. If tech teams are given sufficient time to create a quality product (and have the expertise to do so), then bugs should be minimal, making it feasible to respond to all bugs immediately. But if this is not the case, bugs should be treated similarly to bite-sized work. Even low impact bugs should be fixed or masked from error reporting so they do not conceal high impact bugs or create a culture of bugs being acceptable.
+  The way a company handles bugs is a yardstick for its culture. If tech teams are given sufficient time to create a quality product (and have the expertise to do so), then bugs should be minimal, making it feasible to respond to all bugs immediately. But if this is not the case, bugs should be treated similarly to backlog work. Even low impact bugs should be fixed or masked from error reporting so they do not conceal high impact bugs or create a culture of bugs being acceptable.
 
   If you have multiple teams, they can be working on different phases, so that there is always one team ready to tackle bugs quickly without disrupting projects.
 
