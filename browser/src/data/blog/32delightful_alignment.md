@@ -1,5 +1,5 @@
 ---
-title: "Delightful Alignment"
+title: "Delightful alignment"
 date: 2025-04-08
 description: "It's a beautiful day, and the weather's good too."
 published: true
