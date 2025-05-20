@@ -17,7 +17,7 @@ I don't care about what languages they've used previously, but if it's different
 This is valuable for both interviewer and interviewee. It's a chance to make sure they're a real person, can hold a basic conversation, and are comfortable with the job requirements. Ask them for a five-minute spiel about their background and what they're looking for.
 Ensure the candidate understands your interview process and get their availability.
 
-The person who performs the phone screen should be the single point of contact that the candidate can reach out to for any questions or rescheduling. You don't want them feeling like a cog in the machine.
+The person who performs the phone screen should be the single point of contact that the candidate can reach out to for any questions or rescheduling. You don't want to pass them from person-to-person, making them feel like a cog in the machine.
 
 **Easy leetcode - 30 min**
 
@@ -35,7 +35,7 @@ My favourite part of this approach is that it gives candidates the ability to fo
 
 It has a built-in "humility check" where candidates can show that they know their limits, saying when they would need to get more information in order to comment.
 
-Emphasise that the candidate might not use the full hour, and that's okay. Give at least 10 minutes to answer any questions they have that they didn't get to ask in the phone screen.
+Emphasise that the candidate might not use the full hour, or would need more than an hour, and that's okay. It's a timeboxed activity to see how they think - not something that must be finished. Give at least 10 minutes to answer any questions they have that they didn't get to ask in the phone screen.
 
 The downside of this is that it requires more effort to tailor this for each candidate, so that they have at least one part in a language they are comfortable with.
 
