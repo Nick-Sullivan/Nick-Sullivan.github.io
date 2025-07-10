@@ -53,3 +53,6 @@ As an example, [this article](https://microservices.io/post/architecture/2025/03
 >  - People who have expertise in the area in which the decision is being taken
 
 Teams structured this way tend to develop greater stakeholder sympathy, and hence are able to make better decisions.
+
+
+I really hope the concept of an expert generalist gains traction. Generalist skillsets are either undervalued, "sorry, we're looking for someone with 20 years experience in our exact tech stack", or misunderstood, "It's not your job to understand the user problems, it's your job to build". The ability to identify and communicate the strengths that generalists bring will hopefully lead to more conscious team-building, leading to higher performing teams.
