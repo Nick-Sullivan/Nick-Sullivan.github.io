@@ -53,8 +53,9 @@ const links = [
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: #f4f4f4;
+    background-color: #fafafa;
     transition: width 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   .nav-column.fullscreen {
     position: fixed;
@@ -70,20 +71,21 @@ const links = [
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-top: 7px;
-    padding-bottom: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-bottom: 1px solid #ddd;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e0e0e0;
     align-items: center;
+    background-color: #fafafa;
   }
   .nav-name {
     display: none;
+    font-weight: 400;
+    color: #333;
+    font-size: 1.1rem;
   }
   .favicon {
     display: block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
   }
   .nav-column ul {
     display: none;
@@ -92,27 +94,33 @@ const links = [
     display: block;
   }
   nav a {
-    color: #7253ef;
+    color: #5c5962;
     display: flex;
     text-align: left;
     width: 100%;
     border: none;
     background: none;
-    padding-left: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 12px 20px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-weight: 500;
   }
   nav a:hover {
-    background: linear-gradient(to right, #f4f4f4, #dcdcdc);
+    background-color: #f8f7ff;
+    color: #7253ef;
     text-decoration: none;
   }
   nav a.active {
-    font-weight: bold;
+    font-weight: 600;
+    color: #7253ef;
+    background-color: #f8f7ff;
+    border-right: 3px solid #7253ef;
   }
   .nav-links {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #fafafa;
   }
   .nav-links ul {
     width: 100%;
@@ -127,13 +135,13 @@ const links = [
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   /* Large Screen */
-  @media screen and (min-width: 636px) {
+  @media screen and (min-width: 800px) {
     .nav-column {
       display: flex;
       flex-direction: column;
       width: 200px;
       height: 100%;
-      background-color: #f4f4f4;
+      background-color: #fafafa;
       border-right: 1px solid #ddd;
       transition: width 0.2s ease;
       overflow: hidden;
@@ -141,20 +149,20 @@ const links = [
     .nav-header {
       display: flex;
       flex-direction: row;
-      padding-top: 20px;
-      padding-bottom: 20px;
-      padding-left: 20px;
-      padding-right: 20px;
-      border-bottom: 1px solid #ddd;
+      padding: 25px 20px;
+      border-bottom: 1px solid #e0e0e0;
       align-items: center;
+      background-color: #fafafa;
     }
     .nav-name {
       display: block;
       flex: 1;
-      font-size: large;
+      font-size: 1.2rem;
       text-align: center;
       white-space: nowrap;
       margin: 0;
+      fonte-weight: 600;
+      color: #333;
     }
     .favicon {
       display: none;
@@ -164,6 +172,7 @@ const links = [
       padding: 0;
       width: 100%;
       display: block;
+      margin: 0;
     }
     .nav-column li {
       width: 100%;

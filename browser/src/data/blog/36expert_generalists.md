@@ -15,7 +15,7 @@ I recommend reading that article (or at least skimming), and maybe you'll feel l
 
 **Working across domains**
 
-I've worked in miningtech, fintech, biotech (and soon, logistics). I've written before about some of my observations about how [domain cultures impact software engineering.](/blog/06_domain_culture) My pattern-matching monkey brain finds it interesting to identify which principles are fundamental, and which ones are manifestations of domain-specific constraints.
+I've worked in miningtech, fintech, biotech (and soon, logistics). I've written before about some of my observations about how [domain cultures impact software engineering.](/blog/06domain_culture) My pattern-matching monkey brain finds it interesting to identify which principles are fundamental, and which ones are manifestations of domain-specific constraints.
 
 This is useful knowledge to have! As your business/product/domain evolves, you can recognise what needs to change with it. Got an increased requirement for auditing? Finance bread and butter. Highly experimental product features? Science has been doing it for years.
 It adds tools to your tool belt, giving you lots of different options for how to solve a problem.
@@ -40,7 +40,7 @@ This is exactly what I've talked about in a previous post (but Fowler does it mo
 
 I've found the highest performing teams are the ones that have minimal "handovers". A handover indicates transfer of ownership, and with it, all responsibility. With every handover, I find there is a loss of context and empathy. For example, if teams handover between every step of a reasonably standard process:
 
-    Product -> Architecture -> Development -> Testing
+Product -> Architecture -> Development -> Testing
 
 You end up with product decisions with no understanding of engineering impact, architects that don't understand the current limitations of the code, developers that don't understand what problem they're solving, and testers testing a system that isn't built to be testable. 
 
@@ -48,9 +48,9 @@ I'm not saying we can't have those roles, or that we can't have specialists, we 
 
 As an example, [this article](https://microservices.io/post/architecture/2025/03/23/andrew-harmel-law-architecture-advice-process.html) summarises Andrew Harmel-Law's approach to architecture:
 
-> Anyone (a development team member or someone playing a cross-team architecture role) can take (select a decision option) and communicate an architectural decision as long as during the option-making stage, they seek advice from:
->  - Everyone who will be meaningfully affected by the decision
->  - People who have expertise in the area in which the decision is being taken
+> Anyone (a development team member or someone playing a cross-team architecture role) can take (select a decision option) and communicate an architectural decision as long as during the option-making stage, they seek advice from:<br>
+> • Everyone who will be meaningfully affected by the decision<br>
+> • People who have expertise in the area in which the decision is being taken
 
 Teams structured this way tend to develop greater stakeholder sympathy, and hence are able to make better decisions.
 
