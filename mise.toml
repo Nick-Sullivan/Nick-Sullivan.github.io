@@ -1,0 +1,25 @@
+# Mise is a package manager and makefile.
+# Install mise by following the docs:
+#  https://mise.jdx.dev/getting-started.html
+# 
+#  mise install       - Install packages
+#  mise list          - View installed packages
+#  mise use <package> - Add a new package
+#  mise prune         - Remove unused packages
+#  mise <taskname>    - Run a task
+
+[env]
+NODE_ENV = "local"
+
+[tasks.browser]
+description = "Run the browser"
+dir = "browser"
+run = "npm run dev"
+
+[tasks.browserinstall]
+description = "Install packages for the browser"
+dir = "browser"
+run = "npm install"
+
+[tools]
+node = "22.17.0"
