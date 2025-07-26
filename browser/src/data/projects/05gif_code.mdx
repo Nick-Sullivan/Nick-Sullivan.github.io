@@ -1,7 +1,7 @@
 ---
 title: GIF QR Code Generator
 date: 2023-10-01
-description: "Overlays a QR code onto a GIF, which I use as a fun way to share links."
+description: ""
 published: true
 ---
 
@@ -14,32 +14,44 @@ import image04 from "../../assets/images/gif_code04.png";
 import image05 from "../../assets/images/gif_code05.png";
 import image06 from "../../assets/images/gif_code06.gif";
 import image07 from "../../assets/images/gif_code07.gif";
+import image08 from "../../assets/images/gif_code08.png";
+import image09 from "../../assets/images/gif_code09.png";
+import image10 from "../../assets/images/gif_code10.gif";
+import image11 from "../../assets/images/gif_code11.gif";
+
+An android app where users can select a GIF from GIPHY and types a desired message, overlaying a QR code onto the GIF.
+I use as a fun way to share links.
 
 It's available on the [Google Play Store], and here's the [source code].
 
 <div class="image-gallery">
-  <Image src={image01} alt="QR Code on a celebration GIF." className="image" />
+  <Image src={image08} alt="Selecting a GIF." className="tall" />
+  <Image
+    src={image09}
+    alt="The app showing the assembled GIF Code."
+    className="tall"
+  />
+  <Image src={image01} alt="QR Code on a celebration GIF."/>
   <Image
     src={image06}
     alt="QR Code on a pixelated dinosaur."
-    className="image"
   />
-  <Image src={image07} alt="QR Code on a balloon popping." className="image" />
-  <Image src={image02} alt="Entering text in the app." className="image" />
-  <Image src={image03} alt="Selecting a GIF." className="image" height="350" />
-  <Image
-    src={image04}
-    alt="The app showing the assembled GIF Code."
-    className="image"
-  />
-  <Image src={image05} alt="The app collection." className="image" />
+  <Image src={image07} alt="QR Code on a balloon popping." />
+  <Image src={image10} alt="QR Code on a man getting home from work."/>
+  <Image src={image11} alt="QR Code on Homer Simpson sinking into a bush."/>
+
 </div>
 
 ---
 
-When your phone scans a QR code, it uses the corner boxes to calibrate position and orientation of the image. It then uses the centre of each image to determine if the block is black or white. The edges of each box can be made transparent without significantly impacting the readability of the QR code.
+## How does it work?
 
-It uses flutter as the front-end, which talks to the GIPHY API to preview and select GIFs. A request is sent to a Python backend that generates a QR Code, adds transparency, and overlays it on each frame in the GIF. The result is saved into an S3 bucket, which is loaded by the flutter app and cached on the phone.
+When your phone scans a QR code, it uses the corner boxes to calibrate position and orientation of the image.
+It then uses the _centre_ of each image to determine if the block is black or white.
+The edges of each box can be made transparent without significantly impacting the readability of the QR code.
+
+It uses flutter as the front-end, which talks to the GIPHY API to preview and select GIFs.
+A request is sent to a Python backend that generates a QR Code, adds transparency, and overlays it on each frame in the GIF. The result is saved into an S3 bucket, which is loaded by the flutter app and cached on the phone.
 
 <div class="image-gallery">
   <Image

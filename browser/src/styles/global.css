@@ -84,6 +84,13 @@ time {
 li {
   font-size: 1.1rem;
 }
+
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
 .image-gallery img {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
@@ -93,4 +100,10 @@ li {
   width: auto;
   object-fit: contain;
   margin: 3px;
+  justify-self: center;
+}
+
+.image-gallery .tall {
+  grid-row: span 2;
+  max-height: 450px;
 }
