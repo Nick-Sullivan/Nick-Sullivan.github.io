@@ -1,0 +1,26 @@
+---
+title: Magic the Gathering Proxy
+date: 2026-01-01
+description: "A quick an easy way to print custom MTG cards"
+published: true
+---
+
+import { Image } from "astro:assets";
+import image00 from "../../assets/images/mtg_proxy00.png";
+
+My friends and I have been getting into Magic The Gathering card game, which is good fun but very expensive. Each deck is somewhere between $200 to $1000 AUD.
+It's pretty common to "proxy" a card, by printing them out yourself.
+The proxy technique I use is to buy many cheap official cards, put them into card sleeves, and insert pieces of paper over the front of the card.
+
+There are free sites online that create PDF files for printing the more expensive cards, but I found them a bit lacking. In particular, I want to pick the specific art style of that card, and upload my own custom art.
+
+So I spend a day to make my own at https://nickdavesullivan.com/mtg-maker-ts/
+
+It leverages scryfall for all the Magic the Gathering data, including images, and is just a simple react-based client-side app.
+
+<Image
+  src={image00}
+  alt="Screenshot of Magic the Gathering proxy website."
+  className="image"
+  height="500"
+/>
