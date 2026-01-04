@@ -5,5 +5,16 @@ const { images = [] }: { images?: ImageItem[] } = Astro.props;
 ---
 
 <div class="image-gallery">
-  {images.map((image) => <img src={image.src} alt={image.alt} />)}
+  {
+    images.map((image) => (
+      <img
+        src={image.src}
+        alt={image.alt}
+        width={image.width}
+        height={image.height}
+        loading="lazy"
+        class={image.className}
+      />
+    ))
+  }
 </div>

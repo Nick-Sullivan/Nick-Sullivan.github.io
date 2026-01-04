@@ -5,7 +5,7 @@ description: ""
 published: true
 ---
 
-import { Image } from "astro:assets";
+import ImageGallery from "../../components/ImageGallery.astro";
 import image00 from "../../assets/images/gif_code00.png";
 import image01 from "../../assets/images/gif_code01.gif";
 import image02 from "../../assets/images/gif_code02.png";
@@ -19,28 +19,59 @@ import image09 from "../../assets/images/gif_code09.png";
 import image10 from "../../assets/images/gif_code10.gif";
 import image11 from "../../assets/images/gif_code11.gif";
 
+export const images = [
+  {
+    src: image01.src,
+    alt: "QR Code on a celebration GIF.",
+    width: 344,
+    height: 344,
+  },
+  {
+    src: image06.src,
+    alt: "QR Code on a pixelated dinosaur.",
+    width: 344,
+    height: 344,
+  },
+  {
+    src: image07.src,
+    alt: "QR Code on a balloon popping.",
+    width: 344,
+    height: 344,
+  },
+  {
+    src: image10.src,
+    alt: "QR Code on a man getting home from work.",
+    width: 344,
+    height: 344,
+  },
+  {
+    src: image11.src,
+    alt: "QR Code on Homer Simpson sinking into a bush.",
+    width: 344,
+    height: 344,
+  },
+  {
+    src: image08.src,
+    alt: "Selecting a GIF.",
+    width: 1080,
+    height: 1920,
+    className: "tall",
+  },
+  {
+    src: image09.src,
+    alt: "The app showing the assembled GIF Code.",
+    width: 1080,
+    height: 1920,
+    className: "tall",
+  },
+];
+
 An android app where users can select a GIF from GIPHY and types a desired message, overlaying a QR code onto the GIF.
 I use as a fun way to share links.
 
 It's available on the [Google Play Store], and here's the [source code].
 
-<div class="image-gallery">
-  <Image src={image08} alt="Selecting a GIF." className="tall" />
-  <Image
-    src={image09}
-    alt="The app showing the assembled GIF Code."
-    className="tall"
-  />
-  <Image src={image01} alt="QR Code on a celebration GIF."/>
-  <Image
-    src={image06}
-    alt="QR Code on a pixelated dinosaur."
-  />
-  <Image src={image07} alt="QR Code on a balloon popping." />
-  <Image src={image10} alt="QR Code on a man getting home from work."/>
-  <Image src={image11} alt="QR Code on Homer Simpson sinking into a bush."/>
-
-</div>
+<ImageGallery images={images} />
 
 ---
 
@@ -53,14 +84,16 @@ The edges of each box can be made transparent without significantly impacting th
 It uses flutter as the front-end, which talks to the GIPHY API to preview and select GIFs.
 A request is sent to a Python backend that generates a QR Code, adds transparency, and overlays it on each frame in the GIF. The result is saved into an S3 bucket, which is loaded by the flutter app and cached on the phone.
 
-<div class="image-gallery">
-  <Image
-    src={image00}
-    alt="Architectural diagram."
-    className="image"
-    height="350"
-  />
-</div>
+<ImageGallery
+  images={[
+    {
+      src: image00.src,
+      alt: "Architectural diagram.",
+      width: 848,
+      height: 386,
+    },
+  ]}
+/>
 
 [Google Play Store]: https://play.google.com/store/apps/details?id=com.gif_code
 [source code]: https://github.com/Nick-Sullivan/gif-code
