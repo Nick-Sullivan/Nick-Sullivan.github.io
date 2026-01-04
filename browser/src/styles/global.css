@@ -86,21 +86,21 @@ li {
 }
 
 .image-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
 }
 
 .image-gallery img {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  border-color: #5c5962;
   max-height: 220px;
   height: auto;
   width: auto;
   object-fit: contain;
-  margin: 3px;
-  justify-self: center;
 }
 
 .image-gallery .tall {

@@ -6,24 +6,42 @@ const year = date.getFullYear();
 const dateStr = `${month} ${year}`;
 ---
 
-<a href={url}>{title}</a>
-<div class="date">
-  {dateStr}
-</div>
+<a href={url} class="project-link">
+  <span class="title">{title}</span>
+  <span class="date">{dateStr}</span>
+</a>
 
 <style>
-  li {
-    padding-bottom: 10px;
-    list-style-type: none;
+  .project-link {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    background: #fafafa;
+    border-left: 3px solid transparent;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
   }
-  a {
-    margin-left: 10px;
+
+  .project-link:hover {
+    background: #f0f0f0;
+    border-left-color: #7253ef;
+    transform: translateX(4px);
   }
+
+  .title {
+    color: #333;
+    font-weight: 500;
+    font-size: 1.05em;
+  }
+
   .date {
-    font-size: 0.8em;
+    font-size: 0.85em;
     color: #666;
-    text-align: right;
+    font-family: monospace;
   }
 </style>

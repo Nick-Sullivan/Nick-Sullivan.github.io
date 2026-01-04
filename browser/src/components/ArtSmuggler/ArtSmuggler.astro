@@ -1,0 +1,11 @@
+---
+import ColourCalculator from "./ColourCalculator/ColourCalculator";
+
+const { initialValues, isEditable } = Astro.props;
+---
+
+<ColourCalculator
+  initialValues={initialValues}
+  isEditable={isEditable}
+  client:load
+/>
