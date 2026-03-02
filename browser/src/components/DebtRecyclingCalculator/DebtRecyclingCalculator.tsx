@@ -66,7 +66,7 @@ export function DebtRecyclingCalculator() {
   const [investmentReturn, setInvestmentReturn] = useState(6.3);
   const [dividendYield, setDividendYield] = useState(3.7);
   const [taxBracket, setTaxBracket] = useState(37);
-  const [invLoanRate, setInvLoanRate] = useState(6.0);
+  const [invLoanRate, setInvLoanRate] = useState(8.0);
 
   const pct = (x: number) => x / 100;
   const n = (x: number) =>
@@ -175,9 +175,10 @@ export function DebtRecyclingCalculator() {
             shares increasing) and dividends (company profits being paid to
             you). Growth is taxed when it is sold (Capital Gains Tax, CGT), with
             a 50% tax discount if you don't sell it for at least a year.
-            Dividends are taxed the same as regular income. I have a few shares
-            in Vanguard's VDHG, and based on the historical returns for VDHG
-            over the last 10 years, I'm assuming
+            Dividends are taxed the same as regular income. It gets more
+            complicated than this for things with franking credits and property.
+            I have a few shares in Vanguard's VDHG, and based on the historical
+            returns for VDHG over the last 10 years, I'm assuming
             <N value={investmentReturn} onChange={setInvestmentReturn} />%
             growth,&nbsp;
             <N value={dividendYield} onChange={setDividendYield} />% dividends
@@ -219,7 +220,8 @@ export function DebtRecyclingCalculator() {
           shares. The key difference here is that the interest on the new loan
           is tax deductible. I found it very difficult to find published rates
           for investment loans, particularly for redraw. I contacted Macquarie
-          to get their interest rate,
+          to get their interest rate, and am waiting to get back to me, but for
+          now I'll assume
           <p className="option-sentence">
             <N value={invLoanRate} onChange={setInvLoanRate} />
             %.
