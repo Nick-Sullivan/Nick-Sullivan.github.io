@@ -1,0 +1,122 @@
+/* ── Inline number inputs ─────────────────────────── */
+
+.debt-calculator input.inline-num {
+  border: none;
+  border-bottom: 1px solid #aaa;
+  background: transparent;
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+  text-align: center;
+  padding: 0 0.1rem;
+  -moz-appearance: textfield;
+}
+
+.debt-calculator input.inline-num:focus {
+  outline: none;
+  border-bottom-color: #333;
+}
+
+.debt-calculator input.inline-num::-webkit-inner-spin-button,
+.debt-calculator input.inline-num::-webkit-outer-spin-button {
+  display: none;
+}
+
+/* ── Global sentence ─────────────────────────────── */
+
+.debt-calculator .global-inputs {
+  margin-bottom: 1.5rem;
+}
+
+/* ── Results ─────────────────────────────────────── */
+
+.debt-calculator .results {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.debt-calculator .option {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+}
+
+.debt-calculator .option h3 {
+  margin: 0 0 0.4rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #666;
+}
+
+.debt-calculator .option-sentence {
+  margin: 0 0 0.6rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid #eee;
+}
+
+.debt-calculator .option table {
+  width: auto;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.debt-calculator .option td {
+  padding: 0.25rem 0;
+}
+
+.debt-calculator .option td.formula {
+  color: #999;
+  font-size: 0.8rem;
+  font-family: monospace;
+  padding: 0.25rem 1.5rem;
+}
+
+.debt-calculator .option td.value {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ── Summary ─────────────────────────────────────── */
+
+.debt-calculator .summary {
+  display: flex;
+  gap: 3rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #ddd;
+  flex-wrap: wrap;
+}
+
+.debt-calculator .summary table {
+  border-collapse: collapse;
+}
+
+.debt-calculator .summary td {
+  padding: 0.2rem 0.5rem 0.2rem 0;
+  font-size: 0.9rem;
+}
+
+.debt-calculator .summary-results td {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.9rem;
+}
+
+.debt-calculator .summary-results tr {
+  border-radius: 4px;
+}
+
+.debt-calculator .summary td.value {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.debt-calculator .net {
+  font-weight: 600;
+  border-top: 1px solid #ddd;
+  padding-top: 0.3rem !important;
+}
+
