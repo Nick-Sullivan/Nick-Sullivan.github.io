@@ -66,7 +66,7 @@ export function DebtRecyclingCalculator() {
   const [investmentReturn, setInvestmentReturn] = useState(6.3);
   const [dividendYield, setDividendYield] = useState(3.7);
   const [taxBracket, setTaxBracket] = useState(37);
-  const [invLoanRate, setInvLoanRate] = useState(8.0);
+  const [invLoanRate, setInvLoanRate] = useState(5.6);
 
   const pct = (x: number) => x / 100;
   const n = (x: number) =>
@@ -215,14 +215,14 @@ export function DebtRecyclingCalculator() {
 
         <div className="option">
           <h3>Option 4 – debt recycling</h3>
-          This is like a combination of options 2 and 3. I pay off the mortgage,
-          then redraw the money as an investment loan, using that money to buy
-          shares. The key difference here is that the interest on the new loan
-          is tax deductible. I found it very difficult to find published rates
-          for investment loans, particularly for redraw. I contacted Macquarie
-          to get their interest rate, and am waiting to get back to me, but for
-          now I'll assume
           <p className="option-sentence">
+            This is like a combination of options 2 and 3. I pay off the
+            mortgage, then redraw the money as an investment loan, using that
+            money to buy shares. The key difference here is that the interest on
+            the new loan is tax deductible. I found it very difficult to find
+            published rates for investment loans, particularly for redraw. I
+            contacted Macquarie to get their interest rate for this, which was
+            quoted at
             <N value={invLoanRate} onChange={setInvLoanRate} />
             %.
           </p>
