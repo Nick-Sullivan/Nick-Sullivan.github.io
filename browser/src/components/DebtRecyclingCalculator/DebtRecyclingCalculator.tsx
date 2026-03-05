@@ -106,9 +106,9 @@ export function DebtRecyclingCalculator() {
   return (
     <div className="debt-calculator">
       <p className="global-inputs">
-        Let’s say I found $
-        <N value={principal} width="5.5ch" onChange={setPrincipal} /> in the
-        street, and I’m deciding what to do with it. I know my{" "}
+        Let’s say the briefcase has $
+        <N value={principal} width="5.5ch" onChange={setPrincipal} /> in it. I
+        know my{" "}
         <a href="https://www.ato.gov.au/tax-rates-and-codes/tax-rates-australian-residents#ato-Australianresidenttaxrates2020to2026">
           tax bracket
         </a>{" "}
@@ -166,19 +166,18 @@ export function DebtRecyclingCalculator() {
         <div className="option">
           <h3>Option 3 – invest in shares</h3>
           <p className="option-sentence">
-            This is where things get tricky. Firstly, investing is essentially
-            gambling, so nobody can predict the actual returns and this method
-            carries substantially more risk. But we do know over 10+ years, the
-            noise has always averaged out to a steady increase, and governments
-            are strongly incentivised to sustain this steady growth. Secondly,
-            the returns are made up of two components: growth (the value of the
-            shares increasing) and dividends (company profits being paid to
-            you). Growth is taxed when it is sold (Capital Gains Tax, CGT), with
-            a 50% tax discount if you don't sell it for at least a year.
-            Dividends are taxed the same as regular income. It gets more
-            complicated than this for things with franking credits and property.
-            I have a few shares in Vanguard's VDHG, and based on the historical
-            returns for VDHG over the last 10 years, I'm assuming
+            This is where things get tricky. Firstly, nobody can predict the
+            actual returns and this method carries substantially more risk. But
+            we do know over 10+ years, the noise has always averaged out to a
+            steady increase, and governments are strongly incentivised to
+            sustain this steady growth. Secondly, the returns are made up of two
+            components: growth (the value of the shares increasing) and
+            dividends (company profits being paid to you). Growth is taxed when
+            it is sold (Capital Gains Tax, CGT), with a 50% tax discount if you
+            don't sell it for at least a year. Dividends are taxed the same as
+            regular income. It gets more complicated than this for things with
+            franking credits and property. I have a few shares in Vanguard's
+            VDHG, and the historical returns over the last 10 years are roughly
             <N value={investmentReturn} onChange={setInvestmentReturn} />%
             growth,&nbsp;
             <N value={dividendYield} onChange={setDividendYield} />% dividends
