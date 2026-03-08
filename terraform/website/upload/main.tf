@@ -44,6 +44,8 @@ resource "aws_s3_object" "static_files" {
   source       = each.value.source_path
   content      = each.value.content
   etag         = each.value.digests.md5
+  # Hashed assets (_astro/) are immutable; HTML and other files revalidate on each visit
+  cache_control = startswith(each.key, "_astro/") ? "public, max-age=31536000, immutable" : "public, max-age=0, must-revalidate"
 }
 
 resource "terraform_data" "clear_cloudfront_cache" {
