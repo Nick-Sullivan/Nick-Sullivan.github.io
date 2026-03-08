@@ -19,7 +19,13 @@ const links = [
 <div class="nav-column" id="nav-column">
   <div class="nav-header">
     <div class="logo-section">
-      <img src="/favicon.ico" alt="Favicon" class="favicon" width="32" height="32" />
+      <img
+        src="/favicon.ico"
+        alt="Favicon"
+        class="favicon"
+        width="32"
+        height="32"
+      />
       <!-- <p class="nav-name">Nick Sullivan</p> -->
     </div>
     <button id="toggle-button" aria-label="Toggle navigation">
@@ -51,16 +57,26 @@ const links = [
   if (toggleButton && navColumn && menuIcon && closeIcon) {
     toggleButton.addEventListener("click", function () {
       const isOpen = navColumn.classList.toggle("fullscreen");
-
-      if (isOpen) {
-        menuIcon.style.display = "none";
-        closeIcon.style.display = "block";
-      } else {
-        menuIcon.style.display = "block";
-        closeIcon.style.display = "none";
-      }
+      menuIcon.style.display = isOpen ? "none" : "block";
+      closeIcon.style.display = isOpen ? "block" : "none";
     });
   }
+
+  function updateNav() {
+    const currentPath = window.location.pathname;
+    document.querySelectorAll("#nav-column nav a").forEach((link) => {
+      const href = link.getAttribute("href");
+      const isActive =
+        href === "/" ? currentPath === "/" : currentPath.startsWith(href!);
+      link.classList.toggle("active", isActive);
+    });
+    // Close mobile nav after navigation
+    navColumn?.classList.remove("fullscreen");
+    if (menuIcon) menuIcon.style.display = "block";
+    if (closeIcon) closeIcon.style.display = "none";
+  }
+
+  document.addEventListener("astro:page-load", updateNav);
 </script>
 
 <style>

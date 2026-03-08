@@ -7,6 +7,10 @@ import critters from "astro-critters";
 
 // https://astro.build/config
 export default defineConfig({
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "hover",
+  },
   integrations: [
     mdx(),
     react(),

@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import type { ImageItem } from "../types/types";
 
 const { images = [] }: { images?: ImageItem[] } = Astro.props;
@@ -13,23 +13,73 @@ function getDimensions(image: ImageItem): { width: number; height: number } {
     return { width: Math.round((meta.width * height) / meta.height), height };
   return { width: meta.width, height: meta.height };
 }
+
+const imageData = await Promise.all(
+  images.map(async (image) => {
+    const dims = getDimensions(image);
+    const lqip = await getImage({
+      src: image.src,
+      width: 20,
+      format: "webp",
+      quality: 20,
+    }).catch(() => null);
+    return { image, dims, lqipSrc: lqip?.src ?? null };
+  }),
+);
 ---
 
 <div class="image-gallery">
   {
-    images.map((image) => {
-      const dims = getDimensions(image);
-      return (
+    imageData.map(({ image, dims, lqipSrc }) => (
+      <div
+        class="img-wrapper"
+        style={`width: ${dims.width}px; height: ${dims.height}px`}
+      >
+        {lqipSrc && (
+          <div
+            class="img-placeholder"
+            style={`background-image: url('${lqipSrc}')`}
+          />
+        )}
         <Image
           src={image.src}
           alt={image.alt}
           {...dims}
-          style={`width: ${dims.width}px; height: ${dims.height}px`}
           loading="eager"
           fetchpriority={image.fetchpriority ?? "high"}
           class={image.className}
         />
-      );
-    })
+      </div>
+    ))
   }
 </div>
+
+<!-- Synchronous: runs before paint, skips transition for already-cached images -->
+<script is:inline>
+  document.querySelectorAll(".img-wrapper").forEach(function (wrapper) {
+    var img = wrapper.querySelector("img");
+    if (img && img.complete) wrapper.classList.add("loaded");
+  });
+</script>
+
+<!-- Async: handles images that aren't cached yet -->
+<script>
+  function initLowQualityImagePlaceholder() {
+    document
+      .querySelectorAll<HTMLElement>(".img-wrapper")
+      .forEach((wrapper) => {
+        if (wrapper.classList.contains("loaded")) return;
+        const img = wrapper.querySelector("img");
+        if (!img) return;
+        if (img.complete) {
+          wrapper.classList.add("loaded");
+        } else {
+          img.addEventListener("load", () => wrapper.classList.add("loaded"), {
+            once: true,
+          });
+        }
+      });
+  }
+
+  document.addEventListener("astro:page-load", initLowQualityImagePlaceholder);
+</script>

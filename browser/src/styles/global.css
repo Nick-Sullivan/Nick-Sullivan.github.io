@@ -91,8 +91,38 @@ li {
   margin: 2rem 0;
 }
 
-.image-gallery img {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.img-wrapper {
+  position: relative;
   border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.img-placeholder {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+  transform: scale(1.1);
+  transition: opacity 0.3s ease;
+}
+
+.img-wrapper.loaded .img-placeholder {
+  opacity: 0;
+}
+
+.img-wrapper img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.img-wrapper.loaded img {
+  opacity: 1;
 }
