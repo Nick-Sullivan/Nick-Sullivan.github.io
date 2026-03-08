@@ -46,7 +46,7 @@ const imageData = await Promise.all(
           alt={image.alt}
           {...dims}
           loading="eager"
-          fetchpriority={image.fetchpriority ?? "high"}
+          fetchpriority={image.fetchpriority ?? "auto"}
           class={image.className}
         />
       </div>

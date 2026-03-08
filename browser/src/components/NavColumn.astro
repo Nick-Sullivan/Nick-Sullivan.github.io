@@ -49,20 +49,13 @@ const links = [
 </div>
 
 <script>
-  const toggleButton = document.getElementById("toggle-button");
-  const navColumn = document.getElementById("nav-column");
-  const menuIcon = document.getElementById("menu-icon");
-  const closeIcon = document.getElementById("close-icon");
+  function setup() {
+    const toggleButton = document.getElementById("toggle-button");
+    const navColumn = document.getElementById("nav-column");
+    const menuIcon = document.getElementById("menu-icon");
+    const closeIcon = document.getElementById("close-icon");
 
-  if (toggleButton && navColumn && menuIcon && closeIcon) {
-    toggleButton.addEventListener("click", function () {
-      const isOpen = navColumn.classList.toggle("fullscreen");
-      menuIcon.style.display = isOpen ? "none" : "block";
-      closeIcon.style.display = isOpen ? "block" : "none";
-    });
-  }
-
-  function updateNav() {
+    // Update active link
     const currentPath = window.location.pathname;
     document.querySelectorAll("#nav-column nav a").forEach((link) => {
       const href = link.getAttribute("href");
@@ -70,13 +63,23 @@ const links = [
         href === "/" ? currentPath === "/" : currentPath.startsWith(href!);
       link.classList.toggle("active", isActive);
     });
+
     // Close mobile nav after navigation
     navColumn?.classList.remove("fullscreen");
     if (menuIcon) menuIcon.style.display = "block";
     if (closeIcon) closeIcon.style.display = "none";
+
+    // Re-bind toggle using onclick to avoid duplicate listeners
+    if (toggleButton && navColumn && menuIcon && closeIcon) {
+      toggleButton.onclick = function () {
+        const isOpen = navColumn.classList.toggle("fullscreen");
+        menuIcon.style.display = isOpen ? "none" : "block";
+        closeIcon.style.display = isOpen ? "block" : "none";
+      };
+    }
   }
 
-  document.addEventListener("astro:page-load", updateNav);
+  document.addEventListener("astro:page-load", setup);
 </script>
 
 <style>
