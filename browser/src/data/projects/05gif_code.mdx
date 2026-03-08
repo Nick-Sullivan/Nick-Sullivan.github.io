@@ -25,8 +25,8 @@ export const images = [
   { src: image07, alt: "QR Code on a balloon popping.", height: 220 },
   { src: image10, alt: "QR Code on a man getting home from work.", height: 220 },
   { src: image11, alt: "QR Code on Homer Simpson sinking into a bush.", height: 220 },
-  { src: image08, alt: "Selecting a GIF.", height: 500, className: "tall" },
-  { src: image09, alt: "The app showing the assembled GIF Code.", height: 500, className: "tall" },
+  { src: image08, alt: "Selecting a GIF.", height: 500 },
+  { src: image09, alt: "The app showing the assembled GIF Code.", height: 500},
 ];
 
 An android app where users can select a GIF from GIPHY and types a desired message, overlaying a QR code onto the GIF.
@@ -48,7 +48,7 @@ It uses flutter as the front-end, which talks to the GIPHY API to preview and se
 A request is sent to a Python backend that generates a QR Code, adds transparency, and overlays it on each frame in the GIF. The result is saved into an S3 bucket, which is loaded by the flutter app and cached on the phone.
 
 <ImageGallery
-  images={[{ src: image00, alt: "Architectural diagram.", width: 848, height: 386 }]}
+  images={[{ src: image00, alt: "Architectural diagram.", height: 300 }]}
 />
 
 [Google Play Store]: https://play.google.com/store/apps/details?id=com.gif_code

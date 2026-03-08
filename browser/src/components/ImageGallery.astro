@@ -81,5 +81,6 @@ const imageData = await Promise.all(
       });
   }
 
+  initLowQualityImagePlaceholder();
   document.addEventListener("astro:page-load", initLowQualityImagePlaceholder);
 </script>
