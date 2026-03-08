@@ -1,5 +1,7 @@
+import type { ImageMetadata } from "astro";
+
 export interface ImageItem {
-  src: string;
+  src: ImageMetadata | string;
   alt: string;
   width?: number;
   height?: number;

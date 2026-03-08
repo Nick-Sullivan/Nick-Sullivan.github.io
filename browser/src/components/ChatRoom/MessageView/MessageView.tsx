@@ -14,6 +14,8 @@ export const MessageView: React.FC<{
             src="/loading-icon.svg"
             alt="Loading..."
             className="loading-icon"
+            width="50"
+            height="50"
           />
         </div>
       )}
