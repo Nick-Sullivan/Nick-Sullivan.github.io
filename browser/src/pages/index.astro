@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import headshot from "../assets/images/headshot.jfif";
+import headshot from "../assets/images/headshot.jpg";
 import image00 from "../assets/images/index06.png";
 import image01 from "../assets/images/cocktail_bar01.png";
 import image02 from "../assets/images/gif_code01.gif";
@@ -14,21 +14,31 @@ import image08 from "../assets/images/autonomous_challenge02.jpg";
 import ImageGallery from "../components/ImageGallery.astro";
 
 const images = [
+  { src: headshot, alt: "My headshot.", height: 220 },
+  { src: image02, alt: "A GIF QR code hobby project.", height: 220 },
+  { src: image00, alt: "Some of the team at Tiimely.", height: 220 },
+  { src: image01, alt: "A drink app hobby project.", height: 220 },
   {
-    src: headshot,
-    alt: "My headshot.",
+    src: image03,
+    alt: "Autonomous ground vehicles from my Ph.D.",
+    height: 220,
   },
-  { src: image02, alt: "A GIF QR code hobby project." },
-  { src: image00, alt: "Some of the team at Tiimely." },
-  { src: image01, alt: "A drink app hobby project." },
-  { src: image03, alt: "Autonomous ground vehicles from my Ph.D." },
-  { src: image04, alt: "A mining truck as part of my work at MaxMine." },
-  { src: image05, alt: "Me on vacation." },
-  { src: image06, alt: "A drinking game hobby project." },
-  { src: image07, alt: "Some autonomous vehicles as part of my Ph.D." },
+  {
+    src: image04,
+    alt: "A mining truck as part of my work at MaxMine.",
+    height: 220,
+  },
+  { src: image05, alt: "Me on vacation.", height: 220 },
+  { src: image06, alt: "A drinking game hobby project.", height: 220 },
+  {
+    src: image07,
+    alt: "Some autonomous vehicles as part of my Ph.D.",
+    height: 220,
+  },
   {
     src: image08,
     alt: "A hobby entry in an autonomous ground vehicle competition.",
+    height: 220,
   },
 ];
 

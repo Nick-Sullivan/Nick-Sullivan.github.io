@@ -1,33 +1,30 @@
 ---
 import { Image } from "astro:assets";
-import type { ImageMetadata } from "astro";
 import type { ImageItem } from "../types/types";
 
 const { images = [] }: { images?: ImageItem[] } = Astro.props;
+
+function getDimensions(image: ImageItem): { width: number; height: number } {
+  const { src: meta, width, height } = image;
+  if (width && height) return { width, height };
+  if (width)
+    return { width, height: Math.round((meta.height * width) / meta.width) };
+  if (height)
+    return { width: Math.round((meta.width * height) / meta.height), height };
+  return { width: meta.width, height: meta.height };
+}
 ---
 
 <div class="image-gallery">
   {
-    images.map((image) =>
-      typeof image.src === "string" ? (
-        <img
-          src={image.src}
-          alt={image.alt}
-          width={image.width}
-          height={image.height}
-          loading="eager"
-          class={image.className}
-        />
-      ) : (
-        <Image
-          src={image.src as ImageMetadata}
-          alt={image.alt}
-          width={image.width ?? (image.src as ImageMetadata).width}
-          height={image.height ?? (image.src as ImageMetadata).height}
-          loading="eager"
-          class={image.className}
-        />
-      )
-    )
+    images.map((image) => (
+      <Image
+        src={image.src}
+        alt={image.alt}
+        {...getDimensions(image)}
+        loading="eager"
+        class={image.className}
+      />
+    ))
   }
 </div>
