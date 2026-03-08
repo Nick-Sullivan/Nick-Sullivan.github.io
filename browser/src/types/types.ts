@@ -6,6 +6,7 @@ export interface ImageItem {
   width?: number;
   height?: number;
   className?: string;
+  fetchpriority?: "high" | "low" | "auto";
 }
 
 export interface Message {

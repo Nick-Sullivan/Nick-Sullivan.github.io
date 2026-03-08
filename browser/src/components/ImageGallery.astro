@@ -23,6 +23,7 @@ function getDimensions(image: ImageItem): { width: number; height: number } {
         alt={image.alt}
         {...getDimensions(image)}
         loading="eager"
+        fetchpriority={image.fetchpriority}
         class={image.className}
       />
     ))
