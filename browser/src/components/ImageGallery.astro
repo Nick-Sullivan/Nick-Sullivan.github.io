@@ -17,15 +17,19 @@ function getDimensions(image: ImageItem): { width: number; height: number } {
 
 <div class="image-gallery">
   {
-    images.map((image) => (
-      <Image
-        src={image.src}
-        alt={image.alt}
-        {...getDimensions(image)}
-        loading="eager"
-        fetchpriority={image.fetchpriority ?? "high"}
-        class={image.className}
-      />
-    ))
+    images.map((image) => {
+      const dims = getDimensions(image);
+      return (
+        <Image
+          src={image.src}
+          alt={image.alt}
+          {...dims}
+          style={`width: ${dims.width}px; height: ${dims.height}px`}
+          loading="eager"
+          fetchpriority={image.fetchpriority ?? "high"}
+          class={image.className}
+        />
+      );
+    })
   }
 </div>
