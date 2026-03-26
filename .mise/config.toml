@@ -4,3 +4,4 @@ NODE_ENV = "local"
 
 [tools]
 node = "22.17.0"
+typst = "0.13.1"
