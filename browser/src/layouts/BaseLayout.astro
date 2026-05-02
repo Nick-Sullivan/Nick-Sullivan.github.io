@@ -1,6 +1,7 @@
 ---
 import NavColumn from "../components/NavColumn.astro";
 import { ClientRouter } from "astro:transitions";
+import { Font } from "astro:assets";
 const { pageTitle, description, showTitle = true, fullWidth = false } = Astro.props;
 ---
 
@@ -13,20 +14,8 @@ const { pageTitle, description, showTitle = true, fullWidth = false } = Astro.pr
     <title>{pageTitle} | Nick Sullivan</title>
     {description && <meta name="description" content={description} />}
     <ClientRouter />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Caveat:wght@400;700&display=optional"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript
-      ><link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Caveat:wght@400;700&display=optional"
-      /></noscript
-    >
+    <Font cssVariable="--font-pt-serif" />
+    <Font cssVariable="--font-caveat" />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <link
       rel="stylesheet"
