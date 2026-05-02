@@ -4,47 +4,121 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import TestimonialCard from "../components/TestimonialCard.astro";
 
 const pageTitle = "Contact";
+const description = "Contact Nick Sullivan, fullstack software engineer based in Adelaide, South Australia.";
+
+const links = [
+  { href: "mailto:nick.dave.sullivan@gmail.com/", icon: "fa-solid fa-envelope", label: "Email", sub: "nick.dave.sullivan@gmail.com" },
+  { href: "https://www.linkedin.com/in/nick-dave-sullivan/", icon: "fa-brands fa-linkedin", label: "LinkedIn", sub: "nick-dave-sullivan" },
+  { href: "https://www.github.com/Nick-Sullivan/", icon: "fa-brands fa-github", label: "GitHub", sub: "Nick-Sullivan" },
+  { href: "/pdf/resume.pdf", icon: "fa-solid fa-file", label: "Resume", sub: "Download PDF", download: "nick-sullivan" },
+];
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-  <p>
-    Hello! I live in Adelaide, South Australia. The best way to contact me is to
-    send me an email or a LinkedIn message.
-  </p>
-  <ul>
-    <li>
-      <a href="mailto:nick.dave.sullivan@gmail.com/">
-        <i class="fa-solid fa-envelope"></i> Email
-      </a>
-    </li>
-    <li>
-      <a href="https://www.linkedin.com/in/nick-dave-sullivan/">
-        <i class="fa-brands fa-linkedin"></i> LinkedIn
-      </a>
-    </li>
-    <li>
-      <a href="https://www.github.com/Nick-Sullivan/">
-        <i class="fa-brands fa-github"></i> GitHub
-      </a>
-    </li>
-    <li>
-      <a href="/pdf/resume.pdf" download="nick-sullivan">
-        <i class="fa-solid fa-file"></i> Resume
-      </a>
-    </li>
+<BaseLayout pageTitle={pageTitle} description={description}>
+  <p class="intro">I'm based in Adelaide, South Australia. Best reached by email or LinkedIn.</p>
+
+  <ul class="contact-list">
+    {links.map((link) => (
+      <li>
+        <a href={link.href} class="contact-row" download={link.download}>
+          <span class="contact-icon"><i class={link.icon}></i></span>
+          <span class="contact-text">
+            <span class="contact-label">{link.label}</span>
+            <span class="contact-sub">{link.sub}</span>
+          </span>
+        </a>
+      </li>
+    ))}
   </ul>
-  <h3>Testimonials</h3>
+
+  <h2 class="testimonials-heading">What others say</h2>
   <TestimonialCard
     testimonial="I've had the pleasure of working with Nick, and he has been an exceptional addition to our software team. Nick brings a combination of calm confidence, technical prowess, and fun that sets him apart as a truly outstanding engineer. Coming from a different technology stack, Nick quickly adapted to our Python and React ecosystem with remarkable speed and proficiency. His technical agility is matched by his problem-solving skills – Nick is a persistent debugger who meticulously investigates challenges, demonstrating both deep technical research and the wisdom to seek help from others when needed. Nick excels in team communication, consistently ensuring shared understanding through clear diagrams and proactively scheduling discussions to align on project approaches. His code reviews are thorough and constructive, providing great feedback. He also introduced end-to-end testing to our CI process, significantly improving our development workflow. What sets Nick apart is his commitment to simplicity in coding, his willingness to help colleagues, and his ability to maintain a positive, solution-oriented approach. He would be an incredible asset to any software team. I cannot recommend Nick highly enough."
-    author="Bob Renwick, Head of Software at Bactobio"
+    author="Bob Renwick"
+    role="Head of Software at Bactobio"
   />
 </BaseLayout>
 
 <style>
-  li {
-    padding-bottom: 10px;
+  .intro {
+    color: var(--text-warm);
+    margin-bottom: 2rem;
   }
-  a {
-    margin-left: 10px;
+
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 3rem 0;
+  }
+
+  .contact-list li {
+    border-bottom: 1px solid var(--bg-wash);
+  }
+
+  .contact-list li:first-child {
+    border-top: 1px solid var(--bg-wash);
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1rem 0;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .contact-icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    background: var(--bg-wash);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: var(--color-primary);
+    flex-shrink: 0;
+    transition: background 0.15s ease;
+  }
+
+  .contact-row:hover .contact-icon {
+    background: var(--color-primary);
+    color: #ffffff;
+  }
+
+  .contact-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .contact-label {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  .contact-row:hover .contact-label {
+    color: var(--color-primary);
+  }
+
+  .contact-sub {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  .testimonials-heading {
+    font-size: 0.78rem;
+    font-weight: 700;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-primary);
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--color-primary);
   }
 </style>

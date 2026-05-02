@@ -1,63 +1,535 @@
 ---
 import "../styles/global.css";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import headshot from "../assets/images/headshot.jpg";
-import image00 from "../assets/images/index06.png";
-import image01 from "../assets/images/cocktail_bar01.png";
-import image02 from "../assets/images/gif_code01.gif";
-import image03 from "../assets/images/phd03.png";
-import image04 from "../assets/images/index00.jpg";
-import image05 from "../assets/images/index05.jpg";
-import image06 from "../assets/images/drinking_game03.png";
-import image07 from "../assets/images/index02.jpg";
-import image08 from "../assets/images/autonomous_challenge02.jpg";
-import ImageGallery from "../components/ImageGallery.astro";
+import imgGifCode from "../assets/images/gif_code06.gif";
+import imgDice from "../assets/images/dice01.jpg";
+import imgMtg from "../assets/images/mtg_proxy00.png";
 
-const images = [
-  { src: headshot, alt: "My headshot.", height: 220, fetchPriority: "high" },
+const allPosts = await getCollection(
+  "blog",
+  ({ data }) => data.published === true,
+);
+allPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const recentPosts = allPosts.slice(0, 4).map((post) => ({
+  url: `/blog/${post.id}`,
+  title: post.data.title,
+  date: post.data.date.toLocaleDateString("en-AU", {
+    month: "short",
+    year: "numeric",
+  }),
+}));
+
+const favouriteProjects = [
   {
-    src: image02,
-    alt: "A GIF QR code hobby project.",
-    height: 220,
-    fetchPriority: "high",
-  },
-  { src: image00, alt: "Some of the team at Tiimely.", height: 220 },
-  { src: image01, alt: "A drink app hobby project.", height: 220 },
-  {
-    src: image03,
-    alt: "Autonomous ground vehicles from my Ph.D.",
-    height: 220,
-  },
-  {
-    src: image04,
-    alt: "A mining truck as part of my work at MaxMine.",
-    height: 220,
-  },
-  { src: image05, alt: "Me on vacation.", height: 220 },
-  { src: image06, alt: "A drinking game hobby project.", height: 220 },
-  {
-    src: image07,
-    alt: "Some autonomous vehicles as part of my Ph.D.",
-    height: 220,
+    url: "/projects/05gif_code",
+    pitch: "Make GIFs into QR codes",
+    image: imgGifCode,
+    imageAlt: "A QR code that animates as a GIF",
+    square: true,
+    badge: "Try scanning it",
   },
   {
-    src: image08,
-    alt: "A hobby entry in an autonomous ground vehicle competition.",
-    height: 220,
+    url: "/projects/07intransitive_dice",
+    pitch: "Rock-paper-scissors dice",
+    image: imgDice,
+    imageAlt: "Intransitive dice",
+  },
+  {
+    url: "/projects/09mtg_proxy",
+    pitch: "Proxy Magic the Gathering cards",
+    image: imgMtg,
+    imageAlt: "Generated Magic the Gathering proxy cards",
   },
 ];
 
-const pageTitle = "About Me";
+const pageTitle = "Home";
+const description = "Nick Sullivan — fullstack software engineer and Ph.D.";
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-  <p>
-    Welcome! I'm Nick Sullivan, fullstack software engineer, Ph.D. I specialise
-    in scaling small companies that make the world a better place.
-  </p>
-  <p>
-    This website is a collection of my research, experiments, and side projects.
-    Enjoy!
-  </p>
-  <ImageGallery images={images} />
+<BaseLayout
+  pageTitle={pageTitle}
+  description={description}
+  showTitle={false}
+  fullWidth={true}
+>
+  <!-- Hero -->
+  <section class="section section-hero">
+    <div class="inner">
+      <div class="hero">
+        <div class="hero-image">
+          <Image
+            src={headshot}
+            alt="Nick Sullivan"
+            width={200}
+            height={200}
+            fetchpriority="high"
+            loading="eager"
+          />
+        </div>
+        <div class="hero-text">
+          <h1>Nick Sullivan</h1>
+          <p class="hero-tagline">Fullstack engineer, Ph.D.</p>
+          <p>
+            I specialise in scaling small tech companies. I have a background in
+            robotics, allocation algorithms, and software engineering for
+            mining, finance, and healthcare.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beliefs -->
+  <section class="section section-beliefs">
+    <div class="inner">
+      <div class="belief-grid">
+        <div class="belief">
+          <p class="belief-statement">We can make the world better.</p>
+          <p class="belief-body">
+            I focus my time on projects that I genuinely believe make the world
+            better. Mainly climate action and healthcare, but also little things
+            that save people time or put a smile on their face.
+          </p>
+        </div>
+        <div class="belief">
+          <p class="belief-statement">Building is a joy.</p>
+          <p class="belief-body">
+            I love the challenge of grasping a problem, exploring
+            representations and solution designs that best fit that problem, and
+            seeing my work come to life.
+          </p>
+        </div>
+        <div class="belief">
+          <p class="belief-statement">Simplicity is underrated.</p>
+          <p class="belief-body">
+            A good product does what you need then gets the hell out of the way.
+            I'm getting increasingly frustrated with every product acting like
+            it's the main character.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What I build -->
+  <section class="section section-projects">
+    <div class="inner">
+      <h2 class="section-heading">Hobby projects</h2>
+      <div class="project-grid">
+        {
+          favouriteProjects.map((p) => (
+            <a href={p.url} class="project-card">
+              {p.image && (
+                <div
+                  class:list={[
+                    "project-card-image",
+                    { "project-card-image--square": p.square },
+                  ]}
+                >
+                  <Image
+                    src={p.image}
+                    alt={p.imageAlt ?? ""}
+                    width={p.square ? 200 : 500}
+                    height={p.square ? 200 : 320}
+                  />
+                </div>
+              )}
+              <div class="project-card-text">
+                <p class="project-card-pitch">{p.pitch}</p>
+                {p.badge && <span class="project-badge">{p.badge}</span>}
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- What I write -->
+  <section class="section section-writing">
+    <div class="inner">
+      <h2 class="section-heading">Recent writing</h2>
+      <ul class="link-list">
+        {
+          recentPosts.map((p) => (
+            <li>
+              <a href={p.url} class="post-row">
+                <span class="post-title">{p.title}</span>
+                <span class="post-date">{p.date}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <a href="/blog" class="all-link">All posts →</a>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  /* ── Section shell ── */
+  .section {
+    width: 100%;
+  }
+
+  .inner {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 3rem clamp(1.5rem, 5vw, 6rem);
+    box-sizing: border-box;
+  }
+
+  /* ── Section colours ── */
+  .section-hero {
+    background: #ffffff;
+  }
+
+  .section-beliefs {
+    background: var(--bg-wash);
+  }
+
+  .section-writing {
+    background: #ffffff;
+  }
+
+  .section-projects {
+    background: var(--bg-section);
+  }
+
+  /* ── Hero ── */
+  .hero {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .hero-image img {
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.14);
+    display: block;
+  }
+
+  .hero-text h1 {
+    margin-top: 0;
+    margin-bottom: 0.2rem;
+    font-size: 2.4rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--color-heading);
+    border: none;
+    padding: 0;
+  }
+
+  .hero-tagline {
+    color: var(--color-accent);
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    font-size: 1.15rem;
+  }
+
+  /* ── Section label ── */
+  .section-label {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    color: var(--color-primary);
+    font-weight: 700;
+    margin: 0 0 1.4rem 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  /* ── Beliefs ── */
+  .belief-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem 3rem;
+  }
+
+  .belief-statement {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin: 0 0 0.5rem 0;
+    line-height: 1.4;
+  }
+
+  .belief-body {
+    font-size: 1rem;
+    color: var(--text-warm);
+    margin: 0;
+    line-height: 1.75;
+  }
+
+  .col-lead {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e1635;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  .col-description {
+    font-size: 0.9rem;
+    color: var(--text-soft);
+    margin: 0 0 1.2rem 0;
+    line-height: 1.6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  .col-description a {
+    color: var(--color-primary);
+    white-space: nowrap;
+    display: block;
+    margin-top: 0.3rem;
+  }
+
+  .section-heading {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--color-heading);
+    margin: 0 0 1.5rem 0;
+    text-align: center;
+  }
+
+  /* ── Project cards ── */
+  .project-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    text-decoration: none;
+    color: inherit;
+    padding: 1.5rem 0;
+  }
+
+  .project-card + .project-card {
+    border-top: 1px solid #ddd8f5;
+  }
+
+  .project-card:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .project-card-image {
+    width: 260px;
+    height: 163px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--color-image-bg);
+  }
+
+  .project-card-image--square {
+    width: 200px;
+    height: 200px;
+    overflow: visible;
+    background: #ffffff;
+    border: 1px solid var(--bg-wash);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .project-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.2s ease;
+  }
+
+  .project-card-image--square img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .project-badge {
+    display: inline-block;
+    margin-top: 0.5rem;
+    background: var(--color-badge);
+    color: #1e1635;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    letter-spacing: 0.02em;
+  }
+
+  .project-card:hover .project-card-image img {
+    transform: scale(1.03);
+  }
+
+  .project-card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: flex-start;
+  }
+
+  .project-card-pitch {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin: 0;
+    line-height: 1.4;
+    font-family: "Caveat", cursive;
+    text-decoration: none;
+  }
+
+  .project-card:hover .project-card-pitch {
+    color: var(--color-primary);
+  }
+
+  .all-link {
+    display: inline-block;
+    margin-top: 1.2rem;
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    text-decoration: none;
+  }
+
+  .all-link:hover {
+    text-decoration: underline;
+  }
+
+  .link-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .link-list li {
+    border-bottom: 1px solid var(--bg-wash);
+  }
+
+  .link-list li:first-child {
+    border-top: 1px solid var(--bg-wash);
+  }
+
+  .post-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .post-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #2d2d2d;
+    line-height: 1.4;
+  }
+
+  .post-row:hover .post-title {
+    color: var(--color-primary);
+  }
+
+  .post-date {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ── Wide: projects side by side ── */
+  @media (min-width: 900px) {
+    .project-grid {
+      flex-direction: row;
+      align-items: stretch;
+      gap: 0;
+    }
+
+    .project-card,
+    .project-card:nth-child(even) {
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      padding: 0 2rem 0 0;
+    }
+
+    .project-card:last-child {
+      padding-right: 0;
+    }
+
+    .project-card + .project-card {
+      border-top: none;
+      border-left: none;
+      padding-left: 2rem;
+      position: relative;
+    }
+
+    .project-card + .project-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background-color: #ddd8f5;
+    }
+
+    .project-card-text {
+      align-items: center;
+      text-align: center;
+    }
+
+    .project-card-image {
+      width: 100%;
+      height: 200px;
+    }
+
+    .project-card-image--square {
+      width: 100%;
+      height: 200px;
+    }
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 640px) {
+    .hero {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .belief-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .project-card,
+    .project-card:nth-child(even) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .project-card-image {
+      width: 100%;
+      height: 180px;
+    }
+  }
+</style>

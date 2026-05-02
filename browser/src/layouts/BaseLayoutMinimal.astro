@@ -1,7 +1,7 @@
 ---
 import NavColumn from "../components/NavColumn.astro";
 import { ClientRouter } from "astro:transitions";
-const { pageTitle } = Astro.props;
+const { pageTitle, description } = Astro.props;
 ---
 
 <html lang="en">
@@ -11,6 +11,7 @@ const { pageTitle } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle} | Nick Sullivan</title>
+    {description && <meta name="description" content={description} />}
     <ClientRouter />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

@@ -16,23 +16,12 @@ const links = [
 ];
 ---
 
-<div class="nav-column" id="nav-column">
-  <div class="nav-header">
-    <div class="logo-section">
-      <img
-        src="/favicon.ico"
-        alt="Favicon"
-        class="favicon"
-        width="32"
-        height="32"
-      />
-      <!-- <p class="nav-name">Nick Sullivan</p> -->
-    </div>
-    <button id="toggle-button" aria-label="Toggle navigation">
-      <i class="fa-solid fa-bars" id="menu-icon"></i>
-      <i class="fa-solid fa-times" id="close-icon" style="display: none;"></i>
-    </button>
-  </div>
+<button id="toggle-button" aria-label="Toggle navigation">
+  <i class="fa-solid fa-bars" id="menu-icon"></i>
+  <i class="fa-solid fa-times" id="close-icon" style="display: none;"></i>
+</button>
+
+<div class="nav-overlay" id="nav-overlay">
   <nav class="nav-links">
     <ul>
       {
@@ -51,28 +40,25 @@ const links = [
 <script>
   function setup() {
     const toggleButton = document.getElementById("toggle-button");
-    const navColumn = document.getElementById("nav-column");
+    const navOverlay = document.getElementById("nav-overlay");
     const menuIcon = document.getElementById("menu-icon");
     const closeIcon = document.getElementById("close-icon");
 
-    // Update active link
     const currentPath = window.location.pathname;
-    document.querySelectorAll("#nav-column nav a").forEach((link) => {
+    document.querySelectorAll(".nav-links a").forEach((link) => {
       const href = link.getAttribute("href");
       const isActive =
         href === "/" ? currentPath === "/" : currentPath.startsWith(href!);
       link.classList.toggle("active", isActive);
     });
 
-    // Close mobile nav after navigation
-    navColumn?.classList.remove("fullscreen");
+    navOverlay?.classList.remove("open");
     if (menuIcon) menuIcon.style.display = "block";
     if (closeIcon) closeIcon.style.display = "none";
 
-    // Re-bind toggle using onclick to avoid duplicate listeners
-    if (toggleButton && navColumn && menuIcon && closeIcon) {
+    if (toggleButton && navOverlay && menuIcon && closeIcon) {
       toggleButton.onclick = function () {
-        const isOpen = navColumn.classList.toggle("fullscreen");
+        const isOpen = navOverlay.classList.toggle("open");
         menuIcon.style.display = isOpen ? "none" : "block";
         closeIcon.style.display = isOpen ? "block" : "none";
       };
@@ -83,229 +69,89 @@ const links = [
 </script>
 
 <style>
-  /* Small Screen */
-  .nav-column {
+  #toggle-button {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    z-index: 1001;
+    border: none;
+    outline: none;
+    background: #ffffff;
+    font-size: 1.2rem;
+    color: #555;
+    cursor: pointer;
+    padding: 8px 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    transition: box-shadow 0.2s ease;
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    background-color: #ffffff;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    font-family:
-      -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-      "Ubuntu", "Cantarell", sans-serif;
+    align-items: center;
+    justify-content: center;
   }
 
-  .nav-column.fullscreen {
+  #toggle-button:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  }
+
+  #close-icon {
+    color: var(--color-primary);
+  }
+
+  .nav-overlay {
+    display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 56px;
+    right: 24px;
+    width: 220px;
     z-index: 1000;
     background-color: #ffffff;
-    overflow: auto;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    font-family:
+      -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
 
-  .nav-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 16px 20px;
-    border-bottom: 1px solid #e5e5e5;
-    align-items: center;
-    background-color: #ffffff;
-  }
-
-  .logo-section {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .nav-name {
+  .nav-overlay.open {
     display: block;
-    font-weight: 600;
-    color: #1a1a1a;
-    font-size: 1.1rem;
-    margin: 0;
-    letter-spacing: -0.02em;
   }
 
-  .favicon {
-    display: block;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
+  .nav-links {
+    padding: 8px 0;
   }
 
-  .nav-column ul {
-    display: none;
+  .nav-links ul {
     list-style: none;
     padding: 0;
     margin: 0;
   }
 
-  .nav-column.fullscreen ul {
-    display: flex;
-    flex-direction: column;
-    padding: 24px 20px;
-    gap: 8px;
+  .nav-links li {
+    border-bottom: 1px solid #f0f0f0;
   }
 
-  .nav-column li {
-    width: 100%;
+  .nav-links li:last-child {
+    border-bottom: none;
   }
 
-  nav a {
-    color: #5c5962;
+  .nav-links a {
     display: block;
-    text-align: left;
-    width: 100%;
-    border: none;
-    background: none;
-    padding: 16px 20px;
-    text-decoration: none;
-    transition: all 0.2s ease;
+    padding: 10px 16px;
+    font-size: 1rem;
     font-weight: 500;
-    font-size: 1.1rem;
-    border-radius: 8px;
-  }
-
-  nav a:hover {
-    background-color: #f8f7ff;
-    color: #7253ef;
-    transform: translateX(4px);
-  }
-
-  nav a.active {
-    font-weight: 600;
-    color: #ffffff;
-    background-color: #7253ef;
-    box-shadow: 0 2px 8px rgba(114, 83, 239, 0.25);
-  }
-
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #ffffff;
-  }
-
-  .nav-links ul {
-    width: 100%;
-  }
-
-  #toggle-button {
-    border: none;
-    outline: none;
-    background: none;
-    font-size: 1.5rem;
     color: #333;
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 6px;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
+    text-decoration: none;
+    transition: color 0.15s ease;
   }
 
-  #toggle-button:hover {
-    background-color: #f0f0f0;
+  .nav-links a:hover {
+    color: var(--color-primary);
+    text-decoration: none;
   }
 
-  #toggle-button:active {
-    transform: scale(0.95);
-  }
-
-  #close-icon {
-    color: #7253ef;
-  }
-
-  /* Large Screen */
-  @media screen and (min-width: 800px) {
-    .nav-column {
-      display: flex;
-      flex-direction: column;
-      width: 240px;
-      height: 100%;
-      background-color: #ffffff;
-      border-right: 1px solid #e5e5e5;
-      transition: width 0.3s ease;
-      overflow: hidden;
-    }
-
-    .nav-header {
-      display: flex;
-      flex-direction: column;
-      padding: 32px 24px;
-      border-bottom: 1px solid #e5e5e5;
-      align-items: center;
-      gap: 12px;
-      background-color: #ffffff;
-    }
-
-    .logo-section {
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .nav-name {
-      display: block;
-      font-size: 1.35rem;
-      text-align: center;
-      white-space: nowrap;
-      font-weight: 600;
-      color: #1a1a1a;
-      letter-spacing: -0.02em;
-    }
-
-    .favicon {
-      display: block;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-column ul {
-      list-style: none;
-      padding: 16px 0;
-      width: 100%;
-      display: block;
-      margin: 0;
-    }
-
-    .nav-column li {
-      width: 100%;
-      margin-bottom: 4px;
-    }
-
-    nav a {
-      margin: 0 12px;
-      border-radius: 8px;
-      padding: 12px 16px;
-      font-size: 1rem;
-    }
-
-    nav a:hover {
-      background-color: #f8f7ff;
-      color: #7253ef;
-      transform: translateX(4px);
-    }
-
-    nav a.active {
-      background-color: #7253ef;
-      color: #ffffff;
-      font-weight: 600;
-      box-shadow: 0 2px 8px rgba(114, 83, 239, 0.25);
-    }
-
-    #toggle-button {
-      display: none;
-    }
+  .nav-links a.active {
+    color: var(--color-primary);
+    font-weight: 600;
   }
 </style>

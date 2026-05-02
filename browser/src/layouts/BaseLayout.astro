@@ -1,7 +1,7 @@
 ---
 import NavColumn from "../components/NavColumn.astro";
 import { ClientRouter } from "astro:transitions";
-const { pageTitle } = Astro.props;
+const { pageTitle, description, showTitle = true, fullWidth = false } = Astro.props;
 ---
 
 <html lang="en">
@@ -11,19 +11,20 @@ const { pageTitle } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle} | Nick Sullivan</title>
+    {description && <meta name="description" content={description} />}
     <ClientRouter />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=optional"
+      href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Caveat:wght@400;700&display=optional"
       media="print"
       onload="this.media='all'"
     />
     <noscript
       ><link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=optional"
+        href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Caveat:wght@400;700&display=optional"
       /></noscript
     >
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
@@ -65,10 +66,14 @@ const { pageTitle } = Astro.props;
     <div class="layout-base">
       <NavColumn transition:persist />
       <main class="content-outer">
-        <div class="content-inner">
-          <h1>{pageTitle}</h1>
+        {fullWidth ? (
           <slot />
-        </div>
+        ) : (
+          <div class="content-inner">
+            {showTitle && <h1>{pageTitle}</h1>}
+            <slot />
+          </div>
+        )}
       </main>
     </div>
   </body>
@@ -94,13 +99,31 @@ const { pageTitle } = Astro.props;
     overflow-y: auto;
     width: 100%;
     align-items: center;
+    background-color: var(--bg-surface);
+    scrollbar-color: var(--color-faint) var(--bg-wash);
+  }
+
+  .content-outer::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .content-outer::-webkit-scrollbar-track {
+    background: var(--bg-wash);
+  }
+
+  .content-outer::-webkit-scrollbar-thumb {
+    background: var(--color-faint);
+    border-radius: 4px;
+  }
+
+  .content-outer::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
   }
   .content-inner {
-    max-width: 1000px;
+    max-width: 1400px;
     width: 100%;
     box-sizing: border-box;
-    padding: 40px 20px;
-    margin-top: 20px;
+    padding: 3rem clamp(1.5rem, 5vw, 6rem);
   }
   .content-inner h1 {
     margin-top: 0;
@@ -112,12 +135,5 @@ const { pageTitle } = Astro.props;
 
   .footnotes {
     scroll-margin-top: 20px;
-  }
-  /* Big screen */
-  @media screen and (min-width: 800px) {
-    .layout-base {
-      display: flex;
-      flex-direction: row;
-    }
   }
 </style>

@@ -3,61 +3,73 @@ import "../styles/global.css";
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogLink from "../components/BlogLink.astro";
-import type { Blog, BlogEntry } from "../content.config";
+import type { BlogEntry } from "../content.config";
 
-type GroupedBlogs = {
-  [year: string]: BlogEntry[];
-};
+type GroupedBlogs = { [year: string]: BlogEntry[] };
 
 const posts: BlogEntry[] = await getCollection("blog", ({ data }) => {
   return data.published === true;
 });
 posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-const groupedPosts: GroupedBlogs = posts.reduce(
-  (acc: GroupedBlogs, post: BlogEntry) => {
-    const year = post.data.date.getFullYear().toString();
-    if (!acc[year]) {
-      acc[year] = [];
-    }
-    acc[year].push(post);
-    return acc;
-  },
-  {}
-);
+
+const groupedPosts: GroupedBlogs = posts.reduce((acc: GroupedBlogs, post: BlogEntry) => {
+  const year = post.data.date.getFullYear().toString();
+  if (!acc[year]) acc[year] = [];
+  acc[year].push(post);
+  return acc;
+}, {});
+
+const sortedYears = Object.keys(groupedPosts).sort((a, b) => parseInt(b) - parseInt(a));
+
+
 const pageTitle = "Blog";
+const description = "A collection of ramblings by Nick Sullivan on software engineering, research, and side projects.";
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-  <p>A collection of my ramblings.</p>
-  {
-    Object.keys(groupedPosts)
-      .sort((a, b) => parseInt(b) - parseInt(a))
-      .map((year) => (
-        <div>
-          <h3>{year}</h3>
-          <ul>
-            {groupedPosts[year].map((post) => (
-              <li>
-                <BlogLink
-                  url={`/blog/${post.id}`}
-                  title={post.data.title}
-                  date={post.data.date}
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))
-  }
+<BaseLayout pageTitle={pageTitle} description={description}>
+  {sortedYears.map((year) => (
+      <div class="year-group">
+        <p class="year-label">{year}</p>
+        <ul class="post-list">
+          {groupedPosts[year].map((post) => (
+            <li>
+              <BlogLink
+                url={`/blog/${post.id}`}
+                title={post.data.title}
+                date={post.data.date}
+                description={post.data.description}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+  ))}
 </BaseLayout>
 
 <style>
-  ul {
-    width: 80%;
+  .year-group {
+    margin-bottom: 2.5rem;
   }
-  li {
-    padding-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
+
+  .year-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin: 0;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .post-list li + li {
+    border-top: 1px solid var(--bg-wash);
   }
 </style>

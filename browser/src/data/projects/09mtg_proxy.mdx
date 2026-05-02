@@ -7,6 +7,8 @@ published: true
 
 import { Image } from "astro:assets";
 import image00 from "../../assets/images/mtg_proxy00.png";
+import image01 from "../../assets/images/mtg_proxy01.png";
+import image02 from "../../assets/images/mtg_proxy02.png";
 
 My friends and I have been getting into Magic The Gathering card game, which is good fun but very expensive. Each deck is somewhere between $200 to $1000 AUD.
 It's pretty common to "proxy" a card, by printing them out yourself.
@@ -16,14 +18,27 @@ There are free sites online that create PDF files for printing the more expensiv
 
 So I spend a day to make my own at https://nickdavesullivan.com/mtg-maker
 
+<div class="image-gallery">
+  <Image
+    src={image00}
+    alt="Screenshot of Magic the Gathering proxy website."
+    height="450"
+  />
+</div>
+
 It leverages scryfall for all the Magic the Gathering data, including images, and is just a simple react-based client-side app.
 
 Since then, I've added a few features, like something to compare decks to show me what I need to add and remove, and something to generate a deck showcase image, which is a nice way to share my deck with friends.
 
 <div class="image-gallery">
   <Image
-    src={image00}
+    src={image01}
     alt="Screenshot of Magic the Gathering proxy website."
-    height="500"
+    height="250"
+  />
+  <Image
+    src={image02}
+    alt="Screenshot of Magic the Gathering proxy website."
+    height="250"
   />
 </div>

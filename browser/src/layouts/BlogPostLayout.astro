@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-const { post } = Astro.props;
+const { post, backUrl, backLabel } = Astro.props;
 
 const date = new Date(post.data.date);
 const day = date.getDate();
@@ -22,17 +22,33 @@ const daySuffix = (day: number) => {
 const dateStr = `${day}${daySuffix(day)} ${month} ${year}`;
 ---
 
-<BaseLayout pageTitle={post.data.title}>
-  <p class="date">
-    <i class="fa-regular fa-calendar"></i>
-    {dateStr}
-  </p>
-  <p class="description"><em>{post.data.description}</em></p>
+<BaseLayout pageTitle={post.data.title} description={post.data.description}>
+  <div class="meta-row">
+    <div class="meta-left">
+      <p class="date">
+        <i class="fa-regular fa-calendar"></i>
+        {dateStr}
+      </p>
+      <p class="description"><em>{post.data.description}</em></p>
+    </div>
+    {backUrl && <a href={backUrl} class="back-link">← {backLabel}</a>}
+  </div>
   <slot />
   <div class="footer"></div>
 </BaseLayout>
 
 <style>
+  .meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+  .meta-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
   .date {
     margin-top: 0;
     margin-bottom: 0;
@@ -43,5 +59,15 @@ const dateStr = `${day}${daySuffix(day)} ${month} ${year}`;
   }
   .footer {
     height: 50px;
+  }
+  .back-link {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    white-space: nowrap;
+    padding-top: 0.1rem;
+  }
+  .back-link:hover {
+    color: var(--color-primary);
   }
 </style>
