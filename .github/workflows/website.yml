@@ -54,7 +54,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-24.04
-    needs: build
+    needs: build-and-deploy-s3
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
