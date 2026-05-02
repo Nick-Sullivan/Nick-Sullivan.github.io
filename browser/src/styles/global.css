@@ -25,7 +25,7 @@
 
 html {
   background-color: var(--bg-page);
-  font-family: var(--font-pt-serif), Georgia, serif;
+  font-family: var(--font-pt-serif, "PT Serif"), Georgia, serif;
   font-size: 18px;
   height: 100%;
   margin: 0;

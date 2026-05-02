@@ -390,7 +390,7 @@ const description = "Nick Sullivan — fullstack software engineer and Ph.D.";
     color: var(--color-accent);
     margin: 0;
     line-height: 1.4;
-    font-family: "Caveat", cursive;
+    font-family: var(--font-caveat, "Caveat"), cursive;
     text-decoration: none;
   }
 
@@ -530,6 +530,20 @@ const description = "Nick Sullivan — fullstack software engineer and Ph.D.";
     .project-card-image {
       width: 100%;
       height: 180px;
+    }
+
+    .project-card-image--square {
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+    }
+
+    .project-card-image--square img {
+      width: 100%;
+      height: auto;
+      max-width: 200px;
+      display: block;
+      margin: 0 auto;
     }
   }
 </style>
