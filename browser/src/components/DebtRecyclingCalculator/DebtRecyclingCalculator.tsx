@@ -65,6 +65,7 @@ export function DebtRecyclingCalculator() {
   const [mortgageRate, setMortgageRate] = useState(5.6);
   const [investmentReturn, setInvestmentReturn] = useState(6.3);
   const [dividendYield, setDividendYield] = useState(3.7);
+  const [inflationRate, setInflationRate] = useState(2.5);
   const [taxBracket, setTaxBracket] = useState(37);
   const [invLoanRate, setInvLoanRate] = useState(5.6);
 
@@ -81,7 +82,9 @@ export function DebtRecyclingCalculator() {
   const mortgageSaved = principal * pct(mortgageRate);
 
   const growth = principal * pct(investmentReturn);
-  const growthTax = (growth * pct(taxBracket)) / 2;
+  const inflationAdjustment = principal * pct(inflationRate);
+  const growthTaxBracket = Math.max(30, taxBracket);
+  const growthTax = (growth - inflationAdjustment) * pct(growthTaxBracket);
   const dividends = principal * pct(dividendYield);
   const dividendTax = dividends * pct(taxBracket);
   const sharesNet = growth - growthTax + dividends - dividendTax;
@@ -144,7 +147,7 @@ export function DebtRecyclingCalculator() {
         </div>
 
         <div className="option">
-          <h3>Option 2 – Pay down the mortgage</h3>
+          <h3>Option 2 - Pay down the mortgage</h3>
           <p className="option-sentence">
             My mortgage has an interest of{" "}
             <N value={mortgageRate} onChange={setMortgageRate} />% per year. If
@@ -164,7 +167,7 @@ export function DebtRecyclingCalculator() {
         </div>
 
         <div className="option">
-          <h3>Option 3 – invest in shares</h3>
+          <h3>Option 3 - invest in shares</h3>
           <p className="option-sentence">
             This is where things get tricky. Firstly, nobody can predict the
             actual returns and this method carries substantially more risk. But
@@ -181,7 +184,8 @@ export function DebtRecyclingCalculator() {
             <N value={investmentReturn} onChange={setInvestmentReturn} />%
             growth,&nbsp;
             <N value={dividendYield} onChange={setDividendYield} />% dividends
-            per year.
+            per year. I'll assume yearly inflation of
+            <N value={inflationRate} onChange={setInflationRate} />%
           </p>
           <table>
             <tbody>
@@ -191,8 +195,8 @@ export function DebtRecyclingCalculator() {
                 value={growth}
               />
               <Row
-                label="CGT (50% disc)"
-                formula={`${n(growth)} × ${taxBracket}% ÷ 2`}
+                label="Growth tax"
+                formula={`(${n(growth)} - ${n(principal)} × ${inflationRate}%)  × ${growthTaxBracket}%`}
                 value={growthTax}
                 negative
               />
