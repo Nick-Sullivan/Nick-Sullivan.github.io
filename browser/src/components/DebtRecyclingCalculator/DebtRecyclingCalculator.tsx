@@ -109,7 +109,7 @@ export function DebtRecyclingCalculator() {
   return (
     <div className="debt-calculator">
       <p className="global-inputs">
-        Let’s say the briefcase has $
+        Let's say the briefcase has $
         <N value={principal} width="5.5ch" onChange={setPrincipal} /> in it. I
         know my{" "}
         <a href="https://www.ato.gov.au/tax-rates-and-codes/tax-rates-australian-residents#ato-Australianresidenttaxrates2020to2026">

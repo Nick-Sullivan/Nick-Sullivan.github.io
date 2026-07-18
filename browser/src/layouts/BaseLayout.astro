@@ -9,7 +9,7 @@ const { pageTitle, description, showTitle = true, fullWidth = false } = Astro.pr
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, viewport-fit=cover" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle} | Nick Sullivan</title>
     {description && <meta name="description" content={description} />}
@@ -91,6 +91,7 @@ const { pageTitle, description, showTitle = true, fullWidth = false } = Astro.pr
     align-items: center;
     background-color: var(--bg-surface);
     scrollbar-color: var(--color-faint) var(--bg-wash);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 
   .content-outer::-webkit-scrollbar {
