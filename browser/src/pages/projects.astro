@@ -5,34 +5,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectLink from "../components/ProjectLink.astro";
 import type { ProjectsEntry } from "../content.config";
 
-import imgCocktailBar from "../assets/images/cocktail_bar04.png";
-import imgGamesNight from "../assets/images/drinking_game07.png";
-import imgGifCode from "../assets/images/gif_code06.gif";
-import imgChatRoom from "../assets/images/chat_room01.png";
-import imgDice from "../assets/images/dice01.jpg";
-import imgMtg from "../assets/images/mtg_proxy00.png";
-import imgPhd from "../assets/images/phd03.png";
-import imgOfflineCards from "../assets/images/offline_cards06.png";
-import imgAutonomousChallenge from "../assets/images/autonomous_challenge01.jpg";
-
-const imageMap: Record<string, ImageMetadata> = {
-  "01autonomous_challenge": imgAutonomousChallenge,
-  "02phd": imgPhd,
-  "03cocktail_bar": imgCocktailBar,
-  "04games_night": imgGamesNight,
-  "05gif_code": imgGifCode,
-  "06chat_room": imgChatRoom,
-  "07intransitive_dice": imgDice,
-  "09mtg_proxy": imgMtg,
-  "10offline_card_search": imgOfflineCards,
-};
-
-const imageFitMap: Record<string, string> = {
-  "03cocktail_bar": "contain",
-  "04games_night": "contain",
-  "05gif_code": "contain",
-};
-
 const posts: ProjectsEntry[] = await getCollection("projects", ({ data }) => {
   return data.published === true;
 });
@@ -53,8 +25,8 @@ const description =
             title={post.data.title}
             date={post.data.date}
             description={post.data.description}
-            image={imageMap[post.id]}
-            imageFit={imageFitMap[post.id]}
+            image={post.data.image}
+            imageFit={post.data.imageFit}
           />
         </li>
       ))
