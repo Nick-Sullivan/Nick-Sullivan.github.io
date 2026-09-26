@@ -1,0 +1,40 @@
+---
+title: NFC-Powered E-Ink Display
+date: 2026-09-26
+description: ""
+published: true
+image: ../../assets/images/mtg_nfc00.jpg
+---
+
+import { Image } from "astro:assets";
+import image00 from "../../assets/images/mtg_nfc00.jpg";
+import image01 from "../../assets/images/mtg_nfc01.jpg";
+
+I thought that e-ink displays needed power. But they don't, once they have an image on them, they can hold it indefinitely.
+So I ordered a Waveshare 2.9" passive NFC-powered e-Paper (G) and had a little play. It technically comes with
+an app, but it's not listed on Google Play and has significant issues beyond a handful of supported devices.
+Unfortunately, my Google Pixel is not one of them.
+
+But the protocol has been reverse engineered by others, and Claude was able to use their work, plus
+some iteration to get communication working with the Waveshare display from my Pixel phone.
+
+<div class="image-gallery">
+  <Image
+    src={image01}
+    alt="Picture of cats on an e-ink display."
+    height="350"
+  />
+</div>
+
+It's neat! Takes around ~20 seconds to update, and I have to remove my phone case because I have
+a magsafe phone case to attach to my car's phone holder.
+
+The experimental display I picked was too small for framed picture, but like any good hammer,
+I found a nail.
+I made an app for creating custom Magic: The Gathering tokens. It's cute, albeit quite small.
+
+<div class="image-gallery">
+  <Image src={image00} alt="Picture of e-ink display." height="350" />
+</div>
+
+I've ordered the next size up, watch this space.
