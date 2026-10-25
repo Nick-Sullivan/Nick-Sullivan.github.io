@@ -1,0 +1,14 @@
+---
+import { getImage } from "astro:assets";
+import Projector from "./Projector/Projector";
+import layer0 from "../../assets/images/art_smuggler/layer_0.png";
+import layer1 from "../../assets/images/art_smuggler/layer_1.png";
+import layer2 from "../../assets/images/art_smuggler/layer_2.png";
+
+const optimised = await Promise.all(
+  [layer0, layer1, layer2].map((src) => getImage({ src }))
+);
+const imageUrls = optimised.map((image) => image.src);
+---
+
+<Projector imageUrls={imageUrls} client:only="react" />

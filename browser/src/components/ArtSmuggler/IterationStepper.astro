@@ -1,0 +1,53 @@
+---
+import { getImage } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import IterationStepper from "./IterationStepper/IterationStepper";
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "../../assets/images/art_smuggler/iter_*.png",
+  { eager: true },
+);
+const image = (name: string) =>
+  images[`../../assets/images/art_smuggler/${name}.png`].default;
+
+const iterations = [
+  ...new Set(Object.keys(images).map((path) => path.match(/iter_(\d+)_/)![1])),
+].sort();
+
+const steps = await Promise.all(
+  iterations.map(async (iteration, index) => {
+    const rows: { src: ImageMetadata; caption: string }[][] = [
+      [
+        { src: image(`iter_${iteration}_stack`), caption: "Stack" },
+        {
+          src: image(`iter_${iteration}_diff`),
+          caption: "Diff (Goal minus stack)",
+        },
+        { src: image(`iter_${iteration}_coarse`), caption: "Step change" },
+      ],
+      [0, 1, 2].map((i) => ({
+        src: image(`iter_${iteration}_layer_${i}`),
+        caption: `Layer ${i + 1}`,
+      })),
+    ];
+    return {
+      label:
+        index === iterations.length - 1
+          ? `Final (${Number(iteration)})`
+          : `Iteration ${Number(iteration)}`,
+      rows: await Promise.all(
+        rows.map((row) =>
+          Promise.all(
+            row.map(async ({ src, caption }) => ({
+              src: (await getImage({ src, width: 800 })).src,
+              caption,
+            })),
+          ),
+        ),
+      ),
+    };
+  }),
+);
+---
+
+<IterationStepper steps={steps} client:visible />

@@ -1,0 +1,148 @@
+---
+title: Art Smuggler
+date: 2026-10-05
+description: "I can hide an image inside other semi-transparent images"
+published: true
+image: ../../assets/images/art_smuggler/thumbnail.png
+---
+
+import { Image } from "astro:assets";
+import image00 from "../../assets/images/art_smuggler00.gif";
+import image01 from "../../assets/images/art_smuggler01.jpg";
+import image02 from "../../assets/images/art_smuggler02.jpg";
+import image03 from "../../assets/images/art_smuggler03.jpg";
+import ArtSmuggler from "../../components/ArtSmuggler/ArtSmuggler.astro";
+import ImageRow from "../../components/ArtSmuggler/ImageRow.astro";
+import IterationStepper from "../../components/ArtSmuggler/IterationStepper.astro";
+import Projector from "../../components/ArtSmuggler/Projector.astro";
+import target from "../../assets/images/art_smuggler/target.png";
+import goal from "../../assets/images/art_smuggler/goal.png";
+import tinted0 from "../../assets/images/art_smuggler/tinted_0.png";
+import tinted1 from "../../assets/images/art_smuggler/tinted_1.png";
+import tinted2 from "../../assets/images/art_smuggler/tinted_2.png";
+import decoy0 from "../../assets/images/art_smuggler/decoy_0.png";
+import decoy1 from "../../assets/images/art_smuggler/decoy_1.png";
+import decoy2 from "../../assets/images/art_smuggler/decoy_2.png";
+import ownersFine from "../../assets/images/art_smuggler/owners_fine.png";
+import ownersCoarse from "../../assets/images/art_smuggler/owners_coarse.png";
+import layer0 from "../../assets/images/art_smuggler/layer_0.png";
+import layer1 from "../../assets/images/art_smuggler/layer_1.png";
+import layer2 from "../../assets/images/art_smuggler/layer_2.png";
+import combineGif from "../../assets/images/art_smuggler/combine.gif";
+
+<div class="image-gallery">
+  <Image
+    src={combineGif}
+    alt="Three layers combining into a single image, then separating."
+  />
+</div>
+
+It looks fake, but it's real!
+
+<ImageRow
+  images={[
+    { src: image01, caption: "Unstacked" },
+    { src: image02, caption: "One stack" },
+    { src: image03, caption: "Full stack" },
+  ]}
+/>
+
+### Motivation
+
+I didn't invent this idea. I saw this really [interesting art work](https://www.artof01.com/vrellis/works/AllAndOne.html) by Petros Vrellis, a Greek artist and engineer.
+He has created multiple semi-transparent images, that when stacked and illuminated with white light, reveal a new image.
+
+<div class="image-gallery">
+  <Image src={image00} alt="GIF of Petros' art." className="image" />
+</div>
+
+As mentioned on his website, this art was meticulously handcrafted and took a "a considerable amount man-hours".
+
+I wanted to see if I could create something similar using an automated process.
+
+### How it works
+
+The idea is that red light, green light, and blue light combines into white light.
+
+But we're not generating light, we're filting it out, so a red filter, a green filter,
+and a blue filter stacked on top of each other appears black.
+
+By carefully choosing the patterns on each of our layers, we can create unique images that
+combine to form the target image.
+
+I played with MANY different approaches, too many to list here, but I'll step through my favourite one.
+
+#### 1. Squeeze the brightness
+
+Because each layer filters out light, producing a pure white pixel forces every layer to have that pure white pixel.
+So we reduce the maximum brightness to give us some wiggle room for the images we can use on the layers.
+
+Having a big range of brightnesses in the image makes it more difficult to hide the target.
+Making the image too dark looks bad, so we also lift up the darkness.
+
+<ImageRow
+  images={[
+    { src: target, caption: "Target (AI slop for quick testing)" },
+    { src: goal, caption: "Brightness squeezed into 0.2 to 0.8" },
+  ]}
+/>
+
+#### 2. Tint each layer
+
+This step is not super important, but helps add splashes of colour to each layer.
+Using a random noise generator with some blur, I created these random blobs.
+
+<ImageRow
+  images={[
+    { src: tinted0, caption: "Layer 1" },
+    { src: tinted1, caption: "Layer 2" },
+    { src: tinted2, caption: "Layer 3" },
+  ]}
+/>
+
+#### 3. Add decoys
+
+Features from the target image are hard to hide, given our biology has evolved to
+recognise features out of noise. So I use some decoy images, made of similar content and style.
+I also like how this fits thematically: someones tangled memories, once aligned, reveal what is most
+important to them.
+These are combined with the tints and heavily brightened, to avoid overdarkening the target image.
+
+<ImageRow
+  images={[
+    { src: decoy0, caption: "Layer 1" },
+    { src: decoy1, caption: "Layer 2" },
+    { src: decoy2, caption: "Layer 3" },
+  ]}
+/>
+
+#### 4. Designate ownership
+
+In the next step, we are going to iteratively calculate the difference between our stack
+(what it looks like when layers are combined) and our target. We then apply the difference on
+one or more layers. Which layers? That's what this decides.
+
+To choose, we first apply a gaussian filter (blur) to the diff, and apply smooth diff to one
+layer, and the detailed diff to another layer.
+
+In these images, each colour represents which layer the diff is applied to:
+
+<ImageRow
+  images={[
+    { src: ownersCoarse, caption: "Smooth diff owners" },
+    { src: ownersFine, caption: "Detailed diff owners" },
+  ]}
+/>
+
+#### 5. Nudge towards the goal
+
+Every step compares the difference from what we have to what we want, and applies changes
+to the layers that own the diff.
+
+<IterationStepper />
+
+#### Try it
+
+Drag the layers around, then align them to reveal the image.
+
+<Projector />
