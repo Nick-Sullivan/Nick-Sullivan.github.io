@@ -32,20 +32,32 @@ export default function IterationStepper({ steps }: IterationStepperProps) {
           aria-valuetext={step.label}
         />
       </div>
-      {step.rows.map((row, i) => (
-        <div
-          key={i}
-          className="iteration-images"
-          style={{ "--columns": row.length } as React.CSSProperties}
-        >
-          {row.map((image) => (
-            <figure key={image.caption}>
-              <img src={image.src} alt={image.caption} />
-              <figcaption>{image.caption}</figcaption>
-            </figure>
-          ))}
-        </div>
-      ))}
+      {/* Every step is rendered (stacked, only the current one visible) so all images load up front */}
+      <div className="iteration-steps">
+        {steps.map((s, stepIndex) => (
+          <div
+            key={s.label}
+            className="iteration-step"
+            style={{ visibility: stepIndex === current ? "visible" : "hidden" }}
+            aria-hidden={stepIndex !== current}
+          >
+            {s.rows.map((row, i) => (
+              <div
+                key={i}
+                className="iteration-images"
+                style={{ "--columns": row.length } as React.CSSProperties}
+              >
+                {row.map((image) => (
+                  <figure key={image.caption}>
+                    <img src={image.src} alt={image.caption} />
+                    <figcaption>{image.caption}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

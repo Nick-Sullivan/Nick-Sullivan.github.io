@@ -68,6 +68,14 @@
   text-align: center;
 }
 
+.iteration-steps {
+  display: grid;
+}
+
+.iteration-step {
+  grid-area: 1 / 1;
+}
+
 @media (max-width: 600px) {
   .iteration-images {
     grid-template-columns: minmax(0, 1fr);

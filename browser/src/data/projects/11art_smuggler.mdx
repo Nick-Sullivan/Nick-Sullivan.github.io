@@ -12,7 +12,7 @@ import image01 from "../../assets/images/art_smuggler01.jpg";
 import image02 from "../../assets/images/art_smuggler02.jpg";
 import image03 from "../../assets/images/art_smuggler03.jpg";
 import ArtSmuggler from "../../components/ArtSmuggler/ArtSmuggler.astro";
-import ImageRow from "../../components/ArtSmuggler/ImageRow.astro";
+import ImageRow from "../../components/ImageRow.astro";
 import IterationStepper from "../../components/ArtSmuggler/IterationStepper.astro";
 import Projector from "../../components/ArtSmuggler/Projector.astro";
 import target from "../../assets/images/art_smuggler/target.png";
@@ -29,6 +29,7 @@ import layer0 from "../../assets/images/art_smuggler/layer_0.png";
 import layer1 from "../../assets/images/art_smuggler/layer_1.png";
 import layer2 from "../../assets/images/art_smuggler/layer_2.png";
 import combineGif from "../../assets/images/art_smuggler/combine.gif";
+import video04 from "../../assets/images/art_smuggler04_2x.mp4";
 
 <div class="image-gallery">
   <Image
@@ -38,6 +39,20 @@ import combineGif from "../../assets/images/art_smuggler/combine.gif";
 </div>
 
 It looks fake, but it's real!
+Please excuse my janky alignment method here, it's hard to get everything lined up by hand.
+
+<div class="image-gallery">
+  <video
+    src={video04}
+    controls
+    muted
+    playsinline
+    preload="metadata"
+    style="max-width: 100%; height: 350px; border-radius: 8px;"
+  >
+    Video of the printed layers being stacked to reveal the image.
+  </video>
+</div>
 
 <ImageRow
   images={[
@@ -46,7 +61,6 @@ It looks fake, but it's real!
     { src: image03, caption: "Full stack" },
   ]}
 />
-
 ### Motivation
 
 I didn't invent this idea. I saw this really [interesting art work](https://www.artof01.com/vrellis/works/AllAndOne.html) by Petros Vrellis, a Greek artist and engineer.
@@ -63,10 +77,8 @@ I wanted to see if I could create something similar using an automated process.
 ### How it works
 
 The idea is that red light, green light, and blue light combines into white light.
-
-But we're not generating light, we're filting it out, so a red filter, a green filter,
+But we're not generating light, we're filtering it out. A red filter, a green filter,
 and a blue filter stacked on top of each other appears black.
-
 By carefully choosing the patterns on each of our layers, we can create unique images that
 combine to form the target image.
 

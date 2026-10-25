@@ -3,12 +3,16 @@ title: NFC-Powered E-Ink Display
 date: 2026-09-26
 description: ""
 published: true
-image: ../../assets/images/mtg_nfc00.jpg
+image: ../../assets/images/mtg_nfc03.jpg
 ---
 
 import { Image } from "astro:assets";
+import ImageRow from "../../components/ImageRow.astro";
 import image00 from "../../assets/images/mtg_nfc00.jpg";
 import image01 from "../../assets/images/mtg_nfc01.jpg";
+import video02 from "../../assets/images/mtg_nfc02.mp4";
+import image03 from "../../assets/images/mtg_nfc03.jpg";
+import image04 from "../../assets/images/mtg_nfc04.jpg";
 
 I thought that e-ink displays needed power. But they don't, once they have an image on them, they can hold it indefinitely.
 So I ordered a Waveshare 2.9" passive NFC-powered e-Paper (G) and had a little play. It technically comes with
@@ -37,4 +41,24 @@ I made an app for creating custom Magic: The Gathering tokens. It's cute, albeit
   <Image src={image00} alt="Picture of e-ink display." height="350" />
 </div>
 
-I've ordered the next size up, watch this space.
+So I got the next size up!
+
+<ImageRow
+  images={[
+    {
+      src: image03,
+      alt: "Photo of a cat on the larger e-ink display.",
+      caption: "One of my cats",
+    },
+    {
+      src: video02,
+      alt: "Video of a phone updating the e-ink display over NFC.",
+      caption: "Updating over NFC",
+    },
+    {
+      src: image04,
+      alt: "Photo of a Magic: The Gathering game with the e-ink display.",
+      caption: "Good size for the table",
+    },
+  ]}
+/>
